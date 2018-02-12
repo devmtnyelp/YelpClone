@@ -6,7 +6,7 @@ const port = 3001;
 const app = express();
 const massive = require('massive');
 
-// Controller Functions
+// Controller Function
 const addUser = './controllers/addUser';
 const editUser = './controllers/editUser';
 const getUser = './controllers/getUser';
