@@ -1,0 +1,1 @@
+DELETE FROM userinfo WHERE userid = ${userid}
