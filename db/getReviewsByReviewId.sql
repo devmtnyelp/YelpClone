@@ -1,2 +1,2 @@
 SELECT * FROM reviews
-WHERE id = ${id}
+WHERE id = ${reviewId}
