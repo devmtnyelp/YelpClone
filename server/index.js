@@ -5,7 +5,11 @@ const express = require("express"),
   app = express(),
   // config = require("./config"),
   session = require("express-session"),
-  massive = require("massive");
+  massive = require("massive"),
+  deleteReview = require("./controllers/deleteReview"),
+  editReview = require("./controllers/editReview"),
+  getReview = require("./controllers/getReview"),
+  postReview = require("./controllers/postReview");
 require("dotenv").config();
 
 massive(process.env.CONNECTION_STRING)
@@ -22,3 +26,7 @@ app.listen(port, function() {
 });
 
 // yarn add express cors body-parser massive dotenv
+app.get('/api/deleteReview', deleteReview.deleteReview)
+app.get('/api/editReview', editReview.editReview)
+app.get('/api/getReview', getReview.getReview)
+app.get('/api/postReview', postReview.postReview)
