@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Register from "../authentication/Register";
+import Login from "../authentication/Login";
+// import picture from "./resources/signup_illustrationYelp.png";
 
 export default class Home extends Component {
   constructor(props) {
@@ -8,8 +11,10 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <button>Sign up</button>
-        <button>Login</button>
+        <button onClick={() => this.props.history.push("/login")}>Login</button>
+        <button onClick={() => this.props.history.push("/register")}>
+          Sign up
+        </button>
       </div>
     );
   }

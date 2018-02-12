@@ -1,5 +1,4 @@
-import firebase from "firebase";
-import "firebase/firestore";
+import { default as fb } from "firebase";
 
 const config = {
   apiKey: "AIzaSyCPwkoqNlF-wDXKYjdun81syic4VhyuvKo",
@@ -11,4 +10,3 @@ const config = {
 };
 
 export const firebase = fb.initializeApp(config);
-export const firestore = fb.firestore();
