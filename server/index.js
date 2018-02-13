@@ -12,7 +12,7 @@ const express = require("express"),
   postReview = require("./controllers/postReview");
 require("dotenv").config();
 
-// Controller Functions
+// Controller Function
 const addUser = './controllers/addUser';
 const editUser = './controllers/editUser';
 const getUser = './controllers/getUser';
