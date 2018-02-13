@@ -9,7 +9,6 @@ const express = require("express"),
   deleteReview = require("./controllers/deleteReview"),
   editReview = require("./controllers/editReview"),
   getReview = require("./controllers/getReview"),
-  postReview = require("./controllers/postReview");
   postThisReview = require("./controllers/postReview");
 require("dotenv").config();
 
@@ -19,7 +18,6 @@ massive(process.env.CONNECTION_STRING)
 
 // app.use(session(config.session));
 app.use(cors());
-app.use('/', express.static(__dirname));
 app.use(bodyParser.json());
 app.use("/", express.static(__dirname));
 
@@ -29,8 +27,6 @@ app.use("/", express.static(__dirname));
 app.get('/api/deleteReview', deleteReview.deleteReview)
 app.get('/api/editReview', editReview.editReview)
 app.get('/api/getReview', getReview.getReview)
-app.get('/api/postReview', postReview.postReview)
-app.listen(port, () => console.log('Server listening on port', port));
 app.get('/api/postReview', postThisReview.postReview)
 app.listen(port, function() {
   console.log("Server listening on port", port);
