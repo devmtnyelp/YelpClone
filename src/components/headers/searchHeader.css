@@ -1,0 +1,42 @@
+.main-div {
+    background-color:#CE1313;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.yelp-pic2{
+    width: 160px;
+    height: 80px;
+    margin-left: 250px;
+}
+
+.signup {
+    background-color: #B61010;
+   border: thin;
+   height: 40px;
+   width: 90px;
+   margin-right: 250px;
+}
+.signup:hover {
+    background-color:rgb(156, 14, 14);
+}
+
+.second-div {
+    background-color:#B61010;
+}
+
+.search {
+    background-color:white;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto
+
+}
+
+.login-button{
+    position: relative;
+    margin-left: 510px;
+}

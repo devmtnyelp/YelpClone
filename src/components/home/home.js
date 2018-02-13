@@ -1,7 +1,6 @@
 import React from 'react';
 import Footer from '../footer/footer';
 
-
 const Home = () => (
   <div>
     <button onClick={() => this.props.history.push('/login')}>Login</button>
