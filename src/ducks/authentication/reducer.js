@@ -1,3 +1,5 @@
+
+import axios from 'axios';
 import { firebase, firestore } from '../../fire';
 
 const initialState = {
@@ -33,6 +35,19 @@ export function createAccount(email, password) {
   };
 }
 
+export function getUser(userid) {
+  console.log(userid);
+  return {
+    type: GET_USER,
+    payload: axios
+      .get(`/api/user/${userid}`)
+      .then(response => {
+        return response.data[0];
+      })
+      .catch(console.log)
+  };
+}
+
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case `${CREATE_ACCOUNT}_PENDING`:
@@ -50,6 +65,10 @@ export default function userReducer(state = initialState, action) {
         isLoading: false,
         didError: true,
       });
+
+    case `${GET_USER}_FULFILLED`:
+      console.log(action);
+      return Object.assign({}, state, { userDetail: action.payload });
 
     default:
       return state;

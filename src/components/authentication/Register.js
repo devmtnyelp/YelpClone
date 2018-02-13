@@ -58,7 +58,6 @@ class Register extends Component {
   }
 }
 
-
 const mapStateToProps = ({ userReducer }) => ({
   isLoading: userReducer.isLoading,
   userid: userReducer.userid,
