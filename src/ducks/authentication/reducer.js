@@ -1,5 +1,5 @@
 import axios from "axios";
-import { firebase, firestore } from ".././fire";
+import { firebase, firestore } from "../../fire";
 
 const initialState = {
   user: {},

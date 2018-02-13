@@ -1,11 +1,12 @@
-import { createLogger } from "redux-logger";
-import { createStore, applyMiddleware } from "redux";
+import {composeWithDevTools} from 'redux-devtools-extension';
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import promiseMiddleware from "redux-promise-middleware";
-import userReducer from "./ducks/reducer";
+import userReducer from "./ducks/authentication/reducer";
+import eventReducer from './ducks/events/reducer';
 
 const store = createStore(
-  userReducer,
-  applyMiddleware(createLogger(), promiseMiddleware())
+  combineReducers(userReducer, eventReducer),
+  composeWithDevTools(applyMiddleware(promiseMiddleware()))
 );
 
 export default store;
