@@ -1,16 +1,18 @@
-import axios from "axios";
-import { firebase, firestore } from "../../fire";
+import axios from 'axios';
+import { firebase, firestore } from '../../fire';
 
 const initialState = {
   user: {},
-  uid: "",
-  email: "",
-  password: "",
+  uid: '',
+  email: '',
+  password: '',
   isLoading: false,
-  didError: false
+  didError: false,
+  userDetail: ''
 };
 
-const CREATE_ACCOUNT = "CREATE_ACCOUNT";
+const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
+const GET_USER = 'GET_USER';
 
 export function createAccount(email, password) {
   return {
@@ -22,7 +24,7 @@ export function createAccount(email, password) {
         console.log(result);
       })
       .catch(error => {
-        if ((error.code = "auth/email-already-in-use")) {
+        if ((error.code = 'auth/email-already-in-use')) {
           firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
@@ -32,6 +34,19 @@ export function createAccount(email, password) {
         }
         this.setState({ error: error.message });
       })
+  };
+}
+
+export function getUser(userid) {
+  console.log(userid);
+  return {
+    type: GET_USER,
+    payload: axios
+      .get(`/api/user/${userid}`)
+      .then(response => {
+        return response.data[0];
+      })
+      .catch(console.log)
   };
 }
 
@@ -52,6 +67,10 @@ export default function userReducer(state = initialState, action) {
         isLoading: false,
         didError: true
       });
+
+    case `${GET_USER}_FULFILLED`:
+      console.log(action);
+      return Object.assign({}, state, { userDetail: action.payload });
 
     default:
       return state;

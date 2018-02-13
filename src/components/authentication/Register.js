@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import { firebase, firestore } from "../../fire";
-import picture from "./resources/signup_illustrationYelp.png";
-import "./styles.css";
-import { connect } from "react-redux";
-import { createAccount } from "../../ducks/authentication/reducer";
+import React, { Component } from 'react';
+import { firebase, firestore } from '../../fire';
+import picture from './resources/signup_illustrationYelp.png';
+import './styles.css';
+import { connect } from 'react-redux';
+import { createAccount } from '../../ducks/authentication/reducer';
 
 class Register extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
-      password: "",
-      emailError: "",
-      passwordError: "",
+      email: '',
+      password: '',
+      emailError: '',
+      passwordError: '',
       loading: true
     };
     // this.createAccount = this.createAccount.bind(this);
@@ -53,10 +53,6 @@ class Register extends Component {
   }
 }
 
-const mapStateToProps = ({ userReducer }) => {
-    return {
-      loading: userReducer.loading,
-    }
-}
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps, { createAccount })(Register);

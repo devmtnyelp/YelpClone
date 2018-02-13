@@ -5,7 +5,7 @@ import userReducer from "./ducks/authentication/reducer";
 import eventReducer from './ducks/events/reducer';
 
 const store = createStore(
-  combineReducers(userReducer, eventReducer),
+  combineReducers({userReducer, eventReducer}),
   composeWithDevTools(applyMiddleware(promiseMiddleware()))
 );
 
