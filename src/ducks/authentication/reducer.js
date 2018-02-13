@@ -1,18 +1,15 @@
+
 import axios from 'axios';
 import { firebase, firestore } from '../../fire';
 
 const initialState = {
-  user: {},
-  uid: '',
+  userid: '',
   email: '',
-  password: '',
   isLoading: false,
   didError: false,
-  userDetail: ''
 };
 
 const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
-const GET_USER = 'GET_USER';
 
 export function createAccount(email, password) {
   return {
@@ -20,20 +17,21 @@ export function createAccount(email, password) {
     payload: firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(result => {
+      .then((result) => {
         console.log(result);
+        return result.uid;
       })
-      .catch(error => {
-        if ((error.code = 'auth/email-already-in-use')) {
+      .catch((error) => {
+        if (error.code === 'auth/email-already-in-use') {
           firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
-            .then(result => {
+            .then((result) => {
               console.log(result);
+              return result.uid;
             });
         }
-        this.setState({ error: error.message });
-      })
+      }),
   };
 }
 
@@ -54,18 +52,18 @@ export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case `${CREATE_ACCOUNT}_PENDING`:
       return Object.assign({}, state, {
-        isLoading: true
+        isLoading: true,
       });
     case `${CREATE_ACCOUNT}_FULFILLED`:
       return Object.assign({}, state, {
         isLoading: false,
-        user: action.payload.data
+        userid: action.payload,
       });
 
     case `${CREATE_ACCOUNT}_REJECTED`:
       return Object.assign({}, state, {
         isLoading: false,
-        didError: true
+        didError: true,
       });
 
     case `${GET_USER}_FULFILLED`:
