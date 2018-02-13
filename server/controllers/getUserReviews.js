@@ -1,6 +1,6 @@
 const getUserReviews = (req, res, next) => {
-    req.app.get("db").getReviewByUserId(req.body.UserId).then((response) =>{
-        res.json(response.data)
+    req.app.get("db").getReviewsByUserId(req.query).then((response) =>{
+        res.json(response)
     })
     }
     
