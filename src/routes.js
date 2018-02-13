@@ -1,9 +1,9 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import Home from "./components/home/home";
-import Register from "./components/authentication/Register";
-import Login from "./components/authentication/Login";
+import Home from './components/home/home';
+import Register from './components/authentication/Register';
+import Login from './components/authentication/Login';
 
 const Routes = () => (
   <Switch>

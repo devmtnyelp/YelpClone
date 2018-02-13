@@ -1,53 +1,39 @@
-import axios from "axios";
-import { firebase, firestore } from "../../fire";
+
+import { firebase } from '../../fire';
 
 const initialState = {
-  user: {},
-  uid: "",
-  email: "",
-  password: "",
+  userid: '',
+  email: '',
   isLoading: false,
-  didError: false
+  didError: false,
 };
 
-const CREATE_ACCOUNT = "CREATE_ACCOUNT";
+const LOGIN_USER = 'LOGIN_USER';
 
-export function createAccount(email, password) {
+export function loginUser(email, password) {
   return {
-    type: CREATE_ACCOUNT,
+    type: LOGIN_USER,
     payload: firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(result => {
-        console.log(result);
-      })
-      .catch(error => {
-        if ((error.code === "auth/email-already-in-use")) {
-          firebase
-            .auth()
-            .signInWithEmailAndPassword(email, password)
-            .then(result => {
-              console.log(result);
-            });
-        }
-        this.setState({ error: error.message });
-      })
+      .signInWithEmailAndPassword(email, password)
+      .then(result => result.uid)
+      .catch(console.log('Username or Password incorrect.')),
   };
 }
 
 export default function eventReducer(state = initialState, action) {
   switch (action.type) {
-    case `${CREATE_ACCOUNT}_PENDING`:
+    case `${LOGIN_USER}_PENDING`:
       return Object.assign({}, state, {
         isLoading: true,
       });
-    case `${CREATE_ACCOUNT}_FULFILLED`:
+    case `${LOGIN_USER}_FULFILLED`:
       return Object.assign({}, state, {
         isLoading: false,
-        user: action.payload.data,
+        userid: action.payload,
       });
 
-    case `${CREATE_ACCOUNT}_REJECTED`:
+    case `${LOGIN_USER}_REJECTED`:
       return Object.assign({}, state, {
         isLoading: false,
         didError: true,
