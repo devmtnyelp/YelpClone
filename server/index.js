@@ -1,15 +1,10 @@
-  cors = require("cors"),
-  bodyParser = require("body-parser"),
-  port = 3001,
-  app = express(),
-  // config = require("./config"),
-  session = require("express-session"),
-  massive = require("massive"),
-  deleteReview = require("./controllers/deleteReview"),
-  editReview = require("./controllers/editReview"),
-  getReview = require("./controllers/getReview"),
-  postThisReview = require("./controllers/postReview");
-require("dotenv").config();
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const { json } = require('body-parser');
+const port = 3001;
+const app = express();
+const massive = require('massive');
 
 
 // Database Connection
