@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { firebase, firestore } from "../../fire";
 import picture from "./resources/signup_illustrationYelp.png";
 import "./styles.css";
+import { connect } from "react-redux";
+import { createAccount } from "../../ducks/reducer";
 
-export default class Register extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
 
@@ -14,34 +16,14 @@ export default class Register extends Component {
       passwordError: "",
       loading: true
     };
-    this.createAccount = this.createAccount.bind(this);
-  }
-
-  createAccount() {
-    const { email, password } = this.state;
-
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(result => {
-        console.log(result);
-      })
-      .catch(error => {
-        if ((error.code = "auth/email-already-in-use")) {
-          firebase
-            .auth()
-            .signInWithEmailAndPassword(email, password)
-            .then(result => {
-              console.log(result);
-            });
-        }
-        this.setState({ error: error.message });
-      });
+    // this.createAccount = this.createAccount.bind(this);
   }
 
   componentDidMount() {}
 
   render() {
+    const { email, password } = this.state;
+
     return (
       <div className="main-content">
         <div className="signup-wrapper">
@@ -60,7 +42,7 @@ export default class Register extends Component {
             }}
           />
 
-          <button onClick={this.createAccount}>Create Account</button>
+          <button onClick={this.props.createAccount}>Create Account</button>
 
           <div className="picture">
             <img src={picture} />
@@ -70,3 +52,7 @@ export default class Register extends Component {
     );
   }
 }
+
+const mapStateToProps = state => state;
+
+export default connect(mapStateToProps, { createAccount })(Register);
