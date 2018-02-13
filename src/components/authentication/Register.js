@@ -3,7 +3,7 @@ import { firebase, firestore } from "../../fire";
 import picture from "./resources/signup_illustrationYelp.png";
 import "./styles.css";
 import { connect } from "react-redux";
-import { createAccount } from "../../ducks/reducer";
+import { createAccount } from "../../ducks/authentication/reducer";
 
 class Register extends Component {
   constructor(props) {
@@ -53,6 +53,10 @@ class Register extends Component {
   }
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = ({ userReducer }) => {
+    return {
+      loading: userReducer.loading,
+    }
+}
 
 export default connect(mapStateToProps, { createAccount })(Register);
