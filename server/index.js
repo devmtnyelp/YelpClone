@@ -6,15 +6,6 @@ const port = 3001;
 const app = express();
 const massive = require('massive');
 
-// Controller Function
-const addUser = './controllers/addUser';
-const editUser = './controllers/editUser';
-const getUser = './controllers/getUser';
-const removeUser = './controllers/removeUser';
-const deleteReview = "./controllers/deleteReview";
-const editReview = "./controllers/editReview";
-const getReview = "./controllers/getReview";
-const postReview = "./controllers/postReview";
 
 // Database Connection
 massive(process.env.CONNECTION_STRING)
