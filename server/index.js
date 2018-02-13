@@ -19,7 +19,6 @@ massive(process.env.CONNECTION_STRING)
 
 // app.use(session(config.session));
 app.use(cors());
-app.use(json());
 app.use('/', express.static(__dirname));
 app.use(bodyParser.json());
 app.use("/", express.static(__dirname));
