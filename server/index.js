@@ -24,6 +24,7 @@ const { getUserReviews } = require("./controllers/getUserReviews");
 const { getDetails } = require("./controllers/getDetails");
 const { autoComplete } = require("./controllers/autoComplete");
 
+
 // Database Connection
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set("db", db))
@@ -31,6 +32,7 @@ massive(process.env.CONNECTION_STRING)
 
 app.use(cors());
 app.use(json());
+
 app.use("/", express.static(__dirname));
 
 // Server Endpoints

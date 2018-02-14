@@ -5,5 +5,5 @@ module.exports = {
     'jsx-a11y/href-no-hash': 'off',
     'no-mixed-operators': 0,
     'react/prop-types': 'off',
-  },
+  }
 };

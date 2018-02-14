@@ -1,5 +1,8 @@
 import React from 'react';
 import './footer.css';
+import footerpic from './images/footer_cityscape.png';
+import smalllogo from './images/logo_desktop_xsmall_outline.png';
+import burst from './images/burst_desktop_xsmall_outline.png';
 
 const Footer = () => (
   <div className="main-container">
@@ -46,12 +49,12 @@ const Footer = () => (
     </div>
 
     <div>
-      <p>Picture here</p>
+      <p><img src={footerpic} /></p>
     </div>
 
     <div className="copyright">
       <p>
-          Copyright © 2004–2018 Yelp Inc. Yelp, Yelp logo, Yelp burst and related marks are
+          Copyright © 2004–2018 Yelp Inc. Yelp, <img src={smalllogo}/>, <img src={burst}/> and related marks are
           registered trademarks of Yelp.
       </p>
     </div>
