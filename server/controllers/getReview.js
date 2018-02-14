@@ -1,12 +1,10 @@
 const getReview = (req, res, next) => {
-  req.app
-    .get('db')
-    .getReviewsByReviewId(req.body.reviewId)
-    .then(response => {
-      res.json(response.data);
-    });
-};
+    req.app.get("db").getReviewsByReviewId(req.query).then((response) =>{
+        res.json(response)
+    })
+    }
+    
+    module.exports = {
+        getReview
+    }
 
-module.exports = {
-  getReview
-};
