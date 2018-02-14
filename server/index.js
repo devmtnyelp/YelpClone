@@ -27,6 +27,18 @@ const removeUser = './controllers/removeUser';
 // const getReview = "./controllers/getReview";
 // const postReview = "./controllers/postReview";
 
+
+// Controller Function
+
+const { addUser } = require('./controllers/addUser');
+const { editUser } = require('./controllers/editUser');
+const { getUser } = require('./controllers/getUser');
+const { removeUser } = require('./controllers/removeUser');
+const { deleteReview } = require('./controllers/deleteReview');
+const { editReview } = require('./controllers/editReview');
+const { getReview } = require('./controllers/getReview');
+const { postReview } = require('./controllers/postReview');
+
 // Database Connection
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set('db', db))
@@ -34,14 +46,13 @@ massive(process.env.CONNECTION_STRING)
 
 app.use(cors());
 app.use(json());
-app.use("/", express.static(__dirname));
-
-
+app.use('/', express.static(__dirname));
+as
 // Server Endpoints
-// app.get('/api/user', getUser);
-// app.post('/api/user/add', addUser);
-// app.put('/api/user/edit', editUser);
-// app.delete('/api/user/remove', removeUser);
+app.get('/api/user/:userid', getUser);
+app.post('/api/user/add', addUser);
+app.put('/api/user/edit', editUser);
+app.delete('/api/user/remove', removeUser);
 app.get('/api/getReview', getReview);
 app.get('/api/getBusinessReviews', getBusinessReviews);
 app.get('/api/getUserReviews', getUserReviews)
@@ -51,11 +62,5 @@ app.delete('/api/deleteReview', deleteReview);
 app.get('/api/businessSearch', businessSearch)
 app.get('/api/getDetails', getDetails)
 
-// yarn add express cors body-parser massive dotenv
-// app.get('/api/deleteReview', deleteReview.deleteReview)
-// app.get('/api/editReview', editReview.editReview)
-// app.get('/api/getReview', getReview.getReview)
-// app.get('/api/postReview', postThisReview.postReview)
-app.listen(port, function() {
-  console.log("Server listening on port", port);
-});
+app.listen(port, () => console.log('Server listening on port', port));
+

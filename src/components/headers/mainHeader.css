@@ -1,0 +1,51 @@
+.flex-header {
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto
+}
+
+.top-left {
+  margin: 10px;
+}
+
+.yelp-pic {
+  width: 160px;
+  height: 80px;
+  padding-top: 50px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+a {
+  padding: 5px;
+}
+
+.search-input {
+    width: 350px;
+    height: 20px;
+}
+
+.background {
+    height: 570px;
+    background-image: url("https://s3-media1.fl.yelpcdn.com/assets/srv0/yelp_large_assets/469f5b12df16/assets/img/home/hero_photos/ubaw1eG3Pf4qCmKx-pkC4g.jpg");
+    ;
+}
+
+.search-bar {
+    background-color:white;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto
+
+}
+
+.center-menu{
+    height: 200px;
+}

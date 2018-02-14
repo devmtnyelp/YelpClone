@@ -7,3 +7,4 @@ const getBusinessReviews = (req, res, next) => {
     module.exports = {
         getBusinessReviews
     }
+

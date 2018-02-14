@@ -1,0 +1,12 @@
+.lonely-div {
+    background-color: #CE1313;
+    display: flex;
+    align-content:center;
+    margin-bottom: 50%;
+    justify-content: center;
+}
+
+.yelp-pic3 {
+    width: 160px;
+    height: 80px;
+}
