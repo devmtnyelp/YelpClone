@@ -7,6 +7,8 @@ import Login from "./components/authentication/Login";
 import userProfile from './components/userProfile/userProfile';
 import SearchHeader from "./components/headers/searchHeader";
 import LoginHeader from "./components/headers/loginHeader";
+import displayCard from "./components/searchResults/displayCard";
+import businessDetails from "./components/businessDetails/businessDetails";
 
 const Routes = () => (
   <Switch>
@@ -16,6 +18,8 @@ const Routes = () => (
     <Route path="/userprofile" component={userProfile} />
     <Route path ="/searchheader" component={SearchHeader} />
     <Route path ="/loginheader" component={LoginHeader} />
+    <Route path ="/card" component={displayCard} />
+    <Route path ="/businessdetails" component={businessDetails} />
   </Switch>
 );
 

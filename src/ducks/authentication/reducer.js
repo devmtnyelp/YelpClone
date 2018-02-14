@@ -10,6 +10,7 @@ const initialState = {
 };
 
 const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
+const GET_USER = 'GET_USER';
 
 export function createAccount(email, password) {
   return {
