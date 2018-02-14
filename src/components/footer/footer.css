@@ -1,0 +1,63 @@
+.main-container {
+  background-color: #f5f5f5;
+}
+
+.four-divs {
+  font-size: 11px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: baseline;
+  align-content: stretch;
+}
+
+.about-section {
+}
+.about {
+  font-weight: bold;
+  color: red;
+  font-size: 13px;
+}
+
+.discover-section {
+}
+.discover {
+    font-weight: bold;
+    color: red;
+    font-size: 13px;
+  }
+
+.yelp-for-biz-owners {
+    
+}
+
+.yelp-for-owners {
+    font-weight: bold;
+    color: red;
+    font-size: 13px;
+  }
+
+
+.languages {
+
+}
+.langs-p {
+    font-weight: bold;
+    color: red;
+    font-size: 13px;
+  }
+
+
+.site-map-cities {
+}
+
+.countries-p {
+    font-weight: bold;
+    color: red;
+    font-size: 13px;
+}
+
+.copyright {
+  font-size: 10px;
+}
