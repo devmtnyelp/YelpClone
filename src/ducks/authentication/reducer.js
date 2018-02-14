@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { firebase } from '../../fire';
 
 const initialState = {
@@ -8,6 +9,7 @@ const initialState = {
 };
 
 const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
+const STORE_USER_INFO_IN_HEROKU = 'STORE_USER_INFO_IN_HEROKU';
 
 export function createAccount(email, password) {
   return {
@@ -32,6 +34,18 @@ export function createAccount(email, password) {
 
         this.setState({ error: error.message });
       }),
+  };
+}
+
+export function storeUserInfoAtHeroku(email, userid) {
+  return {
+    type: STORE_USER_INFO_IN_HEROKU,
+    payload: axios
+      .post('/api/storeuserinfo', {
+        email, userid,
+      })
+      .then(result => result.data)
+      .catch(err => err),
   };
 }
 

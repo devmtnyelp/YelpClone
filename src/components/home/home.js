@@ -1,12 +1,13 @@
 import React from 'react';
 import Footer from '../footer/footer';
+import { withRouter } from 'react-router-dom';
 
 const Home = () => (
   <div>
     <button onClick={() => this.props.history.push('/login')}>Login</button>
-    <button onClick={() => this.props.history.push('/register')}>Sign up</button>s
+    <button onClick={() => this.props.history.push('/register')}>Sign up</button>
     <Footer />
   </div>
 );
 
-export default Home;
+export default withRouter(Home);
