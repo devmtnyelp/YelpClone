@@ -1,4 +1,4 @@
-import { firebase, firestore } from '../../fire';
+import { firebase } from '../../fire';
 
 const initialState = {
   userid: '',
@@ -29,6 +29,8 @@ export function createAccount(email, password) {
               return result.uid;
             });
         }
+
+        this.setState({ error: error.message });
       }),
   };
 }
