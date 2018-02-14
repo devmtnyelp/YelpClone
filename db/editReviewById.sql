@@ -1,3 +1,3 @@
 UPDATE reviews
-SET title = ${title}, body = ${body}, rating = ${rating}
-WHERE id = ${id}
+SET reviewtitle = ${reviewTitle}, reviewbody = ${reviewBody}, rating = ${rating}
+WHERE id = ${reviewId}

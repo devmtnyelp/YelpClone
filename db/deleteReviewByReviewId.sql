@@ -1,1 +1,1 @@
-DELETE FROM reviews WHERE id = ${id}
+DELETE FROM reviews WHERE id = ${reviewId} RETURNING *;

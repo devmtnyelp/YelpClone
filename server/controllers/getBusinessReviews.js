@@ -1,9 +1,42 @@
+const axios = require("axios");
+const { apiKey } = process.env;
+
 const getBusinessReviews = (req, res, next) => {
-    req.app.get("db").getReviewByBusinessId(req.body.BusinessId).then((response) =>{
-        res.json(response.data)
+  let ourReviewsCameBack = false;
+  let reviewsCameBack = false;
+  let reviews = [];
+  //the yelp api limits the search reviews to 3 responses so the getdetails review section gets the same thing
+
+  req.app
+    .get("db")
+    .getReviewsByBusinessId(req.query)
+    .then(response => {
+      reviews = reviews.concat(response);
+      ourReviewsCameBack = true;
+      if (reviewsCameBack) {
+        res.json(response);
+      }
+    });
+
+  axios
+    .get(
+      `https://api.yelp.com/v3/businesses/${req.query.restaurantId}/reviews`,
+      {
+        headers: {
+          Authorization: `Bearer ${apiKey}`
+        }
+      }
+    )
+    .then(response => {
+      reviews = reviews.concat(response.data);
+      reviewsCameBack = true;
+      if (ourReviewsCameBack) {
+        res.json(reviews);
+      }
     })
-    }
-    
-    module.exports = {
-        getBusinessReviews
-    }
+    .catch(console.log);
+};
+
+module.exports = {
+  getBusinessReviews
+};

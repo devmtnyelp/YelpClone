@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { firebase } from '../../fire';
+import { firebase, firestore } from '../../fire';
 
 const initialState = {
   userid: '',
@@ -10,6 +10,8 @@ const initialState = {
 
 const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
 const STORE_USER_INFO_IN_HEROKU = 'STORE_USER_INFO_IN_HEROKU';
+
+
 
 export function createAccount(email, password) {
   return {
@@ -37,6 +39,7 @@ export function createAccount(email, password) {
   };
 }
 
+
 export function storeUserInfoAtHeroku(email, userid) {
   return {
     type: STORE_USER_INFO_IN_HEROKU,
@@ -46,8 +49,7 @@ export function storeUserInfoAtHeroku(email, userid) {
       })
       .then(result => result.data)
       .catch(err => err),
-  };
-}
+
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {

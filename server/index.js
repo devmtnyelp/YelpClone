@@ -1,3 +1,4 @@
+
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -24,15 +25,15 @@ const { getBusinessReviews } = require('./controllers/getBusinessReviews');
 const { getUserReviews } = require('./controllers/getUserReviews');
 const { getDetails } = require('./controllers/getDetails');
 const { storeUserInfoInHeroku } = require('./controllers/authCtrl');
-
+const { autoComplete } = require("./controllers/autoComplete");
 // Database Connection
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set('db', db))
-  .catch(console.log);
 
 app.use(cors());
 app.use(json());
-app.use('/', express.static(__dirname));
+
+app.use("/", express.static(__dirname));
 
 // Server Endpoints
 app.get('/api/user/:userid', getUser);
@@ -42,7 +43,11 @@ app.delete('/api/user/remove', removeUser);
 app.put('/api/editReview', editReview);
 app.delete('/api/deleteReview', deleteReview);
 app.get('/api/businessSearch', businessSearch);
-// app.get('/api/getDetails', getDetails);
 app.post('api/storeuserinfo', storeUserInfoInHeroku);
 
-app.listen(port, () => console.log('Server listening on port', port));
+app.get("/api/getBusinessReviews", getBusinessReviews);
+app.post("/api/postReview", postReview);
+app.get("/api/autoComplete", autoComplete);
+
+app.listen(port, () => console.log("Server listening on port", port));
+

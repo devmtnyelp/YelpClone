@@ -1,6 +1,5 @@
 import React from 'react';
 import Footer from '../footer/footer';
-import { withRouter } from 'react-router-dom';
 
 const Home = () => (
   <div>
@@ -9,5 +8,3 @@ const Home = () => (
     <Footer />
   </div>
 );
-
-export default withRouter(Home);
