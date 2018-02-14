@@ -6,4 +6,5 @@ module.exports = {
     'no-mixed-operators': 0,
     'react/prop-types': 'off',
   }
+
 };

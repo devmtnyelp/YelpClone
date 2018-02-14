@@ -7,9 +7,6 @@ const Home = () => (
   <Header />
     <button onClick={() => this.props.history.push('/login')}>Login</button>
     <button onClick={() => this.props.history.push('/register')}>Sign up</button>
-
     <Footer />
   </div>
 );
-
-export default Home;

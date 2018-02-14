@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import { firebase, firestore } from '../../fire';
 
@@ -10,7 +9,9 @@ const initialState = {
 };
 
 const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
-const GET_USER = 'GET_USER';
+const STORE_USER_INFO_IN_HEROKU = 'STORE_USER_INFO_IN_HEROKU';
+
+
 
 export function createAccount(email, password) {
   return {
@@ -32,22 +33,23 @@ export function createAccount(email, password) {
               return result.uid;
             });
         }
+
+        this.setState({ error: error.message });
       }),
   };
 }
 
-export function getUser(userid) {
-  console.log(userid);
+
+export function storeUserInfoAtHeroku(email, userid) {
   return {
-    type: GET_USER,
+    type: STORE_USER_INFO_IN_HEROKU,
     payload: axios
-      .get(`/api/user/${userid}`)
-      .then(response => {
-        return response.data[0];
+      .post('/api/storeuserinfo', {
+        email, userid,
       })
-      .catch(console.log)
-  };
-}
+      .then(result => result.data)
+      .catch(err => err),
+
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
@@ -66,10 +68,6 @@ export default function userReducer(state = initialState, action) {
         isLoading: false,
         didError: true,
       });
-
-    case `${GET_USER}_FULFILLED`:
-      console.log(action);
-      return Object.assign({}, state, { userDetail: action.payload });
 
     default:
       return state;
