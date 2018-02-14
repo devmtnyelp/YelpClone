@@ -7,6 +7,7 @@ import Login from "./components/authentication/Login";
 import userProfile from './components/userProfile/userProfile';
 import SearchHeader from "./components/headers/searchHeader";
 import LoginHeader from "./components/headers/loginHeader";
+import SearchResults from "./components/searchResults/searchResults.js";
 
 const Routes = () => (
   <Switch>
@@ -16,7 +17,9 @@ const Routes = () => (
     <Route path="/userprofile" component={userProfile} />
     <Route path ="/searchheader" component={SearchHeader} />
     <Route path ="/loginheader" component={LoginHeader} />
+    <Route path="/searchresults" component={SearchResults} />
   </Switch>
 );
 
 export default Routes;
+
