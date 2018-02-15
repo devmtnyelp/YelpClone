@@ -1,25 +1,65 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { mainSearch } from "../../ducks/search/searchReducer";
+import { connect } from "react-redux";
 
 import "./searchHeader.css";
 import picture from "./yelp.png";
 
-export default class searcgHeader extends Component {
+export default class SearchHeader extends Component {
   constructor() {
     super();
 
+    this.state= {
+        search: ""
+    }
   }
 
   render(){
+    const { search, location } = this.state;
       return(
           <div>
           <div  className="main-div">
+          <Link to ="/">
             <img className="yelp-pic2" src={picture} />
-            <div className="search">
-                <label>Find<input className="search-input" type="text" placeholder="burgers, barbers, spas, handymen...                                                   |" /></label>
-                <label>Near<input className="search-input" type="text" placeholder="Downtown, Dallas, TX" /></label>
-                <button>Search</button>
-            </div>
+          </Link>
+            <div className="search-bar">
+            <label>
+              Find<input
+                className="search-input"
+                type="text"
+                onChange={event =>
+                  this.setState({ search: event.target.value })
+                }
+                placeholder="burgers, barbers, spas, handymen...                                                   |"
+              />
+            </label>
+            <label>
+              Near<input
+                className="search-input"
+                type="text"
+                onChange={event =>
+                  this.setState({ location: event.target.value })
+                }
+                placeholder="Downtown, Dallas, TX"
+              />
+            </label>
+            <button
+              onClick={() => {
+                mainSearch(search, location);
+                window.location.href = `http://localhost:3000/searchresults/?location=${this.state.location}&?search=${
+                                          this.state.search
+                                        }`
+                // this.props.history.push(
+                //   `/searchresults/?location=${this.state.location}&?search=${
+                //     this.state.search
+                //   }`
+                // );
+              }}
+            >
+              Search
+            </button>
+          </div>
             <button className="signup" onClick={() => this.props.history.push("/register")}>
             Sign up
             </button>
