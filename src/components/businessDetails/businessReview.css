@@ -1,0 +1,186 @@
+#super-container {
+  padding-top: 18px;
+}
+
+.content-container {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.ysection {
+  margin-bottom: 18px;
+}
+
+.layout-block {
+  margin: 0 -15px;
+}
+
+.layout-a .column-alpha {
+  float: left;
+  padding: 0 15px;
+  min-height: 1px;
+  box-sizing: border-box;
+  width: 66.66667%;
+  *width: 624px;
+}
+.layout-a .column-beta {
+  float: left;
+  padding: 0 15px;
+  min-height: 1px;
+  box-sizing: border-box;
+  width: 33.33333%;
+  *width: 294px;
+}
+
+.position-with-scroll-container {
+  position: relative;
+}
+
+.layout--biz-details {
+  padding: 0 30px 0 0;
+  margin-left: 15px;
+}
+
+.main-section .ysection {
+  margin: 0 0 24px;
+}
+.main-section .ysection:last-child {
+  margin-bottom: 0;
+}
+
+.section-header {
+  margin-bottom: 11px;
+  border-bottom: 1px solid #6e6e6e;
+}
+
+.section-header--no-spacing {
+  margin-bottom: 0;
+}
+
+h2 {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 21px;
+  line-height: 1.28571em;
+  color: #d32323;
+}
+
+h2,
+.h2 {
+  font-size: 16px;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+  font-weight: bold;
+  color: #d32323;
+  margin: 0 0 6px 0;
+}
+
+.u-space-b1 {
+  margin-bottom: 6px !important;
+}
+
+.feed_trust-banner {
+  padding: 12px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e6e6e6;
+}
+
+.arrange--12 {
+  margin-left: -12px;
+  margin-right: -12px;
+  border-collapse: separate;
+  border-spacing: 12px 0;
+}
+.arrange {
+  display: table;
+  min-width: 100%;
+  table-layout: auto;
+}
+
+.arrange_unit--fill {
+  width: 100%;
+}
+.arrange_unit {
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.legal-copy {
+  color: #666;
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+img #burst {
+  vertical-align: bottom;
+}
+
+.review-list {
+  position: relative;
+}
+
+ul {
+  outline: 1px solid #d90416 !important;
+}
+
+ol,
+ul {
+  text-decoration: none;
+}
+
+.ylist > li {
+  margin-bottom: 12px;
+}
+.ylist-bordered > li {
+  margin: 0;
+  padding: 18px 0;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 17px;
+}
+
+.review--with-sidebar {
+  margin: 0 -15px;
+}
+
+.review--with-sidebar .review-sidebar {
+  float: left;
+  padding: 0 15px;
+  min-height: 1px;
+  box-sizing: border-box;
+  width: 37.5%;
+}
+
+.review--with-sidebar .review-sidebar-content {
+  margin-top: -3px;
+}
+
+.ypassport {
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.media-block {
+  position: relative;
+  display: flex;
+}
+
+.ypassport .media-avatar {
+  border-right-width: 9px;
+}
+.media-block > .media-avatar {
+  border-right: 6px solid transparent;
+  border-left: none;
+}

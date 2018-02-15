@@ -1,14 +1,16 @@
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { mainSearch } from "../../ducks/search/searchReducer";
 import { connect } from "react-redux";
 
-import "./searchHeader.css";
-import picture from "./yelp.png";
+import './searchHeader.css';
+import picture from './yelp.png';
 
 export default class SearchHeader extends Component {
   constructor() {
     super();
+
 
     this.state= {
         search: ""
@@ -24,13 +26,16 @@ export default class SearchHeader extends Component {
             <img className="yelp-pic2" src={picture} />
           </Link>
             <div className="search-bar">
+
             <label>
               Find<input
                 className="search-input"
                 type="text"
+
                 onChange={event =>
                   this.setState({ search: event.target.value })
                 }
+
                 placeholder="burgers, barbers, spas, handymen...                                                   |"
               />
             </label>
@@ -38,6 +43,7 @@ export default class SearchHeader extends Component {
               Near<input
                 className="search-input"
                 type="text"
+
                 onChange={event =>
                   this.setState({ location: event.target.value })
                 }
@@ -60,44 +66,47 @@ export default class SearchHeader extends Component {
               Search
             </button>
           </div>
-            <button className="signup" onClick={() => this.props.history.push("/register")}>
+        
+          <button
+            className="signup"
+            onClick={() => this.props.history.push('/register')}
+          >
             Sign up
-            </button>
-          </div>
-            <div className="second-div">
-                <Link to="/searchRestaurants">
-                     {" "}
-                    <a> Restaurants </a>{" "}
-                </Link>
-                <Link to="/searchNightlife">
-                     {" "}
-                    <a> Nightlife </a>{" "}
-                 </Link>
-                <Link to="/searchHomeServices">
-                     {" "}
-                     <a> Home Services </a>{" "}
-                 </Link>
-                <Link to="/writeReview=">
-                    {" "}
-                    <a> Write a Review </a>{" "}
-                </Link>
-                <Link to="/Events">
-                     {" "}
-                     <a> Events </a>{" "}
-                </Link>
-                <Link to="/Talk">
-                      {" "}
-                      <a> Talk </a>{" "}
-                </Link>
-                <button className="login-button" onClick={() => this.props.history.push("/login")}>
-                    Login
-                </button>
-            </div>
-
-          </div>
-
-      )
-
-    
+          </button>
+        </div>
+        <div className="second-div">
+          <Link to="/searchRestaurants">
+            {' '}
+            <a href="#"> Restaurants </a>{' '}
+          </Link>
+          <Link to="/searchNightlife">
+            {' '}
+            <a href="#"> Nightlife </a>{' '}
+          </Link>
+          <Link to="/searchHomeServices">
+            {' '}
+            <a href="#"> Home Services </a>{' '}
+          </Link>
+          <Link to="/writeReview=">
+            {' '}
+            <a href="#"> Write a Review </a>{' '}
+          </Link>
+          <Link to="/Events">
+            {' '}
+            <a href="#"> Events </a>{' '}
+          </Link>
+          <Link to="/Talk">
+            {' '}
+            <a href="#"> Talk </a>{' '}
+          </Link>
+          <button
+            className="login-button"
+            onClick={() => this.props.history.push('/login')}
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    );
   }
 }
