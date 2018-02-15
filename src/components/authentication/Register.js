@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import picture from './resources/signup_illustrationYelp.png';
-import './styles.css';
 
-import { createAccount, storeUserInfoAtHeroku } from '../../ducks/authentication/reducer';
+import React, { Component } from "react";
+import picture from "./resources/signup_illustrationYelp.png";
+import "./styles.css";
+import {withRouter} from "react-router-dom"
+import { connect } from "react-redux";
+import { createAccount } from "../../ducks/reducer";
+
 
 class Register extends Component {
   constructor(props) {
@@ -63,5 +64,8 @@ const mapStateToProps = ({ userReducer }) => ({
   userid: userReducer.userid,
 });
 
-export default withRouter(connect(mapStateToProps, 
-  { createAccount, storeUserInfoAtHeroku })(Register));
+
+export default withRouter(
+  connect(mapStateToProps, { createAccount })(Register),
+);
+
