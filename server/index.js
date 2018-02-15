@@ -24,7 +24,6 @@ const { getUserReviews } = require("./controllers/getUserReviews");
 const { getDetails } = require("./controllers/getDetails");
 const { autoComplete } = require("./controllers/autoComplete");
 
-
 // Database Connection
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set("db", db))
@@ -32,18 +31,24 @@ massive(process.env.CONNECTION_STRING)
 
 app.use(cors());
 app.use(json());
-
 app.use("/", express.static(__dirname));
 
 // Server Endpoints
+
+//review
+app.put("/api/editReview", editReview);
+app.delete("/api/deleteReview", deleteReview);
 app.get("/api/getBusinessReviews", getBusinessReviews);
 app.post("/api/postReview", postReview);
+
+
+//user
 app.get("/api/user/:userid", getUser);
 app.post("/api/user/add", addUser);
 app.put("/api/user/edit", editUser);
 app.delete("/api/user/remove", removeUser);
-app.put("/api/editReview", editReview);
-app.delete("/api/deleteReview", deleteReview);
+
+//business 
 app.get("/api/businessSearch", businessSearch);
 app.get("/api/getDetails", getDetails);
 app.get("/api/autoComplete", autoComplete);
