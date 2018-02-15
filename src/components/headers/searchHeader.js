@@ -41,27 +41,27 @@ export default class SearchHeader extends Component {
         <div className="second-div">
           <Link to="/searchRestaurants">
             {' '}
-            <a href="#"> Restaurants </a>{' '}
+            <a href=""> Restaurants </a>{' '}
           </Link>
           <Link to="/searchNightlife">
             {' '}
-            <a href="#"> Nightlife </a>{' '}
+            <a href=""> Nightlife </a>{' '}
           </Link>
           <Link to="/searchHomeServices">
             {' '}
-            <a href="#"> Home Services </a>{' '}
+            <a href=""> Home Services </a>{' '}
           </Link>
           <Link to="/writeReview=">
             {' '}
-            <a href="#"> Write a Review </a>{' '}
+            <a href=""> Write a Review </a>{' '}
           </Link>
           <Link to="/Events">
             {' '}
-            <a href="#"> Events </a>{' '}
+            <a href=""> Events </a>{' '}
           </Link>
           <Link to="/Talk">
             {' '}
-            <a href="#"> Talk </a>{' '}
+            <a href=""> Talk </a>{' '}
           </Link>
           <button
             className="login-button"

@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config();
 let responseObj = {
   details: {},
   reviews: {}
@@ -7,11 +7,12 @@ let valueHolder = [];
 let detailsCameBack = false;
 let ourReviewsCameBack = false;
 let reviewsCameBack = false;
-const axios = require("axios");
+const axios = require('axios');
 const { apiKey } = process.env;
 const getDetails = (req, res, next) => {
+  console.log('req.query:', req.body);
   axios
-    .get(`https://api.yelp.com/v3/businesses/${req.query.restaurantId}`, {
+    .get(`https://api.yelp.com/v3/businesses/${req.body.restaurantId}`, {
       headers: {
         Authorization: `Bearer ${apiKey}`
       }
@@ -23,12 +24,11 @@ const getDetails = (req, res, next) => {
       if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
         res.json(responseObj);
       }
-    })
-    .catch(console.log);
+    });
 
   req.app
-    .get("db")
-    .getReviewsByBusinessId(req.query)
+    .get('db')
+    .getReviewsByBusinessId(req.body)
     .then(response => {
       ourReviewsCameBack = true;
       if (reviewsCameBack) {
@@ -41,12 +41,11 @@ const getDetails = (req, res, next) => {
       if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
         res.json(responseObj);
       }
-    })
-    .catch(console.log);
+    });
 
   axios
     .get(
-      `https://api.yelp.com/v3/businesses/${req.query.restaurantId}/reviews`,
+      `https://api.yelp.com/v3/businesses/${req.body.restaurantId}/reviews`,
       {
         headers: {
           Authorization: `Bearer ${apiKey}`

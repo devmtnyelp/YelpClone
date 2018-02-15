@@ -4,7 +4,10 @@ import { withRouter } from 'react-router-dom';
 import picture from './resources/signup_illustrationYelp.png';
 import './styles.css';
 
-import { createAccount, storeUserInfoAtHeroku } from '../../ducks/authentication/reducer';
+import {
+  createAccount,
+  storeUserInfoAtHeroku
+} from '../../ducks/authentication/reducer';
 
 class Register extends Component {
   constructor(props) {
@@ -15,7 +18,7 @@ class Register extends Component {
       password: '',
       emailError: '',
       passwordError: '',
-      loading: true,
+      loading: true
     };
   }
 
@@ -28,14 +31,14 @@ class Register extends Component {
           <div>test</div>
           <input
             placeholder="Email"
-            onChange={(e) => {
+            onChange={e => {
               this.setState({ email: e.target.value });
             }}
           />
           <input
             type="password"
             placeholder="Password"
-            onChange={(e) => {
+            onChange={e => {
               this.setState({ password: e.target.value });
             }}
           />
@@ -60,8 +63,9 @@ class Register extends Component {
 
 const mapStateToProps = ({ userReducer }) => ({
   isLoading: userReducer.isLoading,
-  userid: userReducer.userid,
+  userid: userReducer.userid
 });
 
-export default withRouter(connect(mapStateToProps, 
-  { createAccount, storeUserInfoAtHeroku })(Register));
+export default withRouter(
+  connect(mapStateToProps, { createAccount, storeUserInfoAtHeroku })(Register)
+);
