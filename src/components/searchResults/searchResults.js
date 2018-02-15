@@ -23,7 +23,6 @@ class SearchResults extends Component {
     console.log(this.props.searchResults);
     return (
       <div>
-        <p>hello</p>
         {this.props.searchResults.length > 0 &&
           this.props.searchResults.map((item, i) => (
             <div key={i}>

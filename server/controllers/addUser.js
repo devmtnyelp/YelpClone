@@ -1,4 +1,6 @@
 const addUser = (req, res) => {
+  console.log('req.bodyVVVVVVVVVVV')
+  console.log(req.body)
   req.app
     .get('db')
     .createUser(req.body)
