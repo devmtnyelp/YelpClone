@@ -3,7 +3,14 @@
 /* ///////  CSS FOR REGISTER PAGE ////////*/
 .main-content {
     min-width: 1020px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: flex-start;
 }
+
 
 
 .signup-wrapper {
@@ -20,7 +27,16 @@
 
 
 .picture {
-    
+    margin-top: 10%;
+    margin-right: 5%
 }
 
+.sign-up-form-box {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: stretch;
+}
 /* ///////  CSS FOR SIGNOUT PAGE ////////*/
