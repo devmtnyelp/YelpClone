@@ -16,7 +16,7 @@ class SearchResults extends Component {
   }
 
   componentDidMount() {
-    this.state.search = this.props.location.search.split("&");
+    this.setState({search: this.props.location.search.split("&")});
 
     this.props.mainSearch(
       this.state.search[0].substr(10),
@@ -26,10 +26,10 @@ class SearchResults extends Component {
 
   render() {
     if (this.state.search[0]) {
-      this.state.search[0] = this.state.search[0].replace("?location=", "");
+      this.setState({ search: this.state.search[0].replace("?location=", "")});
     }
     if (this.state.search[1]) {
-      this.state.search[1] = this.state.search[1].replace("?search=", "");
+      this.setState({search: this.state.search[1].replace("?search=", "")});
     }
 
     const { SearchResults } = this.props;

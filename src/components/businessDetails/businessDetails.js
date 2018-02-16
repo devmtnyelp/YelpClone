@@ -115,7 +115,7 @@ class businessDetails extends Component {
             </div>
           </div>
         </div>
-        <BusinessReview />
+        <BusinessReview {...this.props.details} />
         <Footer />
       </div>
     );

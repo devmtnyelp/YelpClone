@@ -12,6 +12,7 @@
     "firebase": "^4.9.1",
     "google-maps-react": "^1.1.2",
     "massive": "^4.6.4",
+    "nodemon": "^1.15.0",
     "prettier-eslint": "^8.8.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",

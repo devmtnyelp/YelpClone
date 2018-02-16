@@ -14,6 +14,7 @@ export default class resultCard extends Component {
             <img className="results-img" src={this.props.obj.image_url} />
           </div>
           <div className="name-rating">
+            
             <div className="results-name">{this.props.obj.name}</div>
             <div className="results-rating">{this.props.obj.rating}</div>
           </div>
@@ -33,3 +34,5 @@ export default class resultCard extends Component {
     );
   }
 }
+
+// <Link to="{businessdetails}/{this.props.obj.id}"
