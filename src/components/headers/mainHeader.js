@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { mainSearch } from "../../ducks/search/searchReducer";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { mainSearch } from '../../ducks/search/searchReducer';
 
-import "./mainHeader.css";
-import picture from "./yelp.png";
+import './mainHeader.css';
+import picture from './yelp.png';
 
 class mainHeader extends Component {
   constructor() {
     super();
 
     this.state = {
-      search: "",
-      location: ""
+      search: '',
+      location: ''
     };
   }
 
@@ -35,16 +35,17 @@ class mainHeader extends Component {
                 </Link>
               </div>
               <div className="buttons">
-                <button className="buttons" onClick={() => this.props.history.push("/login")}>
+
+                <button onClick={() => this.props.history.push('/login')}>
                   Login
                 </button>
-                <button className="buttons" onClick={() => this.props.history.push("/register")}>
+                <button onClick={() => this.props.history.push('/register')}>
                   Sign up
                 </button>
               </div>
             </div>
             <div className="center-menu">
-              <img className="yelp-pic" src={picture} />
+              <img className="yelp-pic" src={picture} alt="" />
             </div>
             <div className="search-bar">
               <label>
@@ -73,7 +74,7 @@ class mainHeader extends Component {
                   this.props.history.push(
                     `/searchresults/?location=${this.state.location}&?search=${
                       this.state.search
-                    }`,
+                    }`
                   );
                 }}
               >
@@ -83,20 +84,20 @@ class mainHeader extends Component {
           </div>
           <div className="below-search">
             <Link to="/searchRestaurants">
-              {" "}
-              <a> Restaurants </a>{" "}
+              {' '}
+              <a> Restaurants </a>{' '}
             </Link>
             <Link to="/searchNightlife">
-              {" "}
-              <a> Nightlife </a>{" "}
+              {' '}
+              <a> Nightlife </a>{' '}
             </Link>
             <Link to="/searchHomeServices">
-              {" "}
-              <a> Home Services </a>{" "}
+              {' '}
+              <a> Home Services </a>{' '}
             </Link>
             <Link to="/searchDelivery">
-              {" "}
-              <a> Delivery </a>{" "}
+              {' '}
+              <a> Delivery </a>{' '}
             </Link>
           </div>
         </div>

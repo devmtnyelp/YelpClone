@@ -6,10 +6,6 @@ import { getReviews } from '../../ducks/events/reducer';
 import Star from './star';
 
 class BusinessReview extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     if (this.props.details) {
       let restaurantId = this.props.details.id;
@@ -18,14 +14,6 @@ class BusinessReview extends Component {
   }
 
   render() {
-    const stars = [1, 2, 3, 4, 5].map(idx => (
-      <Star
-        rating={this.props.details && this.props.details.rating}
-        index={idx}
-        key={idx}
-        name="smallest-star"
-      />
-    ));
     return (
       <div>
         <div id="super-container" className="content-container">
@@ -47,7 +35,7 @@ class BusinessReview extends Component {
                             <div className="arrange arrange--12 arrange--middle">
                               <div className="arrange_unit arrange_unit--fill">
                                 <span className="legal-copy">
-                                  <img src={burst} id="burst" />
+                                  <img src={burst} id="burst" alt="" />
                                   <b> Your trust is our top concern,</b> so
                                   businesses can't pay to alter or remove their
                                   reviews.
@@ -59,7 +47,7 @@ class BusinessReview extends Component {
                         {this.props.reviews &&
                           this.props.reviews.reviews.map((rev, i) => {
                             return (
-                              <div className="review-list">
+                              <div key={i} className="review-list">
                                 <ul
                                   id="ylist"
                                   className="ylist ylist-bordered reviews"
@@ -71,7 +59,11 @@ class BusinessReview extends Component {
                                           <div className="ypassport media-block">
                                             <div className="media-avatar response-photo-box">
                                               <div className="photo-box pb-60s">
-                                                <img src="http://via.placeholder.com/60x60" />
+                                                <img
+                                                  id="settledown"
+                                                  src={rev.user.image_url}
+                                                  alt=""
+                                                />
                                               </div>
                                             </div>
                                             <div className="media-story">
@@ -101,9 +93,9 @@ class BusinessReview extends Component {
                                                 <div className="right-review-item">
                                                   <ul
                                                     id="row"
-                                                    class="res_stars"
+                                                    className="res_stars"
                                                   >
-                                                    {stars}
+                                                    <Star rev={rev.rating} />
                                                   </ul>
                                                 </div>
                                               </div>
@@ -119,10 +111,10 @@ class BusinessReview extends Component {
                                     </div>
                                   </li>
                                 </ul>
-                                Insert Suggestions Component Here
                               </div>
                             );
                           })}
+                        Insert Suggestions Component Here
                       </div>
                     </div>
                   </div>

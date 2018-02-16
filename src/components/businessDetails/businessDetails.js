@@ -33,7 +33,7 @@ class businessDetails extends Component {
             </div>
             <div className="biz-page-header-right u-relative">
               <div className="biz-page-actions nowrap">
-                <a className="ybtn war-button">Write a Review</a>
+                <a className="ybtn ybtn--primary war-button">Write a Review</a>
                 <span className="ybtn-group clearfix">
                   <a className="ybtn ybtn--small">Add Photo</a>
                   <a className="ybtn ybtn--small">Share</a>

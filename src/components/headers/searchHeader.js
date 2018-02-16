@@ -1,8 +1,7 @@
-
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import { mainSearch } from "../../ducks/search/searchReducer";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { mainSearch } from '../../ducks/search/searchReducer';
+import { connect } from 'react-redux';
 
 import './searchHeader.css';
 import picture from './yelp.png';
@@ -11,14 +10,9 @@ class SearchHeader extends Component {
   constructor() {
     super();
 
-
-
-
-    this.state= {
-        search: ""
-
-    }
-
+    this.state = {
+      search: ''
+    };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,22 +24,18 @@ class SearchHeader extends Component {
     return (
       <div className="body">
         <div className="main-div">
-          <Link to="/">
-            <img className="yelp-pic2" src={picture} />
-          </Link>
-
-            <div className="search-bar">
-
-
+        
+        <Link to="/">
+          <img className="yelp-pic2" src={picture} alt="" />
+        </Link>
+        <div className="search-bar">
             <label>
               Find<input
                 className="search-input"
                 type="text"
-
                 onChange={event =>
                   this.setState({ search: event.target.value })
                 }
-
                 placeholder="burgers, barbers, spas, handymen...                                                   |"
               />
             </label>
@@ -53,7 +43,6 @@ class SearchHeader extends Component {
               Near<input
                 className="search-input"
                 type="text"
-
                 onChange={event =>
                   this.setState({ location: event.target.value })
                 }
@@ -78,13 +67,11 @@ class SearchHeader extends Component {
           <button
             className="signup"
             onClick={() => this.props.history.push('/register')}
-
           >
             Sign up
           </button>
         </div>
         <div className="second-div">
-
           <div className="links">
             <Link to="/searchRestaurants">Restaurants</Link>
             <Link to="/searchNightlife">Nightlife</Link>
@@ -95,8 +82,7 @@ class SearchHeader extends Component {
           </div>
           <button
             className="login-button"
-            onClick={() => this.props.history.push("/login")}
-
+            onClick={() => this.props.history.push('/login')}
           >
             Login
           </button>
@@ -106,10 +92,8 @@ class SearchHeader extends Component {
   }
 }
 
-
 const mapStateToProps = state => state;
 
 export default withRouter(
   connect(mapStateToProps, { mainSearch })(SearchHeader)
 );
-
