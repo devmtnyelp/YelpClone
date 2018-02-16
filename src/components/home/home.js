@@ -4,10 +4,9 @@ import Header from '../headers/mainHeader';
 
 const Home = () => (
   <div>
-  <Header />
+    <Header />
     <button onClick={() => this.props.history.push('/login')}>Login</button>
     <button onClick={() => this.props.history.push('/register')}>Sign up</button>
-
     <Footer />
   </div>
 );

@@ -22,9 +22,11 @@ class SearchResults extends Component {
   componentWillMount() {}
 
   componentDidMount() {
+
     let search = this.props.location.search.split("&");
     this.props.mainSearch(search[0].substr(10), search[1].substr(8));
   }
+
 
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
@@ -44,6 +46,7 @@ class SearchResults extends Component {
   }
 
   render() {
+
     const { SearchResults } = this.props;
 
     return (

@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// import { firebase, firestore } from '../../fire';
 
-import picture from './resources/signup_illustrationYelp.png';
-import './styles.css';
-
-import { createAccount } from '../../ducks/authentication/reducer';
+import React, { Component } from "react";
+import picture from "./resources/signup_illustrationYelp.png";
+import "./styles.css";
+import {withRouter} from "react-router-dom"
+import { connect } from "react-redux";
+import {
+  createAccount,
+  storeUserInfoAtHeroku
+} from '../../ducks/authentication/reducer';
 
 class Register extends Component {
   constructor(props) {
@@ -16,27 +18,27 @@ class Register extends Component {
       password: '',
       emailError: '',
       passwordError: '',
-      loading: true,
+      loading: true
     };
   }
 
   render() {
     const { email, password } = this.state;
-
+    // const { userid } = this.props;
     return (
       <div className="main-content">
         <div className="signup-wrapper">
-          <div>test</div>
+          <div className="sign-up-form-box">
           <input
             placeholder="Email"
-            onChange={(e) => {
+            onChange={e => {
               this.setState({ email: e.target.value });
             }}
           />
           <input
             type="password"
             placeholder="Password"
-            onChange={(e) => {
+            onChange={e => {
               this.setState({ password: e.target.value });
             }}
           />
@@ -44,15 +46,17 @@ class Register extends Component {
           <button
             onClick={() => {
               this.props.createAccount(email, password);
+              // this.props.storeUserInfoAtHeroku(email, userid);
             }}
           >
             Create Account
           </button>
+          </div>
+          </div>
 
           <div className="picture">
-            <img src={picture} alt="picua" />
+          <img src={picture} alt="picua" />
           </div>
-        </div>
       </div>
     );
   }
@@ -60,7 +64,9 @@ class Register extends Component {
 
 const mapStateToProps = ({ userReducer }) => ({
   isLoading: userReducer.isLoading,
-  userid: userReducer.userid,
+  userid: userReducer.userid
 });
 
-export default connect(mapStateToProps, { createAccount })(Register);
+export default withRouter(
+  connect(mapStateToProps, { createAccount, storeUserInfoAtHeroku })(Register)
+);

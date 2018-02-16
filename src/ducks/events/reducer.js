@@ -1,44 +1,39 @@
-
-import { firebase } from '../../fire';
+import axios from 'axios';
 
 const initialState = {
-  userid: '',
-  email: '',
-  isLoading: false,
-  didError: false,
+  details: {}
 };
 
-const LOGIN_USER = 'LOGIN_USER';
+const BUSINESS_DETAILS = 'LOGIN_USER';
+const BUSINESS_REVIEWS = 'BUSINESS_REVIEWS';
 
-export function loginUser(email, password) {
+export function getDetails(restaurantId) {
   return {
-    type: LOGIN_USER,
-    payload: firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(result => result.uid)
-      .catch(console.log('Username or Password incorrect.')),
+    type: BUSINESS_DETAILS,
+    payload: axios
+      .post('/api/getDetails/', { restaurantId })
+      .then(response => response.data)
+      .catch(console.log)
+  };
+}
+
+export function getReviews(restaurantId) {
+  return {
+    type: BUSINESS_REVIEWS,
+    payload: axios
+      .post('/api/getBusinessReviews/', { restaurantId })
+      .then(response => response.data)
+      .catch(console.log)
   };
 }
 
 export default function eventReducer(state = initialState, action) {
   switch (action.type) {
-    case `${LOGIN_USER}_PENDING`:
-      return Object.assign({}, state, {
-        isLoading: true,
-      });
-    case `${LOGIN_USER}_FULFILLED`:
-      return Object.assign({}, state, {
-        isLoading: false,
-        userid: action.payload,
-      });
-
-    case `${LOGIN_USER}_REJECTED`:
-      return Object.assign({}, state, {
-        isLoading: false,
-        didError: true,
-      });
-
+    case `${BUSINESS_DETAILS}_FULFILLED`:
+      console.log(action.payload);
+      return Object.assign({}, state, { details: action.payload });
+    case `${BUSINESS_REVIEWS}_FULFILLED`:
+      return Object.assign({}, state, { reviews: action.payload });
     default:
       return state;
   }
