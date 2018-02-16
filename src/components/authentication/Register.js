@@ -28,7 +28,7 @@ class Register extends Component {
     return (
       <div className="main-content">
         <div className="signup-wrapper">
-          <div>test</div>
+          <div className="sign-up-form-box">
           <input
             placeholder="Email"
             onChange={e => {
@@ -51,11 +51,12 @@ class Register extends Component {
           >
             Create Account
           </button>
+          </div>
+          </div>
 
           <div className="picture">
-            <img src={picture} alt="picua" />
+          <img src={picture} alt="picua" />
           </div>
-        </div>
       </div>
     );
   }

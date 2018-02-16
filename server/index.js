@@ -2,34 +2,43 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { json } = require('body-parser');
+const massive = require('massive');
 const port = 3001;
 const app = express();
 const session = require('express-session');
 const massive = require('massive');
 const axios = require('axios');
 
-// Controller Functions
+
+
+const { businessSearch } = require("./controllers/businessSearch");
+const { deleteReview } = require("./controllers/deleteReview");
+const { editReview } = require("./controllers/editReview");
+const { getReview } = require("./controllers/getReview");
+const { postReview } = require("./controllers/postReview");
+const { getBusinessReviews } = require("./controllers/getBusinessReviews");
+const { getUserReviews } = require("./controllers/getUserReviews");
+const { getDetails } = require("./controllers/getDetails");
+const { autoComplete } = require("./controllers/autoComplete");
+
+
+
 const { addUser } = require('./controllers/addUser');
 const { editUser } = require('./controllers/editUser');
 const { getUser } = require('./controllers/getUser');
 const { removeUser } = require('./controllers/removeUser');
-const { businessSearch } = require('./controllers/businessSearch');
-const { deleteReview } = require('./controllers/deleteReview');
-const { editReview } = require('./controllers/editReview');
-const { getReview } = require('./controllers/getReview');
-const { postReview } = require('./controllers/postReview');
-const { getBusinessReviews } = require('./controllers/getBusinessReviews');
-const { getUserReviews } = require('./controllers/getUserReviews');
-const { getDetails } = require('./controllers/getDetails');
 const { storeUserInfoInHeroku } = require('./controllers/authCtrl');
-const { autoComplete } = require('./controllers/autoComplete');
 
+
+// Database Connection
+massive(process.env.CONNECTION_STRING)
+  .then(db => app.set('db', db))
+const { autoComplete } = require('./controllers/autoComplete');
 app.use(cors());
 app.use(json());
 app.use('/', express.static(__dirname));
 
 // Database Connection
-massive(process.env.CONNECTION_STRING).then(db => app.set('db', db));
 
 
 // --- Server Endpoints --- //
@@ -50,6 +59,7 @@ app.post('/api/postReview', postReview);
 // Business Endpoints
 app.get('/api/businessSearch', businessSearch);
 app.post('/api/getDetails', getDetails);
+
 
 // Search Endpoints
 app.get(`/api/events/searchFromHeader/`, businessSearch);
