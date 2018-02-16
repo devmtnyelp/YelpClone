@@ -19,7 +19,7 @@
   background: #d32323;
 }
 
-button {
+#star {
   color: white;
   font-weight: bold;
   border-radius: 4px;
@@ -35,4 +35,142 @@ button {
   color: #666;
   font-size: 12px;
   margin: auto 5px;
+}
+
+star-5 {
+  width: 132px;
+  height: 24px;
+  background-position: 0 -168px;
+}
+
+.i-stars {
+  background: url(https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_design_web/9b34e39ccbeb/assets/img/stars/stars.png)
+    no-repeat;
+  background-size: 132px 560px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.rating-large {
+  position: relative;
+  overflow: hidden;
+}
+
+.offscreen {
+  clip: rect(0 0 0 0);
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+}
+
+.i-stars--large-5 img {
+  left: 0;
+  top: -216px;
+}
+
+.i-stars--regular-0 {
+  width: 102px;
+  height: 18px;
+  background-position: 0 -240px;
+}
+
+.i-stars--regular-0 img {
+  left: 0;
+  top: -240px;
+}
+
+.i-stars--regular-1 {
+  width: 102px;
+  height: 18px;
+  background-position: 0 -258px;
+}
+
+.i-stars--regular-1 img {
+  left: 0;
+  top: -258px;
+}
+
+.i-stars--regular-1-half {
+  width: 102px;
+  height: 18px;
+  background-position: 0 -276px;
+}
+
+.i-stars--regular-1-half img {
+  left: 0;
+  top: -276px;
+}
+
+.i-stars--regular-2 {
+  width: 102px;
+  height: 18px;
+  background-position: 0 -294px;
+}
+
+.i-stars--regular-2 img {
+  left: 0;
+  top: -294px;
+}
+
+.i-stars--regular-2-half {
+  width: 102px;
+  height: 18px;
+  background-position: 0 -312px;
+}
+
+.i-stars--regular-2-half img {
+  left: 0;
+  top: -312px;
+}
+
+.i-stars--regular-3 {
+  width: 102px;
+  height: 18px;
+  background-position: 0 -330px;
+}
+
+.i-stars--regular-3 img {
+  left: 0;
+  top: -330px;
+}
+
+.i-stars--regular-3-half {
+  width: 102px;
+  height: 18px;
+  background-position: 0 -348px;
+}
+
+.i-stars--regular-3-half img {
+  left: 0;
+  top: -348px;
+}
+
+.i-stars--regular-4 {
+  width: 102px;
+  height: 18px;
+  background-position: 0 -366px;
+}
+.i-stars--regular-4 img {
+  left: 0;
+  top: -366px;
+}
+
+.i-stars--regular-4-half {
+  width: 102px;
+  height: 18px;
+  background-position: 0 -384px;
+}
+
+.i-stars--regular-4-half img {
+  left: 0;
+  top: -384px;
+}
+
+.i-stars--regular-5 {
+  width: 102px;
+  height: 18px;
+  background-position: 0 -402px;
 }
