@@ -2,12 +2,9 @@
 import React, { Component } from "react";
 import picture from "./resources/signup_illustrationYelp.png";
 import "./styles.css";
-import {withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom"
 import { connect } from "react-redux";
-import {
-  createAccount,
-  storeUserInfoAtHeroku
-} from '../../ducks/authentication/reducer';
+import { createAccount } from '../../ducks/authentication/loginOrCreateReducer';
 
 class Register extends Component {
   constructor(props) {
@@ -18,13 +15,12 @@ class Register extends Component {
       password: '',
       emailError: '',
       passwordError: '',
-      loading: true
+      loading: true,
     };
   }
 
   render() {
     const { email, password } = this.state;
-    const { userid } = this.props;
     return (
       <div className="main-content">
         <div className="signup-wrapper">
@@ -46,7 +42,6 @@ class Register extends Component {
           <button
             onClick={() => {
               this.props.createAccount(email, password);
-              // this.props.storeUserInfoAtHeroku(email, userid);
             }}
           >
             Create Account
@@ -64,9 +59,8 @@ class Register extends Component {
 
 const mapStateToProps = ({ userReducer }) => ({
   isLoading: userReducer.isLoading,
-  userid: userReducer.userid
+  userid: userReducer.userid,
 });
 
 export default withRouter(
-  connect(mapStateToProps, { createAccount, storeUserInfoAtHeroku })(Register)
-);
+  connect(mapStateToProps, { createAccount })(Register));

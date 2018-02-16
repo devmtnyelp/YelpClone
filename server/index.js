@@ -6,7 +6,6 @@ const massive = require('massive');
 const port = 3001;
 const app = express();
 const session = require('express-session');
-const massive = require('massive');
 const axios = require('axios');
 
 
@@ -33,7 +32,7 @@ const { storeUserInfoInHeroku } = require('./controllers/authCtrl');
 // Database Connection
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set('db', db))
-const { autoComplete } = require('./controllers/autoComplete');
+
 app.use(cors());
 app.use(json());
 app.use('/', express.static(__dirname));
