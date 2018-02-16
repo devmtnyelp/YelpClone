@@ -1,5 +1,4 @@
 const addUser = (req, res, next) => {
-  console.log(req)
   req.app
     .get("db")
     .createUser(req.body)
