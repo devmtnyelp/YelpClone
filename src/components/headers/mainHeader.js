@@ -35,10 +35,10 @@ class mainHeader extends Component {
                 </Link>
               </div>
               <div className="buttons">
-                <button onClick={() => this.props.history.push("/login")}>
+                <button className="buttons" onClick={() => this.props.history.push("/login")}>
                   Login
                 </button>
-                <button onClick={() => this.props.history.push("/register")}>
+                <button className="buttons" onClick={() => this.props.history.push("/register")}>
                   Sign up
                 </button>
               </div>
