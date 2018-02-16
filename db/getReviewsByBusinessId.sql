@@ -1,2 +1,3 @@
-SELECT * FROM reviews 
-WHERE restaurantid = ${restaurantId}
+SELECT *
+FROM reviews, userinfo
+WHERE reviews.restaurantId = ${restaurantId} AND userinfo.userid = reviews.userid

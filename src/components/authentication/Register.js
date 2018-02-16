@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import picture from './resources/signup_illustrationYelp.png';
-import './styles.css';
 
+import React, { Component } from "react";
+import picture from "./resources/signup_illustrationYelp.png";
+import "./styles.css";
+import {withRouter} from "react-router-dom"
+import { connect } from "react-redux";
 import {
   createAccount,
   storeUserInfoAtHeroku
