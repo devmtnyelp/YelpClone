@@ -15,30 +15,42 @@ class SearchResults extends Component {
     };
   }
 
-  componentDidMount() {
-    this.state.search = this.props.location.search.split("&");
+  shouldComponentUpdate(prevState, newState) {
+    return true;
+  }
 
-    this.props.mainSearch(
-      this.state.search[0].substr(10),
-      this.state.search[1].substr(8)
-    );
+  componentWillMount() {}
+
+  componentDidMount() {
+    let search = this.props.location.search.split("&");
+    this.props.mainSearch(search[0].substr(10), search[1].substr(8));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    let search = this.props.location.search.split("&");
+    this.setState({
+      location:
+        search[0]
+          .substr(10)
+          .charAt(0)
+          .toUpperCase() + search[0].substr(11),
+      search:
+        search[1]
+          .substr(8)
+          .charAt(0)
+          .toUpperCase() + search[1].substr(9)
+    });
   }
 
   render() {
-    if (this.state.search[0]) {
-      this.state.search[0] = this.state.search[0].replace("?location=", "");
-    }
-    if (this.state.search[1]) {
-      this.state.search[1] = this.state.search[1].replace("?search=", "");
-    }
-
     const { SearchResults } = this.props;
-    console.log(this.props.searchResults);
+
     return (
       <div>
         <SearchHeader />
-        <div>
-          The Best {this.state.search[1]} In {this.state.search[0]}
+        <div className="results-title">
+          The Best {this.state.search} In {this.state.location}
         </div>
         <div />
         <div>
