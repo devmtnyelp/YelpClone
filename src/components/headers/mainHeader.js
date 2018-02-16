@@ -73,7 +73,7 @@ class mainHeader extends Component {
                   this.props.history.push(
                     `/searchresults/?location=${this.state.location}&?search=${
                       this.state.search
-                    }`
+                    }`,
                   );
                 }}
               >

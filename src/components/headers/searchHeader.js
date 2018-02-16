@@ -13,8 +13,10 @@ class SearchHeader extends Component {
 
 
 
+
     this.state= {
         search: ""
+
     }
 
   }

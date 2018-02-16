@@ -28,6 +28,3 @@ const businessSearch = (req, res) => {
 module.exports = {
   businessSearch,
 };
-
- 
-
