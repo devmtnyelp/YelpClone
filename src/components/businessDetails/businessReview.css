@@ -3,7 +3,7 @@
 }
 
 .content-container {
-  width: 960px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -17,11 +17,10 @@
 }
 
 .layout-a .column-alpha {
-  float: left;
   padding: 0 15px;
   min-height: 1px;
   box-sizing: border-box;
-  width: 66.66667%;
+  width: 100%;
   *width: 624px;
 }
 .layout-a .column-beta {
@@ -130,10 +129,7 @@ img #burst {
 
 .review-list {
   position: relative;
-}
-
-ul {
-  outline: 1px solid #d90416 !important;
+  display: inline-block;
 }
 
 ol,
@@ -141,10 +137,18 @@ ul {
   text-decoration: none;
 }
 
+#ylist {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 350px;
+}
+
 .ylist > li {
   margin-bottom: 12px;
 }
 .ylist-bordered > li {
+  display: flex;
   margin: 0;
   padding: 18px 0;
   border-bottom: 1px solid #e6e6e6;
@@ -153,6 +157,7 @@ ul {
 
 .review--with-sidebar {
   margin: 0 -15px;
+  display: flex;
 }
 
 .review--with-sidebar .review-sidebar {
@@ -160,11 +165,22 @@ ul {
   padding: 0 15px;
   min-height: 1px;
   box-sizing: border-box;
-  width: 37.5%;
+  display: flex;
 }
 
 .review--with-sidebar .review-sidebar-content {
   margin-top: -3px;
+  display: inline-flex;
+}
+
+.offscreen {
+  clip: rect(0 0 0 0);
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
 }
 
 .ypassport {
@@ -183,4 +199,160 @@ ul {
 .media-block > .media-avatar {
   border-right: 6px solid transparent;
   border-left: none;
+}
+
+.pb-60s {
+  height: 60px;
+  width: 60px;
+}
+
+.media-story {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  float: left;
+}
+
+.user-name {
+  font-weight: bold;
+  text-align: left;
+}
+
+.user-location {
+  font-weight: bold;
+  text-align: left;
+}
+
+#info-align {
+  float: left;
+}
+
+.ypassport .user-display-name {
+  font-size: 14px;
+  line-height: 1.28571em;
+  font-weight: bold;
+}
+
+.review--with-sidebar .review-wrapper {
+  display: flex;
+  float: left;
+  padding: 0 15px;
+  min-height: 1px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.review--with-sidebar .review-content {
+  padding: 0 12px 6px 0;
+  min-height: 156px;
+  box-sizing: border-box;
+}
+.review-content {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.biz-rating-large {
+  margin: 6px 0;
+}
+
+.biz-rating-large .rating-large {
+  float: left;
+  margin: -1px 6px 0 0;
+}
+
+.rating-large {
+  position: relative;
+  overflow: hidden;
+}
+
+.i-stars {
+  background: url(https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_design_web/9b34e39ccbeb/assets/img/stars/stars.png)
+    no-repeat;
+  background-size: 132px 560px;
+  vertical-align: middle;
+}
+
+.i-star--regular-5 {
+  width: 102px;
+  height: 18px;
+  background-position: 0 -402px;
+}
+
+.rating-top {
+  float: left;
+}
+
+#review-par {
+  text-align: left;
+}
+
+.rating-qualifier {
+  display: block;
+  float: left;
+  color: #666;
+  font-weight: normal;
+}
+
+.layout--biz-details .column-beta {
+  padding: 0 30px 0 0;
+  margin-right: -15px;
+}
+
+.layout-border .column-beta {
+  box-shadow: -1px 0 0 #e6e6e6;
+}
+
+.sidebar .open-rail {
+  margin-left: -1px;
+  padding-left: 1px;
+  background: #fff;
+}
+
+.sidebar .bordered-rail {
+  padding-left: 30px;
+}
+
+.sidebar .summary {
+  padding: 3px 11px 3px 6px;
+}
+
+.sidebar .island {
+  margin-bottom: 18px;
+}
+
+.island {
+  padding: 11px;
+  background: #f5f5f5;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+}
+
+.iconed-list .iconed-list-item {
+  display: table;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.iconed-list .iconed-list-item:last-child .iconed-list-story {
+  border-bottom: none;
+}
+
+.iconed-list .iconed-list-avatar {
+  float: none;
+  display: table-cell;
+  vertical-align: middle;
+  min-width: 34px;
+  margin: 0;
+  padding-right: 9px;
+  text-align: center;
+}
+
+.iconed-list .iconed-list-story {
+  display: table-cell;
+  width: 100%;
+  padding: 9px 0;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 8px;
 }
