@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .top-left {
@@ -30,27 +30,23 @@ a {
 }
 
 .search-input {
-    width: 80%;
-    height: 20px;
+  width: 80%;
+  height: 20px;
 }
 
 .background {
-    height: 570px;
-    background-image: url("https://s3-media1.fl.yelpcdn.com/assets/srv0/yelp_large_assets/469f5b12df16/assets/img/home/hero_photos/ubaw1eG3Pf4qCmKx-pkC4g.jpg");
-    ;
+  height: 570px;
+  background-image: url('https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_large_assets/252051bf4fce/assets/img/home/hero_photos/oYJx-YOK9dqe0F56bS2tDQ.jpg');
 }
 
 .search-bar {
-    background-color:white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto
-
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
-.center-menu{
-    height: 200px;
+.center-menu {
+  height: 200px;
 }
-
-
