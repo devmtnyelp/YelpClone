@@ -356,3 +356,23 @@ ul {
   border-bottom: 1px solid #e6e6e6;
   padding-bottom: 8px;
 }
+
+.res-stars > li {
+  margin: auto 0;
+}
+
+.res-stars > li > span {
+  color: #666;
+  font-size: 12px;
+  margin: auto 5px;
+}
+
+ul .right-review-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#row {
+  display: inline-flex;
+  padding-right: 25px;
+}

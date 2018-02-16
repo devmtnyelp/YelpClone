@@ -1,0 +1,38 @@
+.smallest-star {
+  height: 18px;
+  width: 18px;
+  margin: 1px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  cursor: default;
+}
+
+.smallest-star > img {
+  height: 14px;
+  margin: auto;
+  display: block;
+  border: none;
+}
+
+.highlight {
+  background: #d32323;
+}
+
+button {
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+.res-stars > li {
+  margin: auto 0;
+}
+
+.res-stars > li > span {
+  color: #666;
+  font-size: 12px;
+  margin: auto 5px;
+}
