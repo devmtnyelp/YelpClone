@@ -8,7 +8,7 @@
 .img-border {
   display: flex;
   align-items: center;
-  margin-left: 1vw;
+  margin-left: 1%;
 }
 
 .results-img {
@@ -38,4 +38,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@media (max-width: 375px) {
+  .result-card{
+    width: 369px;
+  }
+  
 }

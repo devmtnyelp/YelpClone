@@ -6,7 +6,6 @@ export default class resultCard extends Component {
     super(props);
   }
   render() {
-    console.log(this.props);
     return (
       <div>
         <div className="result-card">
