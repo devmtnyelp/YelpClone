@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from '../../ducks/events/reducer';
+// import { loginUser } from '../../ducks/events/reducer';
 
 class Login extends Component {
   constructor(props) {
@@ -47,4 +47,4 @@ const mapStateToProps = ({ eventReducer }) => ({
   userid: eventReducer.userid,
 });
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(mapStateToProps)(Login);

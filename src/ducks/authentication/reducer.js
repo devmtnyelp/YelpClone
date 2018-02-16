@@ -4,7 +4,7 @@ const initialState = {
   userid: '',
   email: '',
   isLoading: false,
-  didError: false,
+  didError: false
 };
 const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
 const STORE_USER_INFO_IN_HEROKU = 'STORE_USER_INFO_IN_HEROKU';
@@ -19,7 +19,7 @@ export function createAccount(email, password) {
         axios
           .post('/api/storeuserinfo', {
             email,
-            userid: result.uid,
+            userid: result.uid
           })
           .then(() => {
             console.log('saved');

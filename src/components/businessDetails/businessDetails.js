@@ -4,12 +4,19 @@ import { connect } from 'react-redux';
 import SearchHeader from '../headers/searchHeader';
 import Footer from '../footer/footer';
 import BusinessReview from './businessReview';
+import { getDetails } from '../../ducks/events/reducer';
 
 class businessDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  componentWillMount() {
+    const restaurantId = 'gary-danko-san-francisco';
+    this.props.getDetails(restaurantId);
+  }
+
   render() {
     return (
       <div>
@@ -18,8 +25,9 @@ class businessDetails extends Component {
           <div className="biz-page-header clearfix">
             <div className="biz-page-header-left">
               <div className="u-space-t1">
-                <h1 class="biz-page-title embossed-text-white shortenough">
-                  Hoppydoddy Burger Bar
+                <h1 className="biz-page-title embossed-text-white shortenough">
+                  {this.props.details.details &&
+                    this.props.details.details.name}
                 </h1>
               </div>
             </div>
@@ -38,17 +46,26 @@ class businessDetails extends Component {
             <div className="mapbox-container">
               <div className="mapbox">
                 <div className="mapbox-map">
-                  <img src="http://via.placeholder.com/290x140" />
+                  <img src="http://via.placeholder.com/290x140" alt="" />
                 </div>
                 <div className="mapbox-text">
                   <ul>
                     <li className="u-relative">
                       <address>
-                        3227 McKinney Ave <br />Dallas, TX 75204
+                        {this.props.details.details &&
+                          this.props.details.details.location
+                            .display_address[0]}{' '}
+                        <br />
+                        {this.props.details.details &&
+                          this.props.details.details.location
+                            .display_address[1]}
                       </address>
                     </li>
                     <li className="clearfix">Get Directions</li>
-                    <li>(214) 871-2337</li>
+                    <li>
+                      {this.props.details.details &&
+                        this.props.details.details.phone}
+                    </li>
                     <li>hopdoddy.com</li>
                   </ul>
                 </div>
@@ -56,21 +73,41 @@ class businessDetails extends Component {
             </div>
             <div className="showcase-container">
               <div className="showcase-container_inner">
-                <div className="top-shelf-grey" />
                 <div className="showcase-photos">
                   <div className="photo photo-1">
                     <div className="showcase-photo-box">
-                      <img src="http://lorempixel.com/220/220/food/" />
+                      <img
+                        id="sized"
+                        src={
+                          this.props.details.details &&
+                          this.props.details.details.photos[0]
+                        }
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="photo photo-2">
                     <div className="showcase-photo-box">
-                      <img src="http://lorempixel.com/220/220/food/" />
+                      <img
+                        id="sized"
+                        src={
+                          this.props.details.details &&
+                          this.props.details.details.photos[1]
+                        }
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="photo photo-3">
                     <div className="showcase-photo-box">
-                      <img src="http://lorempixel.com/220/220/food/" />
+                      <img
+                        id="sized"
+                        src={
+                          this.props.details.details &&
+                          this.props.details.details.photos[2]
+                        }
+                        alt=""
+                      />
                     </div>
                   </div>
                 </div>
@@ -85,6 +122,8 @@ class businessDetails extends Component {
   }
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = ({ eventReducer }) => ({
+  details: eventReducer.details
+});
 
-export default connect(mapStateToProps)(businessDetails);
+export default connect(mapStateToProps, { getDetails })(businessDetails);

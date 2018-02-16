@@ -6,7 +6,6 @@ import Register from "./components/authentication/Register";
 import Login from "./components/authentication/Login";
 import SearchHeader from "./components/headers/searchHeader";
 import LoginHeader from "./components/headers/loginHeader";
-
 import SearchResults from "./components/searchResults/searchResults.js";
 // import displayCard from "./components/searchResults/displayCard";
 import businessDetails from "./components/businessDetails/businessDetails";
@@ -21,7 +20,6 @@ const Routes = () => (
     <Route path ="/loginheader" component={LoginHeader} />
     <Route path="/searchresults" component={SearchResults} />
     <Route path ="/businessdetails" component={businessDetails} />
-
   </Switch>
 );
 
