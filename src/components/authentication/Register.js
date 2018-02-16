@@ -24,7 +24,7 @@ class Register extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { userid } = this.props;
+    // const { userid } = this.props;
     return (
       <div className="main-content">
         <div className="signup-wrapper">
