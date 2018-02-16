@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import "./resultCard.css";
 
 export default class resultCard extends Component {
-  constructor(props) {
-    super(props);
-  }
+  
   render() {
     return (
       <div>

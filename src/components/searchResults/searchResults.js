@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { mainSearch } from "../../ducks/search/searchReducer";
 import ResultCard from "./resultCard";
 import SearchHeader from "../headers/searchHeader";
+import map from "./map.png";
+
+import "./searchResults.css"
 
 class SearchResults extends Component {
   constructor() {
@@ -22,7 +25,7 @@ class SearchResults extends Component {
   componentWillMount() {}
 
   componentDidMount() {
-    let search = this.props.location.search.split("&");
+    let search = this.props.location.search.replace("%20", " ").split("&");
     this.props.mainSearch(search[0].substr(10), search[1].substr(8));
   }
 
@@ -48,19 +51,24 @@ class SearchResults extends Component {
 
     return (
       <div>
+      
         <SearchHeader />
-        <div className="results-title">
-          The Best {this.state.search} In {this.state.location}
-        </div>
-        <div />
-        <div>
-          {this.props.searchResults.length > 0 &&
-            this.props.searchResults.map((item, i) => (
-              <div key={i}>
-                {console.log(i)}
-                <ResultCard obj={item} />
-              </div>
-            ))}
+          <h2>
+            The Best {this.state.search} In {this.state.location}
+          </h2>
+        <div className="card-map">
+          <div className="card-div">
+            {this.props.searchResults.length > 0 &&
+              this.props.searchResults.map((item, i) => (
+                <div key={i}>
+                  {console.log(i)}
+                  <ResultCard obj={item} />
+                </div>
+              ))}
+          </div> 
+          <div className="display-map">
+            <img className="map-pic" alt=" " src={map} />
+          </div>
         </div>
       </div>
     );

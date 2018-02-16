@@ -1,8 +1,10 @@
 .result-card {
+
   display: flex;
-  border: solid;
+  margin-left: 15%;
+  border-top: solid;
   height: 174px;
-  width: 630px;
+  width: 100%;
 }
 
 .img-border {

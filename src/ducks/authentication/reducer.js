@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import { firebase, firestore } from '../../fire';
+import { firebase } from '../../fire';
 
 const initialState = {
   userid: '',

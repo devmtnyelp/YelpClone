@@ -31,7 +31,7 @@ a {
 }
 
 .search-input {
-    width: 80%;
+    width: 20vw;
     height: 20px;
 }
 
@@ -44,10 +44,10 @@ a {
 .search-bar {
     background-color:white;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin: 0 auto
-
+    margin: 0 auto;
+    width: 60%;
 }
 
 .center-menu{

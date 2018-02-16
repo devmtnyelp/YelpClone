@@ -1,0 +1,15 @@
+.card-map {
+    display: flex;
+
+}
+
+
+
+.map-pic {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.display-map {
+    margin-left: 10%;
+}

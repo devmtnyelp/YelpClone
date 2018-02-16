@@ -25,7 +25,7 @@ class SearchHeader extends Component {
       <div className="body">
         <div className="main-div">
           <Link to="/">
-            <img className="yelp-pic2" src={picture} />
+            <img className="yelp-pic2" alt=" " src={picture} />
           </Link>
           <div className="search-bar">
             <label>

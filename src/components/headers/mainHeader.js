@@ -25,13 +25,13 @@ class mainHeader extends Component {
             <div className="flex-header">
               <div className="top-left">
                 <Link to="/writeReview">
-                  <a>Write a Review</a>
+                  Write a Review
                 </Link>
                 <Link to="/events">
-                  <a>Events</a>
+                  Events
                 </Link>
                 <Link to="/Talk">
-                  <a>Talk</a>
+                  Talk
                 </Link>
               </div>
               <div className="buttons">
