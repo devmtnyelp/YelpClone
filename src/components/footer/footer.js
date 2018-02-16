@@ -49,12 +49,12 @@ const Footer = () => (
     </div>
 
     <div>
-      <p><img src={footerpic} /></p>
+      <p><img src={footerpic} alt="" /></p>
     </div>
 
     <div className="copyright">
       <p>
-          Copyright © 2004–2018 Yelp Inc. Yelp, <img src={smalllogo}/>, <img src={burst}/> and related marks are
+          Copyright © 2004–2018 Yelp Inc. Yelp, <img src={smalllogo} alt=""/>, <img src={burst} alt=""/> and related marks are
           registered trademarks of Yelp.
       </p>
     </div>

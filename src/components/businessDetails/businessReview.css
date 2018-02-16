@@ -375,4 +375,10 @@ ul .right-review-item {
 #row {
   display: inline-flex;
   padding-right: 25px;
+  padding-top: 1px;
+}
+
+#settledown {
+  width: 100px;
+  height: 100px;
 }
