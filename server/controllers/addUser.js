@@ -1,11 +1,11 @@
-const addUser = (req, res) => {
-  console.log('req.bodyVVVVVVVVVVV')
-  console.log(req.body)
+const addUser = (req, res, next) => {
   req.app
-    .get('db')
+    .get("db")
     .createUser(req.body)
     .then(data => res.json(data))
     .catch(console.log);
 };
 
-module.exports = { addUser };
+module.exports = { 
+  addUser 
+};

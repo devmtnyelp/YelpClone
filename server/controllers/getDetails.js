@@ -57,7 +57,6 @@ const getDetails = (req, res, next) => {
       responseObj.reviews = response.data;
       reviewsCameBack = true;
       if (ourReviewsCameBack) {
-        console.log(valueHolder);
         responseObj.reviews.reviews = responseObj.reviews.reviews.concat(
           valueHolder
         );

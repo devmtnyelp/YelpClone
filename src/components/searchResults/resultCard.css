@@ -1,0 +1,41 @@
+.result-card {
+  display: flex;
+  border: solid;
+  height: 174px;
+  width: 630px;
+}
+
+.img-border {
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+}
+
+.results-img {
+  height: 90px;
+  width: 90px;
+}
+
+.name-rating {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  height: fit-content;
+  margin-top: 4vh;
+  margin-left: 2vw;
+}
+
+.results-name {
+  display: flex;
+  justify-content: flex-start;
+}
+.results-rating {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.result-location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

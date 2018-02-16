@@ -4,6 +4,7 @@ const cors = require('cors');
 const { json } = require('body-parser');
 
 
+
 const { businessSearch } = require("./controllers/businessSearch");
 const { deleteReview } = require("./controllers/deleteReview");
 const { editReview } = require("./controllers/editReview");
@@ -20,8 +21,6 @@ const session = require('express-session');
 const massive = require('massive');
 const axios = require('axios');
 
-
-// Controller Function
 const { addUser } = require('./controllers/addUser');
 const { editUser } = require('./controllers/editUser');
 const { getUser } = require('./controllers/getUser');
@@ -35,10 +34,31 @@ massive(process.env.CONNECTION_STRING)
 
 app.use(cors());
 app.use(json());
+app.use("/", express.static(__dirname));
+
+// Server Endpoints
+
+//review
+app.put("/api/editReview", editReview);
+app.delete("/api/deleteReview", deleteReview);
+app.get("/api/getBusinessReviews", getBusinessReviews);
+app.post("/api/postReview", postReview);
+
+
+//user
+app.get("/api/user/:userid", getUser);
+app.post("/api/user/add", addUser);
+app.put("/api/user/edit", editUser);
+app.delete("/api/user/remove", removeUser);
+
+//business 
+app.get("/api/businessSearch", businessSearch);
+=======
 
 app.use("/", express.static(__dirname));
 
 // Server Endpoints
+
 app.get('/api/user/:userid', getUser);
 app.post('/api/user/add', addUser);
 app.put('/api/user/edit', editUser);
@@ -48,8 +68,10 @@ app.delete('/api/deleteReview', deleteReview);
 app.get('/api/businessSearch', businessSearch);
 app.get("/api/getBusinessReviews", getBusinessReviews);
 app.post("/api/postReview", postReview);
+
+app.post('api/storeuserinfo', storeUserInfoInHeroku);
 app.get("/api/getDetails", getDetails);
-app.post('/api/storeuserinfo', storeUserInfoInHeroku);
+
 
 
 // Search Endpoints
