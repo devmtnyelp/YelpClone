@@ -5,6 +5,8 @@ import SearchHeader from '../headers/searchHeader';
 import Footer from '../footer/footer';
 import BusinessReview from './businessReview';
 import { getDetails } from '../../ducks/events/reducer';
+// import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import Map from './mapContainer';
 
 class businessDetails extends Component {
   constructor(props) {
@@ -46,7 +48,25 @@ class businessDetails extends Component {
             <div className="mapbox-container">
               <div className="mapbox">
                 <div className="mapbox-map">
-                  <img src="http://via.placeholder.com/290x140" alt="" />
+                  <Map
+                    className="map"
+                    place={
+                      this.props.details.details &&
+                      this.props.details.details.name
+                    }
+                    google={this.props.google}
+                    style={{
+                      width: '290px',
+                      height: '140px',
+                      position: 'relative'
+                    }}
+                    initialCenter={{
+                      lat: 40.854885,
+                      lng: -88.081807
+                    }}
+                    zoom={15}
+                    onClick={this.onMapClicked}
+                  />
                 </div>
                 <div className="mapbox-text">
                   <ul>
