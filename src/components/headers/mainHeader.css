@@ -19,9 +19,8 @@
 .buttons {
   display: flex;
   justify-content: flex-end;
+  color: black;
 }
-
-
 
 a {
   color: white;

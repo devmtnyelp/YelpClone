@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { mainSearch } from "../../ducks/search/searchReducer";
 import ResultCard from "./resultCard";
 import SearchHeader from "../headers/searchHeader";
+import Footer from '../footer/footer'
 
 class SearchResults extends Component {
   constructor() {
@@ -65,6 +66,7 @@ class SearchResults extends Component {
               </div>
             ))}
         </div>
+        <Footer />
       </div>
     );
   }
