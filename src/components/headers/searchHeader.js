@@ -1,17 +1,18 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import { mainSearch } from "../../ducks/search/searchReducer";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { mainSearch } from '../../ducks/search/searchReducer';
+import { connect } from 'react-redux';
 
-import "./searchHeader.css";
-import picture from "./yelp.png";
+import './searchHeader.css';
+import picture from './yelp.png';
+import magnifying_glass from './magnifying_glass.png';
 
 class SearchHeader extends Component {
   constructor() {
     super();
 
     this.state = {
-      search: ""
+      search: ''
     };
   }
 
@@ -23,48 +24,46 @@ class SearchHeader extends Component {
     const { search, location } = this.state;
     return (
       <div className="body">
-        <div className="main-div">
-          <Link to="/">
-            <img className="yelp-pic2" alt=" " src={picture} />
-          </Link>
-          <div className="search-bar">
-            <label>
-              Find<input
-                className="search-input"
+      <div className="main-div">
+      <Link to="/">
+        <img className="yelp-pic2" src={picture} alt="" />
+      </Link>
+        <div className="search-form">
+            <div className="search-bar">
+              <span>Find</span>
+              <input
                 type="text"
+                placeholder="burgers, barbers, spas, handymen..."
                 onChange={event =>
                   this.setState({ search: event.target.value })
                 }
-                placeholder="burgers, barbers, spas, handymen...                                                   |"
               />
-            </label>
-            <label>
-              Near<input
-                className="search-input"
+              <span>Near</span>
+              <input
                 type="text"
+                placeholder="Dallas, TX"
                 onChange={event =>
                   this.setState({ location: event.target.value })
                 }
-                placeholder="Downtown, Dallas, TX"
               />
-            </label>
-            <button
-              className="search-button"
-              onClick={() => {
-                this.props.mainSearch(location, search);
-                this.props.history.push(
-                  `/searchresults/?location=${this.state.location}&?search=${
-                    this.state.search
-                  }`
-                );
-              }}
-            >
-              Search
-            </button>
+              <button
+                onClick={() => {
+                  this.props.mainSearch(location, search);
+                  this.props.history.push(
+                    `/searchresults/?location=${this.state.location}&?search=${
+                      this.state.search
+                    }`
+                  );
+                }}
+                className="search-button"
+              >
+                <img src={magnifying_glass} alt="" />
+              </button>
+            </div>
           </div>
           <button
             className="signup"
-            onClick={() => this.props.history.push("/register")}
+            onClick={() => this.props.history.push('/register')}
           >
             Sign up
           </button>
@@ -80,7 +79,7 @@ class SearchHeader extends Component {
           </div>
           <button
             className="login-button"
-            onClick={() => this.props.history.push("/login")}
+            onClick={() => this.props.history.push('/login')}
           >
             Login
           </button>

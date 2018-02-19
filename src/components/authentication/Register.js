@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// import { firebase, firestore } from '../../fire';
 
-import picture from './resources/signup_illustrationYelp.png';
-import './styles.css';
-
-import { createAccount } from '../../ducks/authentication/reducer';
+import React, { Component } from "react";
+import picture from "./resources/signup_illustrationYelp.png";
+import "./styles.css";
+import { withRouter } from "react-router-dom"
+import { connect } from "react-redux";
+import { createAccount } from '../../ducks/authentication/loginOrCreateReducer';
 
 class Register extends Component {
   constructor(props) {
@@ -22,21 +21,20 @@ class Register extends Component {
 
   render() {
     const { email, password } = this.state;
-
     return (
       <div className="main-content">
         <div className="signup-wrapper">
-          <div>test</div>
+          <div className="sign-up-form-box">
           <input
             placeholder="Email"
-            onChange={(e) => {
+            onChange={e => {
               this.setState({ email: e.target.value });
             }}
           />
           <input
             type="password"
             placeholder="Password"
-            onChange={(e) => {
+            onChange={e => {
               this.setState({ password: e.target.value });
             }}
           />
@@ -48,11 +46,12 @@ class Register extends Component {
           >
             Create Account
           </button>
+          </div>
+          </div>
 
           <div className="picture">
-            <img src={picture} alt="picua" />
+          <img src={picture} alt="picua" />
           </div>
-        </div>
       </div>
     );
   }
@@ -63,4 +62,5 @@ const mapStateToProps = ({ userReducer }) => ({
   userid: userReducer.userid,
 });
 
-export default connect(mapStateToProps, { createAccount })(Register);
+export default withRouter(
+  connect(mapStateToProps, { createAccount })(Register));

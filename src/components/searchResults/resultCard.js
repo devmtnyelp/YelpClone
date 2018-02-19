@@ -1,14 +1,17 @@
-import React, { Component } from "react";
-import "./resultCard.css";
+import React, { Component } from 'react';
+import './resultCard.css';
 
 export default class resultCard extends Component {
-  
   render() {
     return (
       <div>
         <div className="result-card">
           <div className="img-border">
-            <img className="results-img" src={this.props.obj.image_url} />
+            <img
+              className="results-img"
+              src={this.props.obj.image_url}
+              alt=""
+            />
           </div>
           <div className="name-rating">
             <div className="results-name">{this.props.obj.name}</div>
@@ -30,3 +33,5 @@ export default class resultCard extends Component {
     );
   }
 }
+
+// <Link to="{businessdetails}/{this.props.obj.id}"

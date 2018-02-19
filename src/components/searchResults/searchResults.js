@@ -7,6 +7,7 @@ import SearchHeader from "../headers/searchHeader";
 import map from "./map.png";
 
 import "./searchResults.css"
+import Footer from '../footer/footer'
 
 class SearchResults extends Component {
   constructor() {
@@ -29,6 +30,7 @@ class SearchResults extends Component {
     this.props.mainSearch(search[0].substr(10), search[1].substr(8));
   }
 
+
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
     let search = this.props.location.search.split("&");
@@ -47,6 +49,7 @@ class SearchResults extends Component {
   }
 
   render() {
+
     const { SearchResults } = this.props;
 
     return (
@@ -70,6 +73,7 @@ class SearchResults extends Component {
             <img className="map-pic" alt=" " src={map} />
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

@@ -1,71 +1,146 @@
 .main-div {
-    background-color:#CE1313;
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  position: relative;
+  background: #d32323
+    url(https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c146b0884f6a/assets/img/structural/header_stars.png)
+    no-repeat center;
 }
 
-.yelp-pic2{
-    width: 160px;
-    height: 80px;
-    
+.yelp-pic2 {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-indent: -1000em;
+  height: 40px;
+  width: 80px;
 }
 
 .signup {
-    background-color: #B61010;
-    color: white;
-    font-weight: bold;
-   border: thin;
-   height: 40px;
-   width: 90px;
-  
+  background-color: #b61010;
+  color: white;
+  font-weight: bold;
+  border: thin;
+  height: 40px;
+  width: 90px;
 }
 .signup:hover {
-    background-color:rgb(156, 14, 14);
+  background-color: rgb(156, 14, 14);
 }
 
 .second-div {
-    background-color:#B61010;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+  background-color: #b61010;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search-button {
-    background-color:transparent;
+  background-color: transparent;
 }
 
-.login-button{
-    background-color: #B61010;
-    font-weight: bold;
-    color:white;
-    border: thin;
-    height: 40px;
-    width: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.login-button {
+  background-color: #b61010;
+  font-weight: bold;
+  color: white;
+  border: thin;
+  height: 40px;
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-button:hover {
-    background-color:rgb(156, 14, 14);
+  background-color: rgb(156, 14, 14);
 }
 
 .links {
-    display: flex
+  display: flex;
+  font-size: 13px;
 }
 
-.results-title{
-    text-align: center;
+.results-title {
+  text-align: center;
 }
 
-@media(max-width: 400px) {
-    .yelp-pic2 {
-      height: 40px;
-      width: 80px;
-    }
-    a {
-      font-size: 10px;
-    }
+@media (max-width: 400px) {
+  .yelp-pic2 {
+    height: 40px;
+    width: 80px;
   }
+  a {
+    font-size: 10px;
+  }
+}
+
+.search-form {
+  /* width: 100%; */
+  margin: 0 12px auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+}
+
+.search-bar {
+  background: white;
+  display: flex;
+  height: 36px;
+  width: 700px;
+  margin: 12px auto;
+}
+
+.search-bar > input {
+  width: 330px;
+  box-sizing: border-box;
+  height: 36px;
+  padding: 8px 12px;
+  border: none;
+  background: inherit;
+  font-size: 14px;
+}
+
+.search-bar > input:first-of-type {
+  border-right: 1px solid #ccc;
+}
+
+.search-bar > span:last-of-type {
+  margin-left: 10px;
+}
+
+.search-bar > input:focus {
+  outline: none;
+}
+.search-bar > span {
+  box-sizing: border-box;
+  height: 36px;
+  margin: 30px 5px 10px 5px;
+  font-weight: bold;
+}
+
+.search-button {
+  border: none;
+  background: #b61010;
+  box-sizing: border-box;
+  height: 36px;
+  width: 55px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.search-button:hover {
+  background: #a71c1c;
+}
+
+.search-button > img {
+  height: 24px;
+  width: 24px;
+  margin: auto;
+}
+
+.search-form {
+  background: #d32323;
+}
