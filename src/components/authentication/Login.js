@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { loginUser } from "../../ducks/authentication/loginReducer";
 
 class Login extends Component {
@@ -18,7 +18,6 @@ class Login extends Component {
       this.props.history.push("/");
     }
   }
-  
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
     if (nextProps.userid) {

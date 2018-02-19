@@ -6,6 +6,10 @@ import { getReviews } from "../../ducks/events/reducer";
 import Star from "./star";
 
 class BusinessReview extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentWillMount() {
     if (this.props.details) {
       let restaurantId = this.props.details.id;
@@ -18,6 +22,14 @@ class BusinessReview extends Component {
       let formatted = str.split(" ")[0].split("-");
       return formatted[1] + "/" + formatted[2] + "/" + formatted[0];
     }
+    const stars = [1, 2, 3, 4, 5].map(idx => (
+      <Star
+        rating={this.props.details && this.props.details.rating}
+        index={idx}
+        key={idx}
+        name="smallest-star"
+      />
+    ));
     return (
       <div>
         <div id="super-container" className="content-container">

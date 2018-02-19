@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 
 import "./searchHeader.css";
 import picture from "./yelp.png";
+import alert from "./alert.png";
+import message from "./message.png";
 import magnifying_glass from "./magnifying_glass.png";
 
 class SearchHeader extends Component {
@@ -56,6 +58,10 @@ class SearchHeader extends Component {
               </button>
             </div>
           </div>
+          <img src={message} className="message" alt="" />
+
+          <img src={alert} className="alert" alt="" />
+
           <button
             className="signup"
             onClick={() => this.props.history.push("/register")}

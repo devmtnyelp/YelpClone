@@ -26,7 +26,7 @@ class mainHeader extends Component {
             <div className="flex-header">
               <div className="top-left">
                 <Link to="/writeReview">
-                 Write a Review
+                  Write a Review
                 </Link>
                 <Link to="/events">
                   Events
