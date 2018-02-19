@@ -72,3 +72,5 @@ function mapStateToProps({ searchReducer }) {
 }
 
 export default connect(mapStateToProps, { mainSearch })(SearchResults);
+
+// chain a refresh command so that the map updates and shows correct location.
