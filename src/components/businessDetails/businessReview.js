@@ -118,7 +118,9 @@ class BusinessReview extends Component {
                               </div>
                             );
                           })}
+                          <div>
                         Insert Suggestions Component Here
+                        </div>
                       </div>
                     </div>
                   </div>

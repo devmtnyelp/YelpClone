@@ -5,6 +5,7 @@ import { mainSearch } from '../../ducks/search/searchReducer';
 
 import './mainHeader.css';
 import picture from './yelp.png';
+import magnifying_glass from './magnifying_glass.png';
 
 class mainHeader extends Component {
   constructor() {
@@ -35,10 +36,16 @@ class mainHeader extends Component {
                 </Link>
               </div>
               <div className="buttons">
-                <button onClick={() => this.props.history.push('/login')}>
-                  Login
+                <button
+                  className="navlink"
+                  onClick={() => this.props.history.push('/login')}
+                >
+                  Log in
                 </button>
-                <button onClick={() => this.props.history.push('/register')}>
+                <button
+                  className="sign-up sign-up--primary"
+                  onClick={() => this.props.history.push('/register')}
+                >
                   Sign up
                 </button>
               </div>
@@ -46,39 +53,38 @@ class mainHeader extends Component {
             <div className="center-menu">
               <img className="yelp-pic" src={picture} alt="" />
             </div>
-            <div className="search-bar">
-              <label>
-                Find<input
-                  className="search-input"
+            <div className="search-form">
+              <div className="search-bar">
+                <span>Find</span>
+                <input
                   type="text"
+                  placeholder="burgers, barbers, spas, handymen..."
                   onChange={event =>
                     this.setState({ search: event.target.value })
                   }
-                  placeholder="burgers, barbers, spas, handymen...                                                   |"
                 />
-              </label>
-              <label>
-                Near<input
-                  className="search-input"
+                <span>Near</span>
+                <input
                   type="text"
+                  placeholder="Dallas, TX"
                   onChange={event =>
                     this.setState({ location: event.target.value })
                   }
-                  placeholder="Downtown, Dallas, TX"
                 />
-              </label>
-              <button
-                onClick={() => {
-                  this.props.mainSearch(search, location);
-                  this.props.history.push(
-                    `/searchresults/?location=${this.state.location}&?search=${
-                      this.state.search
-                    }`
-                  );
-                }}
-              >
-                Search
-              </button>
+                <button
+                  onClick={() => {
+                    this.props.mainSearch(location, search);
+                    this.props.history.push(
+                      `/searchresults/?location=${
+                        this.state.location
+                      }&?search=${this.state.search}`
+                    );
+                  }}
+                  className="search-button"
+                >
+                  <img src={magnifying_glass} alt="" />
+                </button>
+              </div>
             </div>
           </div>
           <div className="below-search">
