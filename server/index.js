@@ -23,6 +23,7 @@ const { getUser } = require('./controllers/getUser');
 const { removeUser } = require('./controllers/removeUser');
 const { storeUserInfoInHeroku } = require('./controllers/authCtrl');
 
+
 // Database Connection
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set('db', db))
@@ -50,7 +51,7 @@ app.post('/api/postReview', postReview);
 
 // Business Endpoints
 app.get('/api/businessSearch', businessSearch);
-app.post('/api/getDetails', getDetails);
+app.get('/api/getDetails', getDetails);
 
 // Search Endpoints
 app.get(`/api/events/searchFromHeader/`, businessSearch);
