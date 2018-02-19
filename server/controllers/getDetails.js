@@ -25,29 +25,31 @@ const getDetails = (req, res, next) => {
 
     return arr.join(' ');
   };
-  const dataFormater = input => {
-    var d = new Date(0);
 
-    responseObj.reviews = input.reviews.map((val, i) => {
-      if (val.userid) {
-        d = new Date(0);
-        d.setUTCSeconds(val.time);
-        val.text = val.reviewtitle + val.reviewbody;
-        val.user = {
-          image_url: val.avatar,
-          name: val.name
-        };
-        (val.time_created = timeFormater(d)),
-          (val.url = `localhost:3000/businessdetails/${val.restaurantid}`);
-      }
-      // else{
-      //   val.url = `localhost:3000/businessdetails/${val.url.substr()}`
-      // }
-      return val;
-    });
-    res.json(responseObj);
-  };
-  //   console.log('req.query:', req.query);
+    const dataFormater = (input) =>{
+        var d = new Date(0);
+
+          
+        responseObj.reviews = input.reviews.map((val, i)=>{
+            if(val.userid){
+                d = new Date(0)
+                d.setUTCSeconds(val.time)
+                val.text = val.reviewtitle + val.reviewbody
+                val.user = {
+                    image_url: val.avatar,
+                    name: val.name
+                }
+                val.time_created = timeFormater(d),
+                val.url = `localhost:3000/businessdetails/${val.restaurantid}`
+            }
+             else{
+               val.url = `localhost:3000/businessdetails/${req.query.restaurantId}`
+             }
+            return val
+        })
+        res.json(responseObj)
+    }
+//   console.log('req.query:', req.query);
 
   axios
     .get(`https://api.yelp.com/v3/businesses/${req.query.restaurantId}`, {
