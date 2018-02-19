@@ -1,17 +1,30 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// import { loginUser } from '../../ducks/events/reducer';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+// import { withRouter } from "react-router-dom";
+import { loginUser } from "../../ducks/authentication/loginReducer";
 
 class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: ""
     };
   }
 
+  componentWillMount() {
+    if (this.props.userid) {
+      this.props.history.push("/");
+    }
+  }
+  
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    if (nextProps.userid) {
+      this.props.history.push("/");
+    }
+  }
 
   render() {
     const { email, password } = this.state;
@@ -20,31 +33,38 @@ class Login extends Component {
         <div>test</div>
         <input
           placeholder="Email"
-          onChange={(e) => {
+          onChange={e => {
             this.setState({ email: e.target.value });
           }}
         />
         <input
           type="password"
           placeholder="Password"
-          onChange={(e) => {
+          onChange={e => {
             this.setState({ password: e.target.value });
           }}
         />
 
-        <button onClick={() => { this.props.loginUser(email, password); }}>Login</button>
-
-        <div>
-          <img src={require('./resources/signup_illustrationYelp.png')} alt="picua" />
-        </div>
+        <button
+          onClick={() => {
+            this.props.loginUser(email, password);
+          }}
+        >
+          Login
+        </button>
+        <img
+          src={require("./resources/signup_illustrationYelp.png")}
+          alt="picua"
+        />
+        <div />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ eventReducer }) => ({
-  isLoading: eventReducer.isLoading,
-  userid: eventReducer.userid,
+const mapStateToProps = ({ loginUserReducer }) => ({
+  isLoading: loginUserReducer.isLoading,
+  userid: loginUserReducer.userid
 });
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps, { loginUser })(Login);

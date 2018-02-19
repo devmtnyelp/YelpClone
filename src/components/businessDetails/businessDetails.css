@@ -78,6 +78,30 @@
   line-height: 1.28571em;
   padding: 8px 19px 9px 19px;
   border-radius: 3px;
+  border-color: #ccc;
+  color: #666;
+  background-color: #f7f7f7;
+}
+
+a.ybtn:hover,
+a.ybtn:visited {
+  color: #666;
+}
+
+.ybtn-primary,
+.ybtn--primary {
+  color: white;
+  border-color: #8d0005;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  background-color: #d90007;
+  background: -webkit-linear-gradient(#d90007, #c91400);
+  background: linear-gradient(#d90007, #c91400);
+}
+
+.ybtn--small {
+  padding: 5px 8px;
+  font-size: 12px;
+  line-height: 1.5em;
 }
 
 a.ybtn {
@@ -232,4 +256,9 @@ ul {
 #sized {
   width: 220px;
   height: 220px;
+}
+
+.map {
+  height: 140px;
+  width: 290px;
 }

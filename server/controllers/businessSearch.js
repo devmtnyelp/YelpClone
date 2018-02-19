@@ -3,6 +3,7 @@ require('dotenv').config();
 const axios = require('axios');
 
 const { apiKey } = process.env;
+
 const businessSearch = (req, res) => {
   axios
     .get(
@@ -15,8 +16,11 @@ const businessSearch = (req, res) => {
       },
     },
     )
-    .then((response) => {
-      res.json(response.data);
+
+    .then(response => {
+      console.log(req.query);
+      return res.json(response.data);
+
     })
     .catch(err => err);
 };
@@ -24,6 +28,3 @@ const businessSearch = (req, res) => {
 module.exports = {
   businessSearch,
 };
-
- 
-

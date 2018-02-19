@@ -7,6 +7,7 @@ const initialState = {
 const GET_EVENTS_FROM_SEARCH = "GET_EVENTS_FROM_SEARCH";
 
 export function mainSearch(location, term) {
+  console.log(location, term);
   return {
     type: GET_EVENTS_FROM_SEARCH,
     payload: axios
