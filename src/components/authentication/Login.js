@@ -18,7 +18,7 @@ class Login extends Component {
       this.props.history.push("/");
     }
   }
-
+  
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
     if (nextProps.userid) {

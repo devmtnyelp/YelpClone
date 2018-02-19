@@ -25,13 +25,13 @@ class mainHeader extends Component {
             <div className="flex-header">
               <div className="top-left">
                 <Link to="/writeReview">
-                  <a>Write a Review</a>
+                 Write a Review
                 </Link>
                 <Link to="/events">
-                  <a>Events</a>
+                  Events
                 </Link>
                 <Link to="/Talk">
-                  <a>Talk</a>
+                  Talk
                 </Link>
               </div>
               <div className="buttons">
@@ -84,20 +84,17 @@ class mainHeader extends Component {
           </div>
           <div className="below-search">
             <Link to="/searchRestaurants">
-              {' '}
-              <a> Restaurants </a>{' '}
+               Restaurants 
             </Link>
             <Link to="/searchNightlife">
-              {' '}
-              <a> Nightlife </a>{' '}
+               Nightlife
             </Link>
             <Link to="/searchHomeServices">
-              {' '}
-              <a> Home Services </a>{' '}
+               Home Services
             </Link>
             <Link to="/searchDelivery">
-              {' '}
-              <a> Delivery </a>{' '}
+               Delivery
+
             </Link>
           </div>
         </div>
