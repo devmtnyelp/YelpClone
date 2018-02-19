@@ -5,6 +5,7 @@ const axios = require('axios');
 const { apiKey } = process.env;
 
 const businessSearch = (req, res) => {
+  console.log("req.query: ", req.query)
   axios
     .get(
       `https://api.yelp.com/v3/businesses/search?location=${req.query.location}&term=${
@@ -18,7 +19,7 @@ const businessSearch = (req, res) => {
     )
 
     .then(response => {
-      console.log(req.query);
+      // console.log(req.query);
       return res.json(response.data);
 
     })

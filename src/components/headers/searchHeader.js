@@ -1,34 +1,29 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { mainSearch } from '../../ducks/search/searchReducer';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import { mainSearch } from "../../ducks/search/searchReducer";
+import { connect } from "react-redux";
 
-import './searchHeader.css';
-import picture from './yelp.png';
-import magnifying_glass from './magnifying_glass.png';
+import "./searchHeader.css";
+import picture from "./yelp.png";
+import magnifying_glass from "./magnifying_glass.png";
 
 class SearchHeader extends Component {
   constructor() {
     super();
 
     this.state = {
-      search: ''
+      search: ""
     };
   }
-
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-  }
-
   render() {
     const { search, location } = this.state;
     return (
       <div className="body">
-      <div className="main-div">
-      <Link to="/">
-        <img className="yelp-pic2" src={picture} alt="" />
-      </Link>
-        <div className="search-form">
+        <div className="main-div">
+          <Link to="/">
+            <img className="yelp-pic2" src={picture} alt="" />
+          </Link>
+          <div className="search-form">
             <div className="search-bar">
               <span>Find</span>
               <input
@@ -63,7 +58,7 @@ class SearchHeader extends Component {
           </div>
           <button
             className="signup"
-            onClick={() => this.props.history.push('/register')}
+            onClick={() => this.props.history.push("/register")}
           >
             Sign up
           </button>
@@ -79,7 +74,7 @@ class SearchHeader extends Component {
           </div>
           <button
             className="login-button"
-            onClick={() => this.props.history.push('/login')}
+            onClick={() => this.props.history.push("/login")}
           >
             Login
           </button>

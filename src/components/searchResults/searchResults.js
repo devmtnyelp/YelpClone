@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { mainSearch } from "../../ducks/search/searchReducer";
 import ResultCard from "./resultCard";
 import SearchHeader from "../headers/searchHeader";
-import Footer from '../footer/footer'
+import Footer from "../footer/footer";
+import MapContainer from "../businessDetails/mapOfAllBiz";
 
 class SearchResults extends Component {
   constructor() {
@@ -16,21 +17,12 @@ class SearchResults extends Component {
     };
   }
 
-  shouldComponentUpdate(prevState, newState) {
-    return true;
-  }
-
-  componentWillMount() {}
-
   componentDidMount() {
-
     let search = this.props.location.search.split("&");
     this.props.mainSearch(search[0].substr(10), search[1].substr(8));
   }
 
-
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     let search = this.props.location.search.split("&");
     this.setState({
       location:
@@ -47,9 +39,8 @@ class SearchResults extends Component {
   }
 
   render() {
-
-    const { SearchResults } = this.props;
-
+    const { searchResults } = this.props;
+    console.log("coordinates: ", this.props.coordinates);
     return (
       <div>
         <SearchHeader />
@@ -57,11 +48,15 @@ class SearchResults extends Component {
           The Best {this.state.search} In {this.state.location}
         </div>
         <div />
+        {this.props.coordinates &&
+          this.props.coordinates[0] && (
+            <MapContainer results={this.props.coordinates} />
+          )}
+
         <div>
-          {this.props.searchResults.length > 0 &&
+          {this.props.searchResults &&
             this.props.searchResults.map((item, i) => (
               <div key={i}>
-                {console.log(i)}
                 <ResultCard obj={item} />
               </div>
             ))}

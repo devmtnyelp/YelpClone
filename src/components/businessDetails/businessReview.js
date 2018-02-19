@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import './businessReview.css';
-import burst from '../footer/images/burst_desktop_xsmall_outline.png';
-import { getReviews } from '../../ducks/events/reducer';
-import Star from './star';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "./businessReview.css";
+import burst from "../footer/images/burst_desktop_xsmall_outline.png";
+import { getReviews } from "../../ducks/events/reducer";
+import Star from "./star";
 
 class BusinessReview extends Component {
   componentWillMount() {
@@ -15,8 +15,8 @@ class BusinessReview extends Component {
 
   render() {
     function dateParser(str) {
-      let formatted = str.split(' ')[0].split('-');
-      return formatted[1] + '/' + formatted[2] + '/' + formatted[0];
+      let formatted = str.split(" ")[0].split("-");
+      return formatted[1] + "/" + formatted[2] + "/" + formatted[0];
     }
     return (
       <div>
@@ -29,7 +29,7 @@ class BusinessReview extends Component {
                     <div className="feed_header">
                       <div className="section-header section-header--no-spacing">
                         <h2>
-                          Recommended Reviews{' '}
+                          Recommended Reviews{" "}
                           <b>
                             for {this.props.details && this.props.details.name}
                           </b>
@@ -118,9 +118,7 @@ class BusinessReview extends Component {
                               </div>
                             );
                           })}
-                          <div>
-                        Insert Suggestions Component Here
-                        </div>
+                        <div>Insert Suggestions Component Here</div>
                       </div>
                     </div>
                   </div>
