@@ -3,7 +3,6 @@ import "./star.css";
 
 class Star extends Component {
   render() {
-    console.log(this.props);
     function starFinder(rating) {
       let quantity;
       if (rating === 1) {
