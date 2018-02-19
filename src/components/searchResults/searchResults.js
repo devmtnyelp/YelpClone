@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import businessSearch from "../../../server/controllers/businessSearch";
-import { mainSearch } from '../../ducks/search/searchReducer';
-import ResultCard from './resultCard';
-import SearchHeader from '../headers/searchHeader';
+import { mainSearch } from "../../ducks/search/searchReducer";
+import ResultCard from "./resultCard";
+import SearchHeader from "../headers/searchHeader";
 import Footer from '../footer/footer';
+
 
 class SearchResults extends Component {
  constructor() {
@@ -64,7 +65,9 @@ class SearchResults extends Component {
            this.props.searchResults.map((item, i) => (
              <div key={i}>
                {console.log(i)}
-               <ResultCard obj={item} />
+      
+         <ResultCard obj={item} />
+
              </div>
            ))}
        </div>
