@@ -6,6 +6,10 @@ import { getReviews } from '../../ducks/events/reducer';
 import Star from './star';
 
 class BusinessReview extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentWillMount() {
     if (this.props.details) {
       let restaurantId = this.props.details.id;
@@ -49,7 +53,7 @@ class BusinessReview extends Component {
                           </div>
                         </div>
                         {this.props.reviews &&
-                          this.props.reviews.reviews.map((rev, i) => {
+                          this.props.reviews.map((rev, i) => {
                             return (
                               <div key={i} className="review-list">
                                 <ul
@@ -118,9 +122,7 @@ class BusinessReview extends Component {
                               </div>
                             );
                           })}
-                          <div>
-                        Insert Suggestions Component Here
-                        </div>
+                        <div>Insert Suggestions Component Here</div>
                       </div>
                     </div>
                   </div>

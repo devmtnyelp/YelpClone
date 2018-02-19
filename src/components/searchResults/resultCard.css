@@ -1,8 +1,10 @@
 .result-card {
+
   display: flex;
-  border: solid;
+  /* margin-left: 15%; */
+  border-top: solid;
   height: 174px;
-  width: 630px;
+  width: 60%;
 }
 
 .img-border {
@@ -12,8 +14,8 @@
 }
 
 .results-img {
-  height: 90px;
-  width: 90px;
+  height: 100px;
+  width: 100px;
 }
 
 .name-rating {
@@ -28,6 +30,8 @@
 .results-name {
   display: flex;
   justify-content: flex-start;
+  font-weight: bold;
+  font-size: 22px;
 }
 .results-rating {
   display: flex;
@@ -38,7 +42,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-weight: bold;
 }
+
+
+.rating {
+  width: 100%;
+  height: 100%;
+}
+
 
 @media (max-width: 375px) {
   .result-card{
@@ -46,3 +58,4 @@
   }
   
 }
+

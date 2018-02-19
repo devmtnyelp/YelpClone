@@ -88,11 +88,12 @@ a {
 }
 
 .search-bar {
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+    background-color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 60%;
 }
 
 .center-menu {
