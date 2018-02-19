@@ -14,6 +14,10 @@ class BusinessReview extends Component {
   }
 
   render() {
+    function dateParser(str) {
+      let formatted = str.split(' ')[0].split('-');
+      return formatted[1] + '/' + formatted[2] + '/' + formatted[0];
+    }
     return (
       <div>
         <div id="super-container" className="content-container">
@@ -100,7 +104,7 @@ class BusinessReview extends Component {
                                                 </div>
                                               </div>
                                               <span className="rating-qualifier">
-                                                {rev.time_created}
+                                                {dateParser(rev.time_created)}
                                               </span>
                                             </div>
                                             <p id="review-par">{rev.text}</p>
