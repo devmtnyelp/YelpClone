@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 // import businessSearch from "../../../server/controllers/businessSearch";
-import { mainSearch } from "../../ducks/search/searchReducer";
-import ResultCard from "./resultCard";
-import SearchHeader from "../headers/searchHeader";
-import Footer from '../footer/footer'
+import { mainSearch } from '../../ducks/search/searchReducer';
+import ResultCard from './resultCard';
+import SearchHeader from '../headers/searchHeader';
+import Footer from '../footer/footer';
 
 class SearchResults extends Component {
  constructor() {
@@ -21,6 +22,7 @@ class SearchResults extends Component {
  }
 
  componentWillMount() {}
+
 
  componentDidMount() {
 

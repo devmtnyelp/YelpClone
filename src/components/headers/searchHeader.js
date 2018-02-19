@@ -24,19 +24,15 @@ class SearchHeader extends Component {
 
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-  }
-
   render() {
     const { search, location } = this.state;
     return (
       <div className="body">
-      <div className="main-div">
-      <Link to="/">
-        <img className="yelp-pic2" src={picture} alt="" />
-      </Link>
-        <div className="search-form">
+        <div className="main-div">
+          <Link to="/">
+            <img className="yelp-pic2" src={picture} alt="" />
+          </Link>
+          <div className="search-form">
             <div className="search-bar">
               <span>Find</span>
               <input
@@ -65,7 +61,15 @@ class SearchHeader extends Component {
                 }}
                 className="search-button"
               >
-                <img src={magnifying_glass} alt="" />
+                <svg
+                  fill="#fff"
+                  id="24x24_search"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                >
+                  <path d="M20.753 19.34l-4.295-4.297A7.46 7.46 0 0 0 18 10.5a7.5 7.5 0 1 0-7.5 7.5 7.46 7.46 0 0 0 4.543-1.542l4.296 4.295a1 1 0 1 0 1.412-1.414zM10.5 16A5.506 5.506 0 0 1 5 10.5C5 7.467 7.467 5 10.5 5S16 7.467 16 10.5 13.533 16 10.5 16z" />
+                </svg>
               </button>
            
             </div>

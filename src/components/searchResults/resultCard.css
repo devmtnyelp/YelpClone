@@ -46,6 +46,12 @@
 }
 
 
+.rating {
+  width: 100%;
+  height: 100%;
+}
+
+
 @media (max-width: 375px) {
   .result-card{
     width: 369px;
