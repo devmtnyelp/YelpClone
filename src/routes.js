@@ -19,7 +19,7 @@ const Routes = () => (
     <Route path="/searchheader" component={SearchHeader} />
     <Route path="/loginheader" component={LoginHeader} />
     <Route path="/searchresults" component={SearchResults} />
-    <Route path="/businessdetails" component={businessDetails} />
+    <Route path="/businessdetails/:restaurantId" component={businessDetails} />
     <Route path="/star" component={Star} />
   </Switch>
 );

@@ -18,6 +18,7 @@ class BusinessReview extends Component {
       let formatted = str.split(' ')[0].split('-');
       return formatted[1] + '/' + formatted[2] + '/' + formatted[0];
     }
+    
     return (
       <div>
         <div id="super-container" className="content-container">
@@ -49,7 +50,7 @@ class BusinessReview extends Component {
                           </div>
                         </div>
                         {this.props.reviews &&
-                          this.props.reviews.reviews.map((rev, i) => {
+                          this.props.reviews.map((rev, i) => {
                             return (
                               <div key={i} className="review-list">
                                 <ul
@@ -118,9 +119,7 @@ class BusinessReview extends Component {
                               </div>
                             );
                           })}
-                          <div>
-                        Insert Suggestions Component Here
-                        </div>
+                        <div>Insert Suggestions Component Here</div>
                       </div>
                     </div>
                   </div>

@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 // import businessSearch from "../../../server/controllers/businessSearch";
-import { mainSearch } from "../../ducks/search/searchReducer";
-import ResultCard from "./resultCard";
-import SearchHeader from "../headers/searchHeader";
-import Footer from '../footer/footer'
+import { mainSearch } from '../../ducks/search/searchReducer';
+import ResultCard from './resultCard';
+import SearchHeader from '../headers/searchHeader';
+import Footer from '../footer/footer';
 
 class SearchResults extends Component {
   constructor() {
@@ -23,15 +24,13 @@ class SearchResults extends Component {
   componentWillMount() {}
 
   componentDidMount() {
-
-    let search = this.props.location.search.split("&");
+    let search = this.props.location.search.split('&');
     this.props.mainSearch(search[0].substr(10), search[1].substr(8));
   }
 
-
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
-    let search = this.props.location.search.split("&");
+    let search = this.props.location.search.split('&');
     this.setState({
       location:
         search[0]
@@ -47,9 +46,8 @@ class SearchResults extends Component {
   }
 
   render() {
-
     const { SearchResults } = this.props;
-
+    console.log("PROPS RESULTS PAGE:", this.props);
     return (
       <div>
         <SearchHeader />
@@ -62,6 +60,7 @@ class SearchResults extends Component {
             this.props.searchResults.map((item, i) => (
               <div key={i}>
                 {console.log(i)}
+
                 <ResultCard obj={item} />
               </div>
             ))}

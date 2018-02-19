@@ -46,7 +46,7 @@ app.post('/api/storeuserinfo', storeUserInfoInHeroku);
 // Review Endpoints
 app.put('/api/editReview', editReview);
 app.delete('/api/deleteReview', deleteReview);
-app.post('/api/getBusinessReviews', getBusinessReviews);
+app.get('/api/getBusinessReviews', getBusinessReviews);
 app.post('/api/postReview', postReview);
 
 // Business Endpoints
