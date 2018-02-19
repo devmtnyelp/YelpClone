@@ -3,6 +3,7 @@
   display: flex;
   /* margin-left: 15%; */
   border-top: solid;
+  border-color: rgb(180, 179, 179);
   height: 174px;
   width: 60%;
 }

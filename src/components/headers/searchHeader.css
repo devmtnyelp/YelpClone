@@ -156,3 +156,8 @@
   height: 24px;
   width: 24px;
 }
+@media (max-width: 400px){
+  .search-bar{
+    
+  }
+}
