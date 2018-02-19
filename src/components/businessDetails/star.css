@@ -36,7 +36,6 @@
   font-size: 12px;
   margin: auto 5px;
 }
-<<<<<<< Updated upstream
 
 star-5 {
   width: 132px;
@@ -47,8 +46,11 @@ star-5 {
 .i-stars {
   background: url(https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_design_web/9b34e39ccbeb/assets/img/stars/stars.png)
     no-repeat;
-  background-size: 132px 560px;
+  background-size: cover;
   display: inline-block;
+  vertical-align: middle;
+  z-index: 500;
+  background-size: 132px 560px;
   vertical-align: middle;
 }
 
@@ -175,5 +177,3 @@ star-5 {
   height: 18px;
   background-position: 0 -402px;
 }
-=======
->>>>>>> Stashed changes

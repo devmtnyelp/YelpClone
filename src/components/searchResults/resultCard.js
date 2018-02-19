@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import './resultCard.css';
+import React, { Component } from "react";
+import "./resultCard.css";
+import Star from "../businessDetails/star";
 
 export default class resultCard extends Component {
   render() {
@@ -14,9 +15,10 @@ export default class resultCard extends Component {
             />
           </div>
           <div className="name-rating">
-            
             <div className="results-name">{this.props.obj.name}</div>
-            <div className="results-rating">{this.props.obj.rating}</div>
+            <div className="results-rating">
+              <Star rev={this.props.obj.rating} />
+            </div>
           </div>
           <div className="result-location">
             <div className="address-flex">

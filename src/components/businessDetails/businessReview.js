@@ -6,13 +6,10 @@ import { getReviews } from '../../ducks/events/reducer';
 import Star from './star';
 
 class BusinessReview extends Component {
-<<<<<<< Updated upstream
-=======
   constructor(props) {
     super(props);
   }
 
->>>>>>> Stashed changes
   componentWillMount() {
     if (this.props.details) {
       let restaurantId = this.props.details.id;
@@ -21,12 +18,10 @@ class BusinessReview extends Component {
   }
 
   render() {
-<<<<<<< Updated upstream
     function dateParser(str) {
       let formatted = str.split(' ')[0].split('-');
       return formatted[1] + '/' + formatted[2] + '/' + formatted[0];
     }
-=======
     const stars = [1, 2, 3, 4, 5].map(idx => (
       <Star
         rating={this.props.details && this.props.details.rating}
@@ -35,7 +30,6 @@ class BusinessReview extends Component {
         name="smallest-star"
       />
     ));
->>>>>>> Stashed changes
     return (
       <div>
         <div id="super-container" className="content-container">
@@ -57,11 +51,7 @@ class BusinessReview extends Component {
                             <div className="arrange arrange--12 arrange--middle">
                               <div className="arrange_unit arrange_unit--fill">
                                 <span className="legal-copy">
-<<<<<<< Updated upstream
                                   <img src={burst} id="burst" alt="" />
-=======
-                                  <img src={burst} id="burst" />
->>>>>>> Stashed changes
                                   <b> Your trust is our top concern,</b> so
                                   businesses can't pay to alter or remove their
                                   reviews.
@@ -73,11 +63,7 @@ class BusinessReview extends Component {
                         {this.props.reviews &&
                           this.props.reviews.reviews.map((rev, i) => {
                             return (
-<<<<<<< Updated upstream
                               <div key={i} className="review-list">
-=======
-                              <div className="review-list">
->>>>>>> Stashed changes
                                 <ul
                                   id="ylist"
                                   className="ylist ylist-bordered reviews"
@@ -89,15 +75,11 @@ class BusinessReview extends Component {
                                           <div className="ypassport media-block">
                                             <div className="media-avatar response-photo-box">
                                               <div className="photo-box pb-60s">
-<<<<<<< Updated upstream
                                                 <img
                                                   id="settledown"
                                                   src={rev.user.image_url}
                                                   alt=""
                                                 />
-=======
-                                                <img src="http://via.placeholder.com/60x60" />
->>>>>>> Stashed changes
                                               </div>
                                             </div>
                                             <div className="media-story">
@@ -127,24 +109,14 @@ class BusinessReview extends Component {
                                                 <div className="right-review-item">
                                                   <ul
                                                     id="row"
-<<<<<<< Updated upstream
                                                     className="res_stars"
                                                   >
                                                     <Star rev={rev.rating} />
-=======
-                                                    class="res_stars"
-                                                  >
-                                                    {stars}
->>>>>>> Stashed changes
                                                   </ul>
                                                 </div>
                                               </div>
                                               <span className="rating-qualifier">
-<<<<<<< Updated upstream
                                                 {dateParser(rev.time_created)}
-=======
-                                                {rev.time_created}
->>>>>>> Stashed changes
                                               </span>
                                             </div>
                                             <p id="review-par">{rev.text}</p>
@@ -155,19 +127,12 @@ class BusinessReview extends Component {
                                     </div>
                                   </li>
                                 </ul>
-<<<<<<< Updated upstream
                               </div>
                             );
                           })}
                           <div>
                         Insert Suggestions Component Here
                         </div>
-=======
-                                Insert Suggestions Component Here
-                              </div>
-                            );
-                          })}
->>>>>>> Stashed changes
                       </div>
                     </div>
                   </div>

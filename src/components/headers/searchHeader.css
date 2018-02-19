@@ -7,6 +7,8 @@
   background: #d32323
     url(https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c146b0884f6a/assets/img/structural/header_stars.png)
     no-repeat center;
+  margin: 0, auto;
+  
 }
 
 .yelp-pic2 {
@@ -16,6 +18,7 @@
   text-indent: -1000em;
   height: 40px;
   width: 80px;
+  margin-left: 25%;
 }
 
 .signup {
@@ -143,4 +146,13 @@
 
 .search-form {
   background: #d32323;
+}
+
+.alert {
+  height: 24px;
+  width: 24px;
+}
+.message {
+  height: 24px;
+  width: 24px;
 }
