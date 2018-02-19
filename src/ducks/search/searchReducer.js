@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const initialState = {
-  searchResults: {}
+  searchResults: ""
 };
 
 const GET_EVENTS_FROM_SEARCH = "GET_EVENTS_FROM_SEARCH";

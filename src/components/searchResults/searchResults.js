@@ -7,73 +7,73 @@ import SearchHeader from "../headers/searchHeader";
 import Footer from '../footer/footer'
 
 class SearchResults extends Component {
-  constructor() {
-    super();
+ constructor() {
+   super();
 
-    this.state = {
-      results: {},
-      search: []
-    };
-  }
+   this.state = {
+     results: {},
+     search: []
+   };
+ }
 
-  shouldComponentUpdate(prevState, newState) {
-    return true;
-  }
+ shouldComponentUpdate(prevState, newState) {
+   return true;
+ }
 
-  componentWillMount() {}
+ componentWillMount() {}
 
-  componentDidMount() {
+ componentDidMount() {
 
-    let search = this.props.location.search.split("&");
-    this.props.mainSearch(search[0].substr(10), search[1].substr(8));
-  }
+   let search = this.props.location.search.split("&");
+   this.props.mainSearch(search[0].substr(10), search[1].substr(8));
+ }
 
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-    let search = this.props.location.search.split("&");
-    this.setState({
-      location:
-        search[0]
-          .substr(10)
-          .charAt(0)
-          .toUpperCase() + search[0].substr(11),
-      search:
-        search[1]
-          .substr(8)
-          .charAt(0)
-          .toUpperCase() + search[1].substr(9)
-    });
-  }
+ componentWillReceiveProps(nextProps) {
+   console.log(nextProps);
+   let search = this.props.location.search.split("&");
+   this.setState({
+     location:
+       search[0]
+         .substr(10)
+         .charAt(0)
+         .toUpperCase() + search[0].substr(11),
+     search:
+       search[1]
+         .substr(8)
+         .charAt(0)
+         .toUpperCase() + search[1].substr(9)
+   });
+ }
 
-  render() {
+ render() {
 
-    const { SearchResults } = this.props;
+   const { SearchResults } = this.props;
 
-    return (
-      <div>
-        <SearchHeader />
-        <div className="results-title">
-          The Best {this.state.search} In {this.state.location}
-        </div>
-        <div />
-        <div>
-          {this.props.searchResults.length > 0 &&
-            this.props.searchResults.map((item, i) => (
-              <div key={i}>
-                {console.log(i)}
-                <ResultCard obj={item} />
-              </div>
-            ))}
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+   return (
+     <div>
+       <SearchHeader />
+       <div>
+         <h1 className="results-title"> The <span> Best {this.state.search} </span> In {this.state.location} </h1>
+       </div>
+       <div />
+       <div>
+         {this.props.searchResults.length > 0 &&
+           this.props.searchResults.map((item, i) => (
+             <div key={i}>
+               {console.log(i)}
+               <ResultCard obj={item} />
+             </div>
+           ))}
+       </div>
+       <Footer />
+     </div>
+   );
+ }
 }
 
 function mapStateToProps({ searchReducer }) {
-  return searchReducer;
+ return searchReducer;
 }
 
 export default connect(mapStateToProps, { mainSearch })(SearchResults);

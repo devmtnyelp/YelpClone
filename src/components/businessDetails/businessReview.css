@@ -267,12 +267,7 @@ ul {
   overflow: hidden;
 }
 
-.i-stars {
-  background: url(https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_design_web/9b34e39ccbeb/assets/img/stars/stars.png)
-    no-repeat;
-  background-size: 132px 560px;
-  vertical-align: middle;
-}
+
 
 .i-star--regular-5 {
   width: 102px;
