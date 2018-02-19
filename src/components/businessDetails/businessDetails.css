@@ -21,7 +21,15 @@
   min-width: 0;
   min-height: 0;
   padding-right: 30px;
-  text-align: right;
+  text-align: center;
+}
+
+#black {
+  color: black;
+}
+
+.totheleft {
+  justify-content: left;
 }
 
 .clearfix {
@@ -76,7 +84,7 @@
   text-align: center;
   font-size: 14px;
   line-height: 1.28571em;
-  padding: 8px 19px 9px 19px;
+  padding: 0px 19px 9px 19px;
   border-radius: 3px;
   border-color: #ccc;
   color: #666;
@@ -86,6 +94,19 @@
 a.ybtn:hover,
 a.ybtn:visited {
   color: #666;
+}
+
+#star {
+  vertical-align: middle;
+  margin: -12px 0;
+}
+
+#icons {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+  top: -0.1em;
 }
 
 .ybtn-primary,
@@ -108,10 +129,29 @@ a.ybtn {
   text-decoration: none !important;
 }
 
+.u-sticky-top {
+  top: 0 !important;
+  height: 18px;
+  width: 18px;
+}
+
+.u-absolute {
+  position: absolute !important;
+}
+
+.map-box-address {
+  line-height: 18px;
+}
+
+.u-space-14 {
+  margin-left: 24px !important;
+}
+
 .biz-page-actions .war-button {
   float: left;
   padding-left: 12px;
   margin-right: 12px;
+  padding-top: 9px;
 }
 
 .biz-page-actions .ybtn-group {
@@ -148,21 +188,29 @@ a.ybtn {
   background: #fff;
   border: 1px solid #ccc;
   float: left;
+  width: 290px;
 }
 
 .mapbox-map {
-  overflow: hidding;
+  overflow: hidden;
   height: 135px;
   border: 1px solid #ccc;
 }
 
 .mapbox-text {
   min-height: 105px;
+  /* justify-content: center; */
 }
 
 .mapbox-text li {
-  border: 1px solid black;
+  /* border-bottom: 1px solid black; */
   text-align: left;
+  line-height: 25px;
+}
+
+address {
+  font-style: normal;
+  font-weight: bold;
 }
 
 .biz-page-subheader .showcase-container {
