@@ -51,7 +51,7 @@ app.post('/api/postReview', postReview);
 
 // Business Endpoints
 app.get('/api/businessSearch', businessSearch);
-app.post('/api/getDetails', getDetails);
+app.get('/api/getDetails', getDetails);
 
 // Search Endpoints
 app.get(`/api/events/searchFromHeader/`, businessSearch);

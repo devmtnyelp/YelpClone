@@ -35,6 +35,7 @@ class mainHeader extends Component {
                 </Link>
               </div>
               <div className="buttons">
+
                 <button onClick={() => this.props.history.push('/login')}>
                   Login
                 </button>
