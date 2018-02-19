@@ -6,6 +6,7 @@ import Register from "./components/authentication/Register";
 import Login from "./components/authentication/Login";
 import SearchHeader from "./components/headers/searchHeader";
 import LoginHeader from "./components/headers/loginHeader";
+import displayCard from "./components/searchResults/resultCard";
 import SearchResults from "./components/searchResults/resultCard";
 import businessDetails from "./components/businessDetails/businessDetails";
 import Star from "./components/businessDetails/star";
