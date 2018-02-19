@@ -22,7 +22,10 @@ const { editUser } = require('./controllers/editUser');
 const { getUser } = require('./controllers/getUser');
 const { removeUser } = require('./controllers/removeUser');
 const { storeUserInfoInHeroku } = require('./controllers/authCtrl');
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 // Database Connection
 massive(process.env.CONNECTION_STRING)
@@ -51,7 +54,11 @@ app.post('/api/postReview', postReview);
 
 // Business Endpoints
 app.get('/api/businessSearch', businessSearch);
+<<<<<<< Updated upstream
 app.get('/api/getDetails', getDetails);
+=======
+app.post('/api/getDetails', getDetails);
+>>>>>>> Stashed changes
 
 // Search Endpoints
 app.get(`/api/events/searchFromHeader/`, businessSearch);

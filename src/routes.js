@@ -7,9 +7,14 @@ import Login from "./components/authentication/Login";
 import SearchHeader from "./components/headers/searchHeader";
 import LoginHeader from "./components/headers/loginHeader";
 import SearchResults from "./components/searchResults/searchResults.js";
+<<<<<<< Updated upstream
 import displayCard from "./components/searchResults/resultCard";
 import businessDetails from "./components/businessDetails/businessDetails";
 import Star from "./components/businessDetails/star";
+=======
+import resultCard from "./components/searchResults/resultCard";
+import businessDetails from "./components/businessDetails/businessDetails";
+>>>>>>> Stashed changes
 
 const Routes = () => (
   <Switch>
@@ -20,7 +25,11 @@ const Routes = () => (
     <Route path="/loginheader" component={LoginHeader} />
     <Route path="/searchresults" component={SearchResults} />
     <Route path="/businessdetails" component={businessDetails} />
+<<<<<<< Updated upstream
     <Route path="/star" component={Star} />
+=======
+    <Route path="/card" component={resultCard} />
+>>>>>>> Stashed changes
   </Switch>
 );
 

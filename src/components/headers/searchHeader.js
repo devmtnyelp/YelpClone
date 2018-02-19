@@ -11,9 +11,14 @@ class SearchHeader extends Component {
   constructor() {
     super();
 
-    this.state = {
-      search: ''
-    };
+
+
+
+    this.state= {
+        search: ""
+
+    }
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -61,6 +66,7 @@ class SearchHeader extends Component {
               </button>
             </div>
           </div>
+
           <button
             className="signup"
             onClick={() => this.props.history.push('/register')}
@@ -69,6 +75,7 @@ class SearchHeader extends Component {
           </button>
         </div>
         <div className="second-div">
+
           <div className="links">
             <Link to="/searchRestaurants">Restaurants</Link>
             <Link to="/searchNightlife">Nightlife</Link>
@@ -79,7 +86,8 @@ class SearchHeader extends Component {
           </div>
           <button
             className="login-button"
-            onClick={() => this.props.history.push('/login')}
+            onClick={() => this.props.history.push("/login")}
+
           >
             Login
           </button>
@@ -89,8 +97,10 @@ class SearchHeader extends Component {
   }
 }
 
+
 const mapStateToProps = state => state;
 
 export default withRouter(
   connect(mapStateToProps, { mainSearch })(SearchHeader)
 );
+

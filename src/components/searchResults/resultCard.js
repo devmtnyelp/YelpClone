@@ -14,6 +14,7 @@ export default class resultCard extends Component {
             />
           </div>
           <div className="name-rating">
+            
             <div className="results-name">{this.props.obj.name}</div>
             <div className="results-rating">{this.props.obj.rating}</div>
           </div>

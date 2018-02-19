@@ -5,8 +5,11 @@ import SearchHeader from '../headers/searchHeader';
 import Footer from '../footer/footer';
 import BusinessReview from './businessReview';
 import { getDetails } from '../../ducks/events/reducer';
+<<<<<<< Updated upstream
 // import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import Map from './mapContainer';
+=======
+>>>>>>> Stashed changes
 
 class businessDetails extends Component {
   constructor(props) {
@@ -35,7 +38,11 @@ class businessDetails extends Component {
             </div>
             <div className="biz-page-header-right u-relative">
               <div className="biz-page-actions nowrap">
+<<<<<<< Updated upstream
                 <a className="ybtn ybtn--primary war-button">Write a Review</a>
+=======
+                <a className="ybtn war-button">Write a Review</a>
+>>>>>>> Stashed changes
                 <span className="ybtn-group clearfix">
                   <a className="ybtn ybtn--small">Add Photo</a>
                   <a className="ybtn ybtn--small">Share</a>
@@ -48,6 +55,7 @@ class businessDetails extends Component {
             <div className="mapbox-container">
               <div className="mapbox">
                 <div className="mapbox-map">
+<<<<<<< Updated upstream
                   <Map
                     className="map"
                     place={
@@ -67,6 +75,9 @@ class businessDetails extends Component {
                     zoom={15}
                     onClick={this.onMapClicked}
                   />
+=======
+                  <img src="http://via.placeholder.com/290x140" alt="" />
+>>>>>>> Stashed changes
                 </div>
                 <div className="mapbox-text">
                   <ul>

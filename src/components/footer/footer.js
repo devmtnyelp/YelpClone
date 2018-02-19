@@ -49,12 +49,20 @@ const Footer = () => (
     </div>
 
     <div>
+<<<<<<< Updated upstream
       <p><img src={footerpic} alt="" /></p>
+=======
+      <p><img src={footerpic} /></p>
+>>>>>>> Stashed changes
     </div>
 
     <div className="copyright">
       <p>
+<<<<<<< Updated upstream
           Copyright © 2004–2018 Yelp Inc. Yelp, <img src={smalllogo} alt=""/>, <img src={burst} alt=""/> and related marks are
+=======
+          Copyright © 2004–2018 Yelp Inc. Yelp, <img src={smalllogo}/>, <img src={burst}/> and related marks are
+>>>>>>> Stashed changes
           registered trademarks of Yelp.
       </p>
     </div>

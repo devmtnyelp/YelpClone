@@ -1,7 +1,11 @@
 require('dotenv').config();
 let responseObj = {
   details: {},
+<<<<<<< Updated upstream
   reviews: []
+=======
+  reviews: {}
+>>>>>>> Stashed changes
 };
 let valueHolder = [];
 let detailsCameBack = false;
@@ -10,6 +14,7 @@ let reviewsCameBack = false;
 const axios = require('axios');
 const { apiKey } = process.env;
 const getDetails = (req, res, next) => {
+<<<<<<< Updated upstream
     const timeFormater = (input) =>{
         input = JSON.stringify(input)
         console.log(input)
@@ -46,6 +51,11 @@ const getDetails = (req, res, next) => {
 
   axios
     .get(`https://api.yelp.com/v3/businesses/${req.query.restaurantId}`, {
+=======
+  console.log('req.query:', req.body);
+  axios
+    .get(`https://api.yelp.com/v3/businesses/${req.body.restaurantId}`, {
+>>>>>>> Stashed changes
       headers: {
         Authorization: `Bearer ${apiKey}`
       }
@@ -53,6 +63,7 @@ const getDetails = (req, res, next) => {
     .then(response => {
       responseObj.details = response.data;
       detailsCameBack = true;
+<<<<<<< Updated upstream
 
       if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
         // console.log(valueHolder)
@@ -70,20 +81,41 @@ const getDetails = (req, res, next) => {
       if (reviewsCameBack) {
 
         responseObj.reviews.reviews = valueHolder.concat(
+=======
+
+      if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
+        res.json(responseObj);
+      }
+    });
+
+  req.app
+    .get('db')
+    .getReviewsByBusinessId(req.body)
+    .then(response => {
+      ourReviewsCameBack = true;
+      if (reviewsCameBack) {
+        responseObj.reviews.reviews = responseObj.reviews.reviews.concat(
+>>>>>>> Stashed changes
           response.data
         );
       } else {
         valueHolder = response;
       }
       if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
+<<<<<<< Updated upstream
         // console.log(valueHolder)
         
         dataFormater(responseObj);
     }
+=======
+        res.json(responseObj);
+      }
+>>>>>>> Stashed changes
     });
 
   axios
     .get(
+<<<<<<< Updated upstream
       `https://api.yelp.com/v3/businesses/${req.query.restaurantId}/reviews`,
       {
         headers: {
@@ -107,6 +139,26 @@ const getDetails = (req, res, next) => {
         //   console.log(valueHolder)
           dataFormater(responseObj);
         }
+=======
+      `https://api.yelp.com/v3/businesses/${req.body.restaurantId}/reviews`,
+      {
+        headers: {
+          Authorization: `Bearer ${apiKey}`
+        }
+      }
+    )
+    .then(response => {
+      responseObj.reviews = response.data;
+      reviewsCameBack = true;
+      if (ourReviewsCameBack) {
+        responseObj.reviews.reviews = responseObj.reviews.reviews.concat(
+          valueHolder
+        );
+      }
+      if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
+        res.json(responseObj);
+      }
+>>>>>>> Stashed changes
     })
     .catch(console.log);
 };
