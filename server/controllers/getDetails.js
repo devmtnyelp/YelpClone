@@ -27,8 +27,9 @@ const getDetails = (req, res, next) => {
       }
     const dataFormater = (input) =>{
         var d = new Date(0);
-        res.json(
-        input.reviews.map((val, i)=>{
+
+          
+        responseObj.reviews = input.reviews.map((val, i)=>{
             if(val.userid){
                 d = new Date(0)
                 d.setUTCSeconds(val.time)
@@ -37,10 +38,15 @@ const getDetails = (req, res, next) => {
                     image_url: val.avatar,
                     name: val.name
                 }
-                val.time_created = timeFormater(d);
+                val.time_created = timeFormater(d),
+                val.url = `localhost:3000/businessdetails/${val.restaurantid}`
             }
+             else{
+               val.url = `localhost:3000/businessdetails/${req.query.restaurantId}`
+             }
             return val
-        }))
+        })
+        res.json(responseObj)
     }
 //   console.log('req.query:', req.query);
 
