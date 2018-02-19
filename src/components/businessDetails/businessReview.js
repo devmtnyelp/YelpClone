@@ -6,6 +6,10 @@ import { getReviews } from '../../ducks/events/reducer';
 import Star from './star';
 
 class BusinessReview extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentWillMount() {
     if (this.props.details) {
       let restaurantId = this.props.details.id;
@@ -18,7 +22,6 @@ class BusinessReview extends Component {
       let formatted = str.split(' ')[0].split('-');
       return formatted[1] + '/' + formatted[2] + '/' + formatted[0];
     }
-    
     return (
       <div>
         <div id="super-container" className="content-container">

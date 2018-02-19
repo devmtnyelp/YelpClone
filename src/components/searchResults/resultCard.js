@@ -3,19 +3,30 @@ import { Link } from 'react-router-dom';
 import './resultCard.css';
 import Star from '../businessDetails/star';
 
+
 export default class resultCard extends Component {
   render() {
     console.log('PROPS:', this.props);
     return (
-      <Link to={'/businessDetails/' + this.props.obj.id}>
-        <div>
-          <div className="result-card">
-            <div className="img-border">
-              <img
-                className="results-img"
-                src={this.props.obj.image_url}
-                alt=""
-              />
+
+      <div>
+        <div className="result-card">
+          <div className="img-border">
+            <img
+              className="results-img"
+              src={this.props.obj.image_url}
+              alt=""
+            />
+          </div>
+          <div className="name-rating">
+            <div className="results-name">{this.props.obj.name}</div>
+            <div className="results-rating">
+              <Star rev={this.props.obj.rating} />
+            </div>
+          </div>
+          <div className="result-location">
+            <div className="address-flex">
+              {this.props.obj.location.display_address[0]}
             </div>
             <div className="name-rating">
               <div className="results-name">{this.props.obj.name}</div>

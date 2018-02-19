@@ -7,7 +7,7 @@ import Login from "./components/authentication/Login";
 import SearchHeader from "./components/headers/searchHeader";
 import LoginHeader from "./components/headers/loginHeader";
 import SearchResults from "./components/searchResults/searchResults.js";
-import displayCard from "./components/searchResults/resultCard";
+import resultCard from "./components/searchResults/resultCard";
 import businessDetails from "./components/businessDetails/businessDetails";
 import Star from "./components/businessDetails/star";
 
@@ -21,6 +21,7 @@ const Routes = () => (
     <Route path="/searchresults" component={SearchResults} />
     <Route path="/businessdetails/:restaurantId" component={businessDetails} />
     <Route path="/star" component={Star} />
+    <Route path="/card" component={resultCard} />
   </Switch>
 );
 

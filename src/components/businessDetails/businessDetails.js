@@ -5,9 +5,11 @@ import SearchHeader from '../headers/searchHeader';
 import Footer from '../footer/footer';
 import BusinessReview from './businessReview';
 import { getDetails } from '../../ducks/events/reducer';
+
 // import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import MapContainer from './mapContainer';
 import Star from './star';
+
 
 class businessDetails extends Component {
   constructor(props) {

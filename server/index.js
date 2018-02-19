@@ -23,7 +23,6 @@ const { getUser } = require('./controllers/getUser');
 const { removeUser } = require('./controllers/removeUser');
 const { storeUserInfoInHeroku } = require('./controllers/authCtrl');
 
-
 // Database Connection
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set('db', db))
