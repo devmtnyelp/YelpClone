@@ -21,7 +21,6 @@ const Routes = () => (
     <Route path="/searchresults" component={SearchResults} />
     <Route path="/businessdetails/:restaurantId" component={businessDetails} />
     <Route path="/star" component={Star} />
-    <Route path="/card" component={resultCard} />
   </Switch>
 );
 
