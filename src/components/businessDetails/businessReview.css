@@ -245,6 +245,7 @@ ul {
 .review--with-sidebar .review-content {
   padding: 0 12px 6px 0;
   min-height: 156px;
+  min-width: 815px;
   box-sizing: border-box;
 }
 .review-content {
@@ -265,14 +266,6 @@ ul {
 .rating-large {
   position: relative;
   overflow: hidden;
-}
-
-
-
-.i-star--regular-5 {
-  width: 102px;
-  height: 18px;
-  background-position: 0 -402px;
 }
 
 .rating-top {
