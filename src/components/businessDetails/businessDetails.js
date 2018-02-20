@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import './businessDetails.css';
-import { connect } from 'react-redux';
-import SearchHeader from '../headers/searchHeader';
-import Footer from '../footer/footer';
-import BusinessReview from './businessReview';
-import { getDetails } from '../../ducks/events/reducer';
+import React, { Component } from "react";
+import "./businessDetails.css";
+import { connect } from "react-redux";
+import SearchHeader from "../headers/searchHeader";
+import Footer from "../footer/footer";
+import BusinessReview from "./businessReview";
+import { getDetails } from "../../ducks/events/reducer";
 
 // import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import MapContainer from './mapContainer';
-import Star from './star';
-
+import MapContainer from "./mapContainer";
+import Star from "./star";
 
 class businessDetails extends Component {
   constructor(props) {
@@ -24,15 +23,15 @@ class businessDetails extends Component {
 
   render() {
     function phoneFormatter(str) {
-      str = str.split('');
+      str = str.split("");
       let string = str.slice(2);
-      string.splice(0, 0, '(');
-      string.splice(4, 0, ')');
-      string.splice(8, 0, '-');
-      string.splice(5, 0, ' ');
-      return string.join('');
+      string.splice(0, 0, "(");
+      string.splice(4, 0, ")");
+      string.splice(8, 0, "-");
+      string.splice(5, 0, " ");
+      return string.join("");
     }
-    console.log('PROPS:', this.props);
+    ``;
     return (
       <div>
         <SearchHeader />
@@ -133,7 +132,7 @@ class businessDetails extends Component {
                         <address>
                           {this.props.details.details &&
                             this.props.details.details.location
-                              .display_address[0]}{' '}
+                              .display_address[0]}{" "}
                           <br />
                           {this.props.details.details &&
                             this.props.details.details.location
@@ -151,7 +150,7 @@ class businessDetails extends Component {
                         >
                           <path d="M16.444 7.556l-5.957-5.958a2.145 2.145 0 0 0-3.034 0L1.598 7.453a2.145 2.145 0 0 0 0 3.034l5.958 5.957a2 2 0 0 0 2.828 0l6.06-6.06a2 2 0 0 0 0-2.828zM9.97 11.47v-2.5h-3v3h-1v-4h4v-2.5l3 3-3 3z" />
                         </svg>
-                      </span>{' '}
+                      </span>{" "}
                       Get Directions
                     </li>
                     <li>
@@ -164,7 +163,7 @@ class businessDetails extends Component {
                         >
                           <path d="M15.862 12.526l-2.91-1.68a.442.442 0 0 0-.486.087l-1.58 1.687a.857.857 0 0 1-.52.232s-1.083.03-3.13-1.985c-2.046-2.015-2.054-3.12-2.054-3.12 0-.17.094-.41.21-.533L6.85 5.656a.49.49 0 0 0 .08-.504L5.295 2.14c-.073-.155-.228-.18-.345-.058L2.26 4.924a1.07 1.07 0 0 0-.248.53s-.34 2.927 3.75 6.955c4.093 4.025 6.96 3.59 6.96 3.59.167-.027.4-.148.516-.27l2.684-2.845c.117-.123.09-.285-.062-.36z" />
                         </svg>
-                      </span>{' '}
+                      </span>{" "}
                       {this.props.details.details &&
                         phoneFormatter(this.props.details.details.phone)}
                     </li>

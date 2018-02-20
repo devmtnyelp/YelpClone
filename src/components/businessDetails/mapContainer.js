@@ -3,7 +3,6 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
 export class MapContainer extends Component {
   render() {
-    console.log("map: ", this.props);
     return (
       <Map
         google={this.props.google}

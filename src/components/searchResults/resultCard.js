@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export default class ResultCard extends Component {
   render() {
-    console.log("PROPS resultCard: ", this.props);
     return (
       <Link to={"/businessdetails/" + this.props.obj.id}>
         <div>

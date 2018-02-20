@@ -1,5 +1,3 @@
-/* eslint-disable */
 SELECT *
-FROM reviews, userinfo
-WHERE reviews.restaurantId = $
-{restaurantId} AND userinfo.userid = reviews.userid
+FROM reviews
+WHERE restaurantid = ${restaurantId}
