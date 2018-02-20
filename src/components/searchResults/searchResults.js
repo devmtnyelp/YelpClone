@@ -6,6 +6,7 @@ import { mainSearch } from "../../ducks/search/searchReducer";
 import ResultCard from "./resultCard";
 import SearchHeader from "../headers/searchHeader";
 import MapContainer from "../businessDetails/mapOfAllBiz";
+import Footer from "../footer/footer";
 
 
 class SearchResults extends Component {
@@ -47,7 +48,7 @@ class SearchResults extends Component {
       <div>
         <SearchHeader />
         <div className="results-title">
-          The Best {this.state.search} In {this.state.location}
+          <h1>The Best {this.state.search} In {this.state.location}</h1>
         </div>
         <div />
         {this.props.coordinates &&
