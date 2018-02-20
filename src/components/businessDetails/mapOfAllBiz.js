@@ -42,6 +42,7 @@ export class MapContainer extends Component {
             style={{ width: "244px", height: "165px", position: "relative" }}
             zoom={9}
             initialCenter={{
+              
               lat: latitude1,
               lng: longitude1
             }}
