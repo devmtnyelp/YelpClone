@@ -83,7 +83,9 @@ class mainHeader extends Component {
             </div>
           </div>
           <div className="below-search">
-            <Link to={`/searchresults/?location=dallas&?search=restaurants`}>
+            <Link
+              to={`/searchresults/?location=${location}&?search=restaurants`}
+            >
               Restaurants
             </Link>
             <Link to="/searchNightlife">Nightlife</Link>
