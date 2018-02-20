@@ -10,6 +10,7 @@ import SearchResults from "./components/searchResults/searchResults.js";
 import resultCard from "./components/searchResults/resultCard";
 import businessDetails from "./components/businessDetails/businessDetails";
 import Star from "./components/businessDetails/star";
+import UserProfile from "./components/userProfile/userProfile";
 
 const Routes = () => (
   <Switch>
@@ -21,6 +22,7 @@ const Routes = () => (
     <Route path="/searchresults" component={SearchResults} />
     <Route path="/businessdetails/:restaurantId" component={businessDetails} />
     <Route path="/star" component={Star} />
+    <Route path="/userProfile/:userId" component={UserProfile} />
   </Switch>
 );
 

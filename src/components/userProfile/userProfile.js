@@ -1,3 +1,61 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getUserDetails } from '../../ducks/events/reducer';
+class UserProfile extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            userId: '2b2b2b'
+        }
+    }
+
+    componentDidMount(){
+        const userId = this.props.match.params.userId
+        this.props.getUserDetails(userId)
+    }
+    render(){
+        return(<div>
+        <p>hello        {this.props.match.params.userId}</p>
+        
+        <p>
+        {console.log(this.props.eventReducer)}
+        {this.props.eventReducer && JSON.stringify(this.props.eventReducer.info.data)}
+        </p>
+        </div>
+        )
+    }
+
+}
+
+function mapStateToProps( getUserDetails ) {
+    return getUserDetails;
+  }
+export default connect(mapStateToProps, {getUserDetails})(UserProfile)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 // import { getUser } from '../../ducks/authentication/reducer';
@@ -6,7 +64,7 @@
 //   constructor(props) {
 //     super(props);
 //     this.state = {
-//       userid: '1a1a1a'
+//       userid: '2b2b2b'
 //     };
 //   }
 

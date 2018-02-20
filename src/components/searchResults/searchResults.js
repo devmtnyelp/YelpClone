@@ -6,6 +6,7 @@ import { mainSearch } from "../../ducks/search/searchReducer";
 import ResultCard from "./resultCard";
 import SearchHeader from "../headers/searchHeader";
 import MapContainer from "../businessDetails/mapOfAllBiz";
+import Footer from "../footer/footer"
 
 
 class SearchResults extends Component {
@@ -19,6 +20,7 @@ class SearchResults extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     let search = this.props.location.search.split("&");
     this.props.mainSearch(search[0].substr(10), search[1].substr(8));
   }
@@ -63,7 +65,7 @@ class SearchResults extends Component {
               </div>
             ))}
         </div>
-        <Footer />
+       <Footer />
       </div>
     );
   }

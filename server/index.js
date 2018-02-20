@@ -35,6 +35,8 @@ app.use('/', express.static(__dirname));
 
 // --- Server Endpoints --- //
 
+app.get('/api/getUserInfo', getUserReviews);
+
 // User Endpoints
 app.get('/api/user/:userid', getUser);
 app.post('/api/user/add', addUser);
