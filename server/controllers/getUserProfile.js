@@ -5,7 +5,7 @@ let responseObj = {
 let reviewsCameBack = false
 let userCameBack = false
 
-const getUserReviews = (req, res, next) => {
+const getUserProfile = (req, res, next) => {
   req.app
   .get('db')
   .getUserDetails(req.query)
@@ -31,5 +31,5 @@ const getUserReviews = (req, res, next) => {
 };
 
 module.exports = {
-  getUserReviews,
+  getUserProfile,
 };

@@ -14,7 +14,7 @@ const { editReview } = require('./controllers/editReview');
 const { getReview } = require('./controllers/getReview');
 const { postReview } = require('./controllers/postReview');
 const { getBusinessReviews } = require('./controllers/getBusinessReviews');
-const { getUserReviews } = require('./controllers/getUserReviews');
+const { getUserProfile } = require('./controllers/getUserProfile');
 const { getDetails } = require('./controllers/getDetails');
 const { autoComplete } = require('./controllers/autoComplete');
 const { addUser } = require('./controllers/addUser');
@@ -35,7 +35,7 @@ app.use('/', express.static(__dirname));
 
 // --- Server Endpoints --- //
 
-app.get('/api/getUserInfo', getUserReviews);
+app.get('/api/getUserInfo', getUserProfile);
 
 // User Endpoints
 app.get('/api/user/:userid', getUser);
