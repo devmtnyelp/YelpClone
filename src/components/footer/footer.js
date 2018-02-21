@@ -31,20 +31,20 @@ const Footer = () => (
 
       <div className="yelp-for-biz-owners">
         <p className="yelp-for-owners">Yelp for Business Owners</p>
-        <p>Claim your Business Page</p>
-        <p>Advertise on Yelp</p>
-        <p>Yelp Reservations</p>
-        <p>Yelp WiFi</p>
-        <p>Business Sources Stories</p>
-        <p>Business Support</p>
-        <p>Yelp Blog For Business Owners</p>
+        <p className="claim-business">Claim your Business Page</p>
+        <p className="ad-on-yelp">Advertise on Yelp</p>
+        <p className="reservations">Yelp Reservations</p>
+        <p className="wifi">Yelp WiFi</p>
+        <p className="biz-source-stories">Business Sources Stories</p>
+        <p className="biz-support">Business Support</p>
+        <p className="yelp-blog-owners">Yelp Blog For Business Owners</p>
       </div>
 
       <div className="languages">
         <p className="langs-p">Languages</p>
-        <p>English</p>
+        <p className="english">English</p>
         <p className="countries-p">Countries</p>
-        <p>United States</p>
+        <p className="us">United States</p>
       </div>
     </div>
 
