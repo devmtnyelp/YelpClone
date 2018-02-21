@@ -7,9 +7,6 @@ import './mainHeader.css';
 import picture from './yelp.png';
 import magnifying_glass from './magnifying_glass.png';
 
-import Slider from 'react-slick';
-import SliderImage1 from "./sliderImages/sliderimage1.jpg";
-import SliderImage2 from "./sliderImages/sliderimage2.jpg";
 
 class mainHeader extends Component {
   constructor() {
@@ -23,29 +20,23 @@ class mainHeader extends Component {
 
   render() {
     const { search, location } = this.state;
-    const settings = {
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      className: "slider",
-      arrows: false,
-      autoplaySpeed: 5000
-    }
+  
     return (
       <div className="background">
         <div>
          <div>
             <div className="flex-header">
               <div className="top-left">
-                <Link to="/writeReview">
+                <Link to="/createreview"
+                className="Link2">
                   Write a Review
                 </Link>
-                <Link to="/events">
+                <Link to="/events"
+                className="Link2">
                   Events
                 </Link>
-                <Link to="/Talk">
+                <Link to="/talk"
+                className="Link2">
                   Talk
                 </Link>
               </div>
@@ -102,16 +93,20 @@ class mainHeader extends Component {
             </div>
           </div>
           <div className="below-search">
-            <Link to="/searchRestaurants">
+            <Link to="/searchresults/?location=dallas&?search=restaurants"
+              className="Link">
                Restaurants 
             </Link>
-            <Link to="/searchNightlife">
+            <Link to="/searchresults/?location=dallas&?search=nightlife"
+            className="Link">
                Nightlife
             </Link>
-            <Link to="/searchHomeServices">
+            <Link to="/searchresults/?location=dallas&?search=home%20Services"
+            className="Link">
                Home Services
             </Link>
-            <Link to="/searchDelivery">
+            <Link to="/searchresults/?location=dallas&?search=delivery"
+            className="Link">
                Delivery
 
             </Link>
