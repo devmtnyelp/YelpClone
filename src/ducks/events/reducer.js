@@ -2,13 +2,16 @@ import axios from "axios";
 
 const initialState = {
   details: {},
+  info: {}
   reviews: {},
   loading: true
 };
 
 const BUSINESS_DETAILS = "LOGIN_USER";
 const BUSINESS_REVIEWS = "BUSINESS_REVIEWS";
-const POST_REVIEW = "POST_REVIEW";
+const GET_USER_DETAILS = "GET_USER_DETAILS";
+const POST_REVIEW = 'POST_REVIEW';
+
 
 export function getDetails(restaurantId) {
   return {
@@ -20,13 +23,24 @@ export function getDetails(restaurantId) {
   };
 }
 
+
 export function getReviews(restaurantId) {
-  console.log(restaurantId);
   return {
     type: BUSINESS_REVIEWS,
     payload: axios
-      .get(`/api/getBusinessReviews?restaurantId=${restaurantId}`)
+      .get("/api/getBusinessReviews/", { restaurantId })
       .then(response => response.data)
+      .catch(console.log)
+  };
+}
+
+export function getUserDetails(userId) {
+  console.log(userId);
+  return {
+    type: GET_USER_DETAILS,
+    payload: axios
+      .get(`/api/getUserInfo?userId=${userId}`)
+      .then(response => response)
       .catch(console.log)
   };
 }
@@ -52,6 +66,8 @@ export default function eventReducer(state = initialState, action) {
       });
     case `${BUSINESS_REVIEWS}_FULFILLED`:
       return Object.assign({}, state, { reviews: action.payload });
+    case `${GET_USER_DETAILS}_FULFILLED`:
+      return Object.assign({}, state, { info: action.payload });
     case `${POST_REVIEW}_FULFILLED`:
       return console.log("success");
     default:
