@@ -19,17 +19,6 @@ class mainHeader extends Component {
 
   render() {
     const { search, location } = this.state;
-    const settings = {
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      className: "slider",
-      arrows: false,
-      autoplaySpeed: 5000
-    };
-
     return (
       <div className="background">
         <div>
@@ -93,19 +82,17 @@ class mainHeader extends Component {
             </div>
           </div>
           <div className="below-search">
-            <Link
-              to={`/searchresults/?location=${location}&?search=restaurants`}
-            >
+            <Link to={`/searchresults/?location=${location}&?search=restaurants`}>
               Restaurants
             </Link>
             <Link to="/searchresults/?location=dallas&?search=nightlife">
-              Nightlife
+               Nightlife
             </Link>
             <Link to="/searchresults/?location=dallas&?search=home%20Services">
-              Home Services
+               Home Services
             </Link>
             <Link to="/searchresults/?location=dallas&?search=delivery">
-              Delivery
+               Delivery
             </Link>
           </div>
         </div>
