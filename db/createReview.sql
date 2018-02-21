@@ -1,4 +1,4 @@
 INSERT INTO reviews
-    (userid, restaurantid, reviewtitle, reviewbody, rating, time)
+    (userid, restaurantid, reviewBody, rating, time)
 VALUES
-    (${userId}, ${restaurantId}, ${reviewTitle}, ${reviewBody}, ${rating}, ${time});
+    (${userId}, ${restaurantId}, ${reviewBody}, ${rating}, ${time})

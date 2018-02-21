@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+// import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 // import businessSearch from "../../../server/controllers/businessSearch";
 import { mainSearch } from "../../ducks/search/searchReducer";
 import ResultCard from "./resultCard";
@@ -40,7 +41,7 @@ class SearchResults extends Component {
   }
 
   render() {
-    const { searchResults } = this.props;
+    // const { searchResults } = this.props;
     console.log("coordinates: ", this.props.coordinates);
     return (
       <div>

@@ -1,3 +1,4 @@
 SELECT *
-FROM reviews
-WHERE restaurantid = ${restaurantId}
+FROM reviews, userinfo
+WHERE reviews.restaurantid = ${restaurantId} AND userinfo.userid = reviews.userid
+

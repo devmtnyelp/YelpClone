@@ -7,7 +7,7 @@ import "./searchHeader.css";
 import picture from "./yelp.png";
 import alert from "./alert.png";
 import message from "./message.png";
-import magnifying_glass from "./magnifying_glass.png";
+// import magnifying_glass from "./magnifying_glass.png";
 
 class SearchHeader extends Component {
   constructor() {

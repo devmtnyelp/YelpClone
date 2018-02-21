@@ -7,9 +7,6 @@ import { getReviews } from "../../ducks/events/reducer";
 import Star from "./star";
 
 class BusinessReview extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentWillMount() {
     this.props.getReviews(this.props.match.params.restaurantId);
@@ -39,7 +36,7 @@ class BusinessReview extends Component {
                         <div className="u-space-b1">
                           <div className="feed_trust-banner">
                             <div className="arrange arrange--12 arrange--middle">
-                              <div className="arrange_unit arrange_unit--fill">
+                              <div id="centered" className="arrange_unit arrange_unit--fill">
                                 <span className="legal-copy">
                                   <img src={burst} id="burst" alt="" />
                                   <b> Your trust is our top concern,</b> so

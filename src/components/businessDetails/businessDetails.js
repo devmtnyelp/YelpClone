@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-import "./businessDetails.css";
-import { connect } from "react-redux";
-import SearchHeader from "../headers/searchHeader";
-import Footer from "../footer/footer";
-import BusinessReview from "./businessReview";
-import { getDetails } from "../../ducks/events/reducer";
-
+import React, { Component } from 'react';
+import './businessDetails.css';
+import { connect } from 'react-redux';
+import SearchHeader from '../headers/searchHeader';
+import Footer from '../footer/footer';
+import BusinessReview from './businessReview';
+import { getDetails } from '../../ducks/events/reducer';
+import { Link } from 'react-router-dom';
 // import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import MapContainer from "./mapContainer";
-import Star from "./star";
+import MapContainer from './mapContainer';
+import Star from './star';
+
 
 class businessDetails extends Component {
   constructor(props) {
@@ -58,14 +59,18 @@ class businessDetails extends Component {
             </div>
             <div className="biz-page-header-right u-relative">
               <div className="biz-page-actions nowrap">
-                <a className="ybtn ybtn--primary war-button">
-                  <span>
-                    <svg fill="#fff" id="icons" height="24px" width="24px">
-                      <path d="M12 1.5l2.61 6.727 6.89.53-5.278 4.688 1.65 7.055L12 16.67 6.13 20.5l1.648-7.055L2.5 8.757l6.89-.53L12 1.5z" />
-                    </svg>
-                  </span>
-                  Write a Review
-                </a>
+                <Link
+                  to={'/createReview/' + this.props.match.params.restaurantId}
+                >
+                  <div className="ybtn ybtn--primary war-button">
+                    <span>
+                      <svg fill="#fff" id="icons" height="24px" width="24px">
+                        <path d="M12 1.5l2.61 6.727 6.89.53-5.278 4.688 1.65 7.055L12 16.67 6.13 20.5l1.648-7.055L2.5 8.757l6.89-.53L12 1.5z" />
+                      </svg>
+                    </span>
+                    Write a Review
+                  </div>
+                </Link>
                 <span className="ybtn-group clearfix">
                   <a className="ybtn ybtn--small">
                     <svg
