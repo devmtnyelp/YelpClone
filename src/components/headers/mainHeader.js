@@ -7,7 +7,6 @@ import "./mainHeader.css";
 import picture from "./yelp.png";
 import magnifying_glass from "./magnifying_glass.png";
 
-
 class mainHeader extends Component {
   constructor() {
     super();
@@ -20,22 +19,10 @@ class mainHeader extends Component {
 
   render() {
     const { search, location } = this.state;
-    const settings = {
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      className: "slider",
-      arrows: false,
-      autoplaySpeed: 5000
-    }
-    
-
     return (
       <div className="background">
         <div>
-         <div>
+          <div>
             <div className="flex-header">
               <div className="top-left">
                 <Link to="/writeReview">Write a Review</Link>
@@ -95,26 +82,18 @@ class mainHeader extends Component {
             </div>
           </div>
           <div className="below-search">
-            <Link
-              to={`/searchresults/?location=${location}&?search=restaurants`}
-            >
+            <Link to={`/searchresults/?location=${location}&?search=restaurants`}>
               Restaurants
-
-            <Link to="/searchresults/?location=dallas&?search=nightlife"
-            className="Link">
+            </Link>
+            <Link to="/searchresults/?location=dallas&?search=nightlife">
                Nightlife
             </Link>
-            <Link to="/searchresults/?location=dallas&?search=home%20Services"
-            className="Link">
+            <Link to="/searchresults/?location=dallas&?search=home%20Services">
                Home Services
             </Link>
-            <Link to="/searchresults/?location=dallas&?search=delivery"
-            className="Link">
+            <Link to="/searchresults/?location=dallas&?search=delivery">
                Delivery
             </Link>
-            <Link to="/searchNightlife">Nightlife</Link>
-            <Link to="/searchHomeServices">Home Services</Link>
-            <Link to="/searchDelivery">Delivery</Link>
           </div>
         </div>
       </div>

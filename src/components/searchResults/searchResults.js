@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 // import businessSearch from "../../../server/controllers/businessSearch";
 import { mainSearch } from "../../ducks/search/searchReducer";
@@ -16,7 +16,8 @@ class SearchResults extends Component {
 
     this.state = {
       results: {},
-      search: []
+      search: [],
+      isLoading: true
     };
   }
 
@@ -49,7 +50,9 @@ class SearchResults extends Component {
       <div>
         <SearchHeader />
         <div className="results-title">
-          <h1>The Best {this.state.search} In {this.state.location}</h1>
+          <h1>
+            The Best {this.state.search} In {this.state.location}
+          </h1>
         </div>
         <div />
         {this.props.coordinates &&
