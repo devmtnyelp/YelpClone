@@ -7,9 +7,6 @@ import "./mainHeader.css";
 import picture from "./yelp.png";
 import magnifying_glass from "./magnifying_glass.png";
 
-import Slider from 'react-slick';
-import SliderImage1 from "./sliderImages/sliderimage1.jpg";
-import SliderImage2 from "./sliderImages/sliderimage2.jpg";
 
 class mainHeader extends Component {
   constructor() {
@@ -34,6 +31,7 @@ class mainHeader extends Component {
       autoplaySpeed: 5000
     }
     
+
     return (
       <div className="background">
         <div>
@@ -101,6 +99,18 @@ class mainHeader extends Component {
               to={`/searchresults/?location=${location}&?search=restaurants`}
             >
               Restaurants
+
+            <Link to="/searchresults/?location=dallas&?search=nightlife"
+            className="Link">
+               Nightlife
+            </Link>
+            <Link to="/searchresults/?location=dallas&?search=home%20Services"
+            className="Link">
+               Home Services
+            </Link>
+            <Link to="/searchresults/?location=dallas&?search=delivery"
+            className="Link">
+               Delivery
             </Link>
             <Link to="/searchNightlife">Nightlife</Link>
             <Link to="/searchHomeServices">Home Services</Link>
