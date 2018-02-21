@@ -7,7 +7,6 @@ import "./mainHeader.css";
 import picture from "./yelp.png";
 import magnifying_glass from "./magnifying_glass.png";
 
-
 class mainHeader extends Component {
   constructor() {
     super();
@@ -20,11 +19,10 @@ class mainHeader extends Component {
 
   render() {
     const { search, location } = this.state;
-    
     return (
       <div className="background">
         <div>
-         <div>
+          <div>
             <div className="flex-header">
               <div className="top-left">
                 <Link to="/writeReview">Write a Review</Link>
@@ -84,9 +82,7 @@ class mainHeader extends Component {
             </div>
           </div>
           <div className="below-search">
-            <Link
-              to={`/searchresults/?location=${location}&?search=restaurants`}
-            >
+            <Link to={`/searchresults/?location=${location}&?search=restaurants`}>
               Restaurants
             </Link>
             <Link to="/searchresults/?location=dallas&?search=nightlife">
