@@ -9,6 +9,15 @@
 .top-left {
   margin-left: 10px;
   margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 10px;
+  width: 20%;
+}
+
+.top-left a {
+  color: white;
 }
 
 .yelp-pic {
@@ -17,10 +26,21 @@
   padding-top: 50px;
 }
 
+.below-search {
+  padding: 0 35%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.below-search a {
+  color: white;
+}
+
 .buttons {
   display: flex;
   justify-content: flex-end;
-  color: black; 
+  color: white;
   margin-top: 25px;
 }
 
@@ -38,7 +58,7 @@
 }
 
 .navlink:hover {
-  box-shadow: 0 2px 0 0 white;
+  box-shadow: 0 2px 0 0 rgb(255, 255, 255);
 }
 
 .sign-up {
@@ -85,16 +105,16 @@ a {
 
 .background {
   height: 570px;
-  background-image: url('https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_large_assets/252051bf4fce/assets/img/home/hero_photos/oYJx-YOK9dqe0F56bS2tDQ.jpg');
+  background-image: url("https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_large_assets/252051bf4fce/assets/img/home/hero_photos/oYJx-YOK9dqe0F56bS2tDQ.jpg");
 }
 
 .search-bar {
-    background-color:white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    width: 60%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 60%;
 }
 
 .center-menu {

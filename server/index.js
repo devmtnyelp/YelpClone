@@ -1,8 +1,8 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const { json } = require('body-parser');
-const massive = require('massive');
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const { json } = require("body-parser");
+const massive = require("massive");
 const port = 3001;
 const app = express();
 const session = require('express-session');
@@ -23,13 +23,13 @@ const { getUser } = require('./controllers/getUser');
 const { removeUser } = require('./controllers/removeUser');
 const { storeUserInfoInHeroku } = require('./controllers/authCtrl');
 
+
 // Database Connection
-massive(process.env.CONNECTION_STRING)
-  .then(db => app.set('db', db))
+massive(process.env.CONNECTION_STRING).then(db => app.set("db", db));
 
 app.use(cors());
 app.use(json());
-app.use('/', express.static(__dirname));
+app.use("/", express.static(__dirname));
 
 // Database Connection
 
@@ -38,24 +38,24 @@ app.use('/', express.static(__dirname));
 app.get('/api/getUserInfo', getUserProfile);
 
 // User Endpoints
-app.get('/api/user/:userid', getUser);
-app.post('/api/user/add', addUser);
-app.put('/api/user/edit', editUser);
-app.delete('/api/user/remove', removeUser);
-app.post('/api/storeuserinfo', storeUserInfoInHeroku);
+app.get("/api/user/:userid", getUser);
+app.post("/api/user/add", addUser);
+app.put("/api/user/edit", editUser);
+app.delete("/api/user/remove", removeUser);
+app.post("/api/storeuserinfo", storeUserInfoInHeroku);
 
 // Review Endpoints
-app.put('/api/editReview', editReview);
-app.delete('/api/deleteReview', deleteReview);
-app.get('/api/getBusinessReviews', getBusinessReviews);
-app.post('/api/postReview', postReview);
+app.put("/api/editReview", editReview);
+app.delete("/api/deleteReview", deleteReview);
+app.get("/api/getBusinessReviews", getBusinessReviews);
+app.post("/api/postReview", postReview);
 
 // Business Endpoints
-app.get('/api/businessSearch', businessSearch);
-app.get('/api/getDetails', getDetails);
+app.get("/api/businessSearch", businessSearch);
+app.get("/api/getDetails", getDetails);
 
 // Search Endpoints
 app.get(`/api/events/searchFromHeader/`, businessSearch);
-app.get('/api/autoComplete', autoComplete);
+app.get("/api/autoComplete", autoComplete);
 
-app.listen(port, () => console.log('Server listening on port', port));
+app.listen(port, () => console.log("Server listening on port", port));

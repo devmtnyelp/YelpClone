@@ -1,15 +1,13 @@
 import React from "react";
 import Footer from "../footer/footer";
 import Header from "../headers/mainHeader";
+import BestBusinesses from "../bestBusinesses/bestBusinesses";
 import { withRouter } from "react-router-dom";
 
 const Home = () => (
   <div>
     <Header />
-    <button onClick={() => this.props.history.push("/login")}>Login</button>
-    <button onClick={() => this.props.history.push("/register")}>
-      Sign up
-    </button>
+      <BestBusinesses />
     <Footer />
   </div>
 );

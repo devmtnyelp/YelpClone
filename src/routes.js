@@ -1,15 +1,15 @@
-import React from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
+import React from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
 
-import Home from "../src/components/home/home";
-import Register from "./components/authentication/Register";
-import Login from "./components/authentication/Login";
-import SearchHeader from "./components/headers/searchHeader";
-import LoginHeader from "./components/headers/loginHeader";
-import SearchResults from "./components/searchResults/searchResults.js";
-import resultCard from "./components/searchResults/resultCard";
-import businessDetails from "./components/businessDetails/businessDetails";
-import Star from "./components/businessDetails/star";
+import Home from '../src/components/home/home';
+import Register from './components/authentication/Register';
+import Login from './components/authentication/Login';
+import SearchHeader from './components/headers/searchHeader';
+import LoginHeader from './components/headers/loginHeader';
+import SearchResults from './components/searchResults/searchResults.js';
+import businessDetails from './components/businessDetails/businessDetails';
+import Star from './components/businessDetails/star';
+import CreateReview from './components/createReview/createReview';
 import UserProfile from "./components/userProfile/userProfile";
 
 const Routes = () => (
@@ -23,6 +23,7 @@ const Routes = () => (
     <Route path="/businessdetails/:restaurantId" component={businessDetails} />
     <Route path="/star" component={Star} />
     <Route path="/userProfile/:userId" component={UserProfile} />
+    <Route path="/createReview/:restaurantId" component={CreateReview} />
   </Switch>
 );
 

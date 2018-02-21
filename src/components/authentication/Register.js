@@ -2,9 +2,13 @@
 import React, { Component } from "react";
 import picture from "./resources/signup_illustrationYelp.png";
 import "./styles.css";
-import { withRouter } from "react-router-dom"
+import { Link, withRouter } from "react-router-dom"
 import { connect } from "react-redux";
 import { createAccount } from '../../ducks/authentication/loginOrCreateReducer';
+import LoginHeader from "../headers/loginHeader";
+import Footer from "../footer/footer";
+
+import "./Register.css" // Most styling borrowed from Login Component //
 
 class Register extends Component {
   constructor(props) {
@@ -22,16 +26,29 @@ class Register extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div className="main-content">
+      <div>
+      <LoginHeader />
+      <div  className="register-content">
         <div className="signup-wrapper">
+        <p className="login-title">Sign Up For Yelp</p>
+        <p className="sign-up">
+          Connect with great local businesses
+        </p>
+        <p className="terms">
+          By logging in, you agree to Yelp’s
+          <span className="span"> Terms of Service</span> and 
+          <span className="span"> Privacy Policy.</span>
+        </p>
           <div className="sign-up-form-box">
           <input
+            className="input"
             placeholder="Email"
             onChange={e => {
               this.setState({ email: e.target.value });
             }}
           />
           <input
+            className="input"
             type="password"
             placeholder="Password"
             onChange={e => {
@@ -40,6 +57,7 @@ class Register extends Component {
           />
 
           <button
+            className="login-button2"
             onClick={() => {
               this.props.createAccount(email, password);
             }}
@@ -52,6 +70,8 @@ class Register extends Component {
           <div className="picture">
           <img src={picture} alt="picua" />
           </div>
+        </div>
+        <Footer />
       </div>
     );
   }

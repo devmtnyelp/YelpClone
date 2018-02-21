@@ -94,6 +94,7 @@ h4,
   padding: 12px;
   background-color: #f5f5f5;
   border-top: 1px solid #e6e6e6;
+  text-align: center;
 }
 
 .arrange--12 {
@@ -369,4 +370,8 @@ ul .right-review-item {
 #settledown {
   width: 100px;
   height: 100px;
+}
+
+#centered {
+  text-align: center;
 }
