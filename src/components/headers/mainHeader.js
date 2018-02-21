@@ -7,7 +7,6 @@ import "./mainHeader.css";
 import picture from "./yelp.png";
 import magnifying_glass from "./magnifying_glass.png";
 
-
 class mainHeader extends Component {
   constructor() {
     super();
@@ -29,13 +28,12 @@ class mainHeader extends Component {
       className: "slider",
       arrows: false,
       autoplaySpeed: 5000
-    }
-    
+    };
 
     return (
       <div className="background">
         <div>
-         <div>
+          <div>
             <div className="flex-header">
               <div className="top-left">
                 <Link to="/writeReview">Write a Review</Link>
@@ -99,22 +97,16 @@ class mainHeader extends Component {
               to={`/searchresults/?location=${location}&?search=restaurants`}
             >
               Restaurants
-
-            <Link to="/searchresults/?location=dallas&?search=nightlife"
-            className="Link">
-               Nightlife
             </Link>
-            <Link to="/searchresults/?location=dallas&?search=home%20Services"
-            className="Link">
-               Home Services
+            <Link to="/searchresults/?location=dallas&?search=nightlife">
+              Nightlife
             </Link>
-            <Link to="/searchresults/?location=dallas&?search=delivery"
-            className="Link">
-               Delivery
+            <Link to="/searchresults/?location=dallas&?search=home%20Services">
+              Home Services
             </Link>
-            <Link to="/searchNightlife">Nightlife</Link>
-            <Link to="/searchHomeServices">Home Services</Link>
-            <Link to="/searchDelivery">Delivery</Link>
+            <Link to="/searchresults/?location=dallas&?search=delivery">
+              Delivery
+            </Link>
           </div>
         </div>
       </div>

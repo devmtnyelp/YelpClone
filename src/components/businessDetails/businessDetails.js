@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import './businessDetails.css';
-import { connect } from 'react-redux';
-import SearchHeader from '../headers/searchHeader';
-import Footer from '../footer/footer';
-import BusinessReview from './businessReview';
-import { getDetails } from '../../ducks/events/reducer';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import "./businessDetails.css";
+import { connect } from "react-redux";
+import SearchHeader from "../headers/searchHeader";
+import Footer from "../footer/footer";
+import BusinessReview from "./businessReview";
+import { getDetails } from "../../ducks/events/reducer";
+import { Link } from "react-router-dom";
 // import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import MapContainer from './mapContainer';
-import Star from './star';
-
+import MapContainer from "./mapContainer";
+import Star from "./star";
 
 class businessDetails extends Component {
   constructor(props) {
@@ -32,7 +31,7 @@ class businessDetails extends Component {
       string.splice(5, 0, " ");
       return string.join("");
     }
-    ``;
+
     return (
       <div>
         <SearchHeader />
@@ -60,7 +59,7 @@ class businessDetails extends Component {
             <div className="biz-page-header-right u-relative">
               <div className="biz-page-actions nowrap">
                 <Link
-                  to={'/createReview/' + this.props.match.params.restaurantId}
+                  to={"/createReview/" + this.props.match.params.restaurantId}
                 >
                   <div className="ybtn ybtn--primary war-button">
                     <span>
