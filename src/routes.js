@@ -12,6 +12,7 @@ import businessDetails from './components/businessDetails/businessDetails';
 import Star from './components/businessDetails/star';
 import CreateReview from './components/createReview/createReview';
 
+
 const Routes = () => (
   <Switch>
     <Route exact path="/" component={Home} />

@@ -36,7 +36,7 @@ class Register extends Component {
         </p>
         <p className="terms">
           By logging in, you agree to Yelp’s
-          <span className="span">Terms of Service</span> and 
+          <span className="span"> Terms of Service</span> and 
           <span className="span"> Privacy Policy.</span>
         </p>
           <div className="sign-up-form-box">

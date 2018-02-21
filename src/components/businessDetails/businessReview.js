@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import "./businessReview.css";
 import burst from "../footer/images/burst_desktop_xsmall_outline.png";
 import { getReviews } from "../../ducks/events/reducer";
@@ -8,10 +9,7 @@ import Star from "./star";
 class BusinessReview extends Component {
 
   componentWillMount() {
-    if (this.props.details) {
-      let restaurantId = this.props.details.id;
-      this.props.getReviews(restaurantId);
-    }
+    this.props.getReviews(this.props.match.params.restaurantId);
   }
 
   render() {
@@ -137,4 +135,6 @@ const mapStateToProps = ({ eventReducer }) => ({
   eventReducer
 });
 
-export default connect(mapStateToProps, { getReviews })(BusinessReview);
+export default withRouter(
+  connect(mapStateToProps, { getReviews })(BusinessReview)
+);
