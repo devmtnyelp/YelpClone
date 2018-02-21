@@ -1,32 +1,32 @@
-import React from 'react';
-import './footer.css';
-import footerpic from './images/footer_cityscape.png';
-import smalllogo from './images/logo_desktop_xsmall_outline.png';
-import burst from './images/burst_desktop_xsmall_outline.png';
+import React from "react";
+import "./footer.css";
+import footerpic from "./images/footer_cityscape.png";
+import smalllogo from "./images/logo_desktop_xsmall_outline.png";
+import burst from "./images/burst_desktop_xsmall_outline.png";
 
 const Footer = () => (
   <div className="main-container">
     <div className="four-divs">
       <div className="about-section">
         <p className="about">About</p>
-        <p>About Yelp</p>
-        <p>Careers</p>
-        <p>Press</p>
-        <p>Investor Relations</p>
-        <p>COntent Guidelines</p>
-        <p>Terms of Service</p>
-        <p>Privacy Policy</p>
-        <p>Ad Choices</p>
+        <p className="about-yelp">About Yelp</p>
+        <p className="careers">Careers</p>
+        <p className="press">Press</p>
+        <p className="investor-rels">Investor Relations</p>
+        <p className="content-guidelines">Content Guidelines</p>
+        <p className="tos">Terms of Service</p>
+        <p className="priv-pol">Privacy Policy</p>
+        <p className="ad-choices">Ad Choices</p>
       </div>
 
       <div className="discover-section">
         <p className="discover">Discover</p>
-        <p>The Local Yelp</p>
-        <p>Yelp Blog</p>
-        <p>Support</p>
-        <p>Yelp Mobile</p>
-        <p>Developers</p>
-        <p>RSS</p>
+        <p className="local-yelp">The Local Yelp</p>
+        <p className="yelp-blog">Yelp Blog</p>
+        <p className="support">Support</p>
+        <p className="yelp-mobile">Yelp Mobile</p>
+        <p className="developers">Developers</p>
+        <p className="rss">RSS</p>
       </div>
 
       <div className="yelp-for-biz-owners">
@@ -49,13 +49,16 @@ const Footer = () => (
     </div>
 
     <div>
-      <p><img src={footerpic} alt="" /></p>
+      <p>
+        <img src={footerpic} alt="" />
+      </p>
     </div>
 
     <div className="copyright">
       <p>
-          Copyright © 2004–2018 Yelp Inc. Yelp, <img src={smalllogo} alt=""/>, <img src={burst} alt=""/> and related marks are
-          registered trademarks of Yelp.
+        Copyright © 2004–2018 Yelp Inc. Yelp, <img src={smalllogo} alt="" />,{" "}
+        <img src={burst} alt="" /> and related marks are registered trademarks
+        of Yelp.
       </p>
     </div>
   </div>

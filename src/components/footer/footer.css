@@ -23,41 +23,109 @@
 .discover-section {
 }
 .discover {
-    font-weight: bold;
-    color: red;
-    font-size: 13px;
-  }
+  font-weight: bold;
+  color: red;
+  font-size: 13px;
+}
 
 .yelp-for-biz-owners {
-    
 }
 
 .yelp-for-owners {
-    font-weight: bold;
-    color: red;
-    font-size: 13px;
-  }
-
+  font-weight: bold;
+  color: red;
+  font-size: 13px;
+}
 
 .languages {
-
 }
 .langs-p {
-    font-weight: bold;
-    color: red;
-    font-size: 13px;
-  }
-
+  font-weight: bold;
+  color: red;
+  font-size: 13px;
+}
 
 .site-map-cities {
 }
 
 .countries-p {
-    font-weight: bold;
-    color: red;
-    font-size: 13px;
+  font-weight: bold;
+  color: red;
+  font-size: 13px;
 }
 
 .copyright {
   font-size: 10px;
+}
+
+/* ON HOVER EFFECTS */
+
+.about-yelp:hover {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.careers {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.press {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.investor-rels {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.content-guidelines {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.tos {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.priv-pol {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.ad-choices {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.local-yelp {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.yelp-blog {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.support {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.yelp-mobile {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.developers {
+  opacity: 1.5;
+  cursor: pointer;
+}
+
+.rss {
+  opacity: 1.5;
+  cursor: pointer;
 }
