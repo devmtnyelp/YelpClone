@@ -1,11 +1,12 @@
-import axios from 'axios';
+import axios from "axios";
 
 const initialState = {
-  details: {}
+  details: {},
+  reviews: {}
 };
 
-const BUSINESS_DETAILS = 'LOGIN_USER';
-const BUSINESS_REVIEWS = 'BUSINESS_REVIEWS';
+const BUSINESS_DETAILS = "LOGIN_USER";
+const BUSINESS_REVIEWS = "BUSINESS_REVIEWS";
 
 export function getDetails(restaurantId) {
   return {
@@ -18,10 +19,11 @@ export function getDetails(restaurantId) {
 }
 
 export function getReviews(restaurantId) {
+  console.log(restaurantId);
   return {
     type: BUSINESS_REVIEWS,
     payload: axios
-      .get('/api/getBusinessReviews/', { restaurantId })
+      .get(`/api/getBusinessReviews?restaurantId=${restaurantId}`)
       .then(response => response.data)
       .catch(console.log)
   };

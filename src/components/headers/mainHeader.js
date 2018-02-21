@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { mainSearch } from '../../ducks/search/searchReducer';
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { mainSearch } from "../../ducks/search/searchReducer";
 
-import './mainHeader.css';
-import picture from './yelp.png';
-import magnifying_glass from './magnifying_glass.png';
+import "./mainHeader.css";
+import picture from "./yelp.png";
+import magnifying_glass from "./magnifying_glass.png";
 
 
 class mainHeader extends Component {
@@ -13,43 +13,45 @@ class mainHeader extends Component {
     super();
 
     this.state = {
-      search: '',
-      location: ''
+      search: "",
+      location: ""
     };
   }
 
   render() {
     const { search, location } = this.state;
-  
+    const settings = {
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      className: "slider",
+      arrows: false,
+      autoplaySpeed: 5000
+    }
+    
+
     return (
       <div className="background">
         <div>
          <div>
             <div className="flex-header">
               <div className="top-left">
-                <Link to="/createreview"
-                className="Link2">
-                  Write a Review
-                </Link>
-                <Link to="/events"
-                className="Link2">
-                  Events
-                </Link>
-                <Link to="/talk"
-                className="Link2">
-                  Talk
-                </Link>
+                <Link to="/writeReview">Write a Review</Link>
+                <Link to="/events">Events</Link>
+                <Link to="/Talk">Talk</Link>
               </div>
               <div className="buttons">
                 <button
                   className="navlink"
-                  onClick={() => this.props.history.push('/login')}
+                  onClick={() => this.props.history.push("/login")}
                 >
                   Log in
                 </button>
                 <button
                   className="sign-up sign-up--primary"
-                  onClick={() => this.props.history.push('/register')}
+                  onClick={() => this.props.history.push("/register")}
                 >
                   Sign up
                 </button>
@@ -93,10 +95,11 @@ class mainHeader extends Component {
             </div>
           </div>
           <div className="below-search">
-            <Link to="/searchresults/?location=dallas&?search=restaurants"
-              className="Link">
-               Restaurants 
-            </Link>
+            <Link
+              to={`/searchresults/?location=${location}&?search=restaurants`}
+            >
+              Restaurants
+
             <Link to="/searchresults/?location=dallas&?search=nightlife"
             className="Link">
                Nightlife
@@ -108,8 +111,10 @@ class mainHeader extends Component {
             <Link to="/searchresults/?location=dallas&?search=delivery"
             className="Link">
                Delivery
-
             </Link>
+            <Link to="/searchNightlife">Nightlife</Link>
+            <Link to="/searchHomeServices">Home Services</Link>
+            <Link to="/searchDelivery">Delivery</Link>
           </div>
         </div>
       </div>
