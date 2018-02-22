@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import { mainSearch } from "../../ducks/search/searchReducer";
-import { connect } from "react-redux";
-
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { mainSearch } from '../../ducks/search/searchReducer';
+import { connect } from 'react-redux';
 import "./searchHeader.css";
 import picture from "./yelp.png";
 // import alert from "./alert.png";
@@ -14,7 +13,8 @@ class SearchHeader extends Component {
     super();
 
     this.state = {
-      search: ""
+      search: '',
+      location: 'Dallas, TX'
     };
   }
 
@@ -71,7 +71,7 @@ class SearchHeader extends Component {
 
           <button
             className="signup"
-            onClick={() => this.props.history.push("/register")}
+            onClick={() => this.props.history.push('/register')}
           >
             Sign up
           </button>
@@ -87,7 +87,7 @@ class SearchHeader extends Component {
           </div>
           <button
             className="login-button"
-            onClick={() => this.props.history.push("/login")}
+            onClick={() => this.props.history.push('/login')}
           >
             Login
           </button>

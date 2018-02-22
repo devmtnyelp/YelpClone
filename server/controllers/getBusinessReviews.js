@@ -1,11 +1,10 @@
-const axios = require("axios");
+const axios = require('axios');
 const { apiKey } = process.env;
 
 const getBusinessReviews = (req, res, next) => {
   let ourReviewsCameBack = false;
   let reviewsCameBack = false;
   let reviews = [];
-  console.log(req.query);
   //the yelp api limits the search reviews to 3 responses so the getdetails review section gets the same thing
   const timeFormater = input => {
     input = JSON.stringify(input);
@@ -21,6 +20,7 @@ const getBusinessReviews = (req, res, next) => {
 
     return arr.join(' ');
   };
+
   const dataFormater = (input) =>{
     var d = new Date(0);
 
@@ -44,8 +44,9 @@ const getBusinessReviews = (req, res, next) => {
     })
     res.json(reviews)
   }
+  
   req.app
-    .get("db")
+    .get('db')
     .getReviewsByBusinessId(req.query)
     .then(response => {
       
@@ -53,7 +54,6 @@ const getBusinessReviews = (req, res, next) => {
       ourReviewsCameBack = true;
       if (reviewsCameBack) {
         dataFormater(reviews)
-        
       }
     });
 
@@ -69,12 +69,11 @@ const getBusinessReviews = (req, res, next) => {
     .then(response => {
       reviews = reviews.concat(response.data.reviews);
       reviewsCameBack = true;
-
-      console.log(reviews);
       if (ourReviewsCameBack) {
         dataFormater(reviews)
       }
-    });
+    })
+    .catch(console.log);
 };
 
 module.exports = {

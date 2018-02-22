@@ -1,6 +1,19 @@
-import React, { Component } from "react";
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
-import { Link, withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Link, withRouter } from 'react-router-dom';
+import './mapOfAllBiz.css';
+import one from './markers/1.png';
+import two from './markers/2.png';
+import three from './markers/3.png';
+import four from './markers/4.png';
+import five from './markers/5.png';
+import six from './markers/6.png';
+import seven from './markers/7.png';
+import eight from './markers/8.png';
+import nine from './markers/9.png';
+import ten from './markers/10.png';
+
+const markers = function(results, bizname) {
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -14,6 +27,7 @@ export class MapContainer extends Component {
   }
 
   markers(results) {
+
     let arr = [];
     var latHolder = 0;
     var longHolder = 0;
@@ -21,6 +35,8 @@ export class MapContainer extends Component {
     for (let i = 0; i < results.length; i++) {
       latHolder = results[i].coords.latitude;
       longHolder = results[i].coords.longitude;
+      const placename = bizname[i].name;
+
       arr.push(
         <Marker
           onClick={() => this.onMarkerClick(this.props.results[i].id)}
@@ -29,9 +45,11 @@ export class MapContainer extends Component {
             lat: latHolder,
             lng: longHolder
           }}
+          name={placename}
+          icon={one}
         />
       );
-    }
+    
     return arr;
   }
 
@@ -39,22 +57,20 @@ export class MapContainer extends Component {
     let latitude1 = this.props.results[0].coords.latitude;
     let longitude1 = this.props.results[0].coords.longitude;
 
-    console.log("this.props.results MapOfAllBiz: ", this.props.results);
     return (
-      <div
-        className="businesses-map"
-        style={{ marginLeft: 750, marginTop: 50 }}
-      >
-        <Map
-          google={this.props.google}
-          style={{ width: "404px", height: "315px", position: "relative" }}
-          zoom={9}
-          initialCenter={{
-            lat: latitude1,
-            lng: longitude1
-          }}
-        >
-          {this.markers(this.props.results)}
+      <Link to={'/businessdetails/' + this.props.results.id}>
+        <div className="businesses-map style">
+          <Map
+            google={this.props.google}
+            style={{ width: '350px', height: '400px', position: 'relative' }}
+            zoom={9}
+            initialCenter={{
+              lat: latitude1,
+              lng: longitude1
+            }}
+          >
+            {markers(this.props.results, this.props.bizname)}
+
 
           <InfoWindow onClose={this.onInfoWindowClose}>
             <div>
@@ -66,6 +82,7 @@ export class MapContainer extends Component {
     );
   }
 }
+
 
 export default withRouter(
   GoogleApiWrapper({

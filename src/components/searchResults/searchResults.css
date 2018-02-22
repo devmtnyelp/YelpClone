@@ -1,23 +1,24 @@
 .card-map {
-    display: flex;
-
+  display: flex;
 }
 
-
-
 .map-pic {
-    max-width: 50%;
-    max-height: 50%;
+  max-width: 50%;
+  max-height: 50%;
 }
 
 .display-map {
-    margin-left: 10%;
-}
-
-.results-title {
-
+  margin-left: 10%;
 }
 
 span {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+#results {
+  justify-content: center;
+}
+
+.results-title{
+    flex: center;
 }

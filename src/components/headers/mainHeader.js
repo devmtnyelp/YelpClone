@@ -1,24 +1,24 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { mainSearch } from "../../ducks/search/searchReducer";
-
-import "./mainHeader.css";
-import picture from "./yelp.png";
-import magnifying_glass from "./magnifying_glass.png";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { mainSearch } from '../../ducks/search/searchReducer';
+import './mainHeader.css';
+import picture from './yelp.png';
 
 class mainHeader extends Component {
   constructor() {
     super();
 
     this.state = {
-      search: "",
-      location: ""
+      search: '',
+      location: 'Dallas, TX'
     };
   }
 
   render() {
+    console.log('LOCATION:', this.props.location);
     const { search, location } = this.state;
+    
     return (
       <div className="background">
         <div>
@@ -32,13 +32,13 @@ class mainHeader extends Component {
               <div className="buttons">
                 <button
                   className="navlink"
-                  onClick={() => this.props.history.push("/login")}
+                  onClick={() => this.props.history.push('/login')}
                 >
                   Log in
                 </button>
                 <button
                   className="sign-up sign-up--primary"
-                  onClick={() => this.props.history.push("/register")}
+                  onClick={() => this.props.history.push('/register')}
                 >
                   Sign up
                 </button>
@@ -76,7 +76,15 @@ class mainHeader extends Component {
                   }}
                   className="search-button"
                 >
-                  <img src={magnifying_glass} alt="" />
+                  <svg
+                    fill="#fff"
+                    id="24x24_search"
+                    height="24px"
+                    viewBox="0 0 24 24"
+                    width="24px"
+                  >
+                    <path d="M20.753 19.34l-4.295-4.297A7.46 7.46 0 0 0 18 10.5a7.5 7.5 0 1 0-7.5 7.5 7.46 7.46 0 0 0 4.543-1.542l4.296 4.295a1 1 0 1 0 1.412-1.414zM10.5 16A5.506 5.506 0 0 1 5 10.5C5 7.467 7.467 5 10.5 5S16 7.467 16 10.5 13.533 16 10.5 16z" />
+                  </svg>
                 </button>
               </div>
             </div>
@@ -84,6 +92,7 @@ class mainHeader extends Component {
           <div className="below-search">
             <Link to={`/searchresults/?location=${location}&?search=restaurants`}>
               Restaurants
+
             </Link>
             <Link to="/searchresults/?location=dallas&?search=nightlife">
                Nightlife

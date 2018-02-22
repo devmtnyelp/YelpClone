@@ -5,8 +5,6 @@ import {Link, withRouter} from 'react-router-dom';
 import "./bestBusinesses.css";
 
 class BestBusinesses extends Component {
-    
-
     render(){
         return(
             <div className="business-body">

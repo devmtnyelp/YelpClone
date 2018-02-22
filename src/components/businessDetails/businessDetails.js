@@ -30,8 +30,8 @@ class businessDetails extends Component {
       string.splice(8, 0, "-");
       string.splice(5, 0, " ");
       return string.join("");
-    }
-    console.log("biz-details this.props: ", this.props);
+    };
+
     return (
       <div>
         <SearchHeader />
