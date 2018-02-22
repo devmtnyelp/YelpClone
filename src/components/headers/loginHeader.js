@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import picture from './yelp.png';
 import './loginHeader.css';
@@ -17,4 +17,3 @@ export default class loginHeader extends Component {
     );
   }
 }
-

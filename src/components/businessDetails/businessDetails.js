@@ -31,8 +31,7 @@ class businessDetails extends Component {
       string.splice(8, 0, "-");
       string.splice(5, 0, " ");
       return string.join("");
-    }
-    ``;
+    };
     return (
       <div>
         <SearchHeader />

@@ -1,13 +1,13 @@
-import axios from "axios";
+import axios from 'axios';
 
 const initialState = {
-  searchResults: ""
+  searchResults: ''
 };
 
-const GET_EVENTS_FROM_SEARCH = "GET_EVENTS_FROM_SEARCH";
+const GET_EVENTS_FROM_SEARCH = 'GET_EVENTS_FROM_SEARCH';
 
 export function mainSearch(location, term) {
-  console.log(location, term);
+  console.log('THIS ONE:', location);
   return {
     type: GET_EVENTS_FROM_SEARCH,
     payload: axios

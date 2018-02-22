@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import "./businessReview.css";
-import burst from "../footer/images/burst_desktop_xsmall_outline.png";
-import { getReviews } from "../../ducks/events/reducer";
-import Star from "./star";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import './businessReview.css';
+import burst from '../footer/images/burst_desktop_xsmall_outline.png';
+import { getReviews } from '../../ducks/events/reducer';
+import Star from './star';
 
 class BusinessReview extends Component {
-
   componentWillMount() {
     this.props.getReviews(this.props.match.params.restaurantId);
   }
 
   render() {
+    console.log('PROPS:', this.props);
     function dateParser(str) {
-      let formatted = str.split(" ")[0].split("-");
-      return formatted[1] + "/" + formatted[2] + "/" + formatted[0];
+      let formatted = str.split(' ')[0].split('-');
+      return formatted[1] + '/' + formatted[2] + '/' + formatted[0];
     }
     return (
       <div>
@@ -28,7 +28,7 @@ class BusinessReview extends Component {
                     <div className="feed_header">
                       <div className="section-header section-header--no-spacing">
                         <h2>
-                          Recommended Reviews{" "}
+                          Recommended Reviews{' '}
                           <b>
                             for {this.props.details && this.props.details.name}
                           </b>
@@ -36,7 +36,10 @@ class BusinessReview extends Component {
                         <div className="u-space-b1">
                           <div className="feed_trust-banner">
                             <div className="arrange arrange--12 arrange--middle">
-                              <div id="centered" className="arrange_unit arrange_unit--fill">
+                              <div
+                                id="centered"
+                                className="arrange_unit arrange_unit--fill"
+                              >
                                 <span className="legal-copy">
                                   <img src={burst} id="burst" alt="" />
                                   <b> Your trust is our top concern,</b> so

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const initialState = {
   details: {},
@@ -8,7 +8,6 @@ const initialState = {
 const BUSINESS_DETAILS = 'LOGIN_USER';
 const BUSINESS_REVIEWS = 'BUSINESS_REVIEWS';
 const POST_REVIEW = 'POST_REVIEW';
-
 
 export function getDetails(restaurantId) {
   return {
@@ -48,7 +47,7 @@ export default function eventReducer(state = initialState, action) {
     case `${BUSINESS_REVIEWS}_FULFILLED`:
       return Object.assign({}, state, { reviews: action.payload });
     case `${POST_REVIEW}_FULFILLED`:
-      return console.log('success');
+      return alert('Review Posted!');
     default:
       return state;
   }

@@ -1,16 +1,30 @@
-import React, { Component } from "react";
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Link } from 'react-router-dom';
+import './mapOfAllBiz.css';
+import one from './markers/1.png';
+import two from './markers/2.png';
+import three from './markers/3.png';
+import four from './markers/4.png';
+import five from './markers/5.png';
+import six from './markers/6.png';
+import seven from './markers/7.png';
+import eight from './markers/8.png';
+import nine from './markers/9.png';
+import ten from './markers/10.png';
 
-const markers = function(results) {
+const markers = function(results, bizname) {
   {
     let arr = [];
     var latHolder = 0;
     var longHolder = 0;
+
     for (let i = 0; i < results.length; i++) {
-      // console.log("marker:");
+      // console.log('props:', this.props);
       latHolder = results[i].coords.latitude;
       longHolder = results[i].coords.longitude;
+      const placename = bizname[i].name;
+
       arr.push(
         <Marker
           key={i}
@@ -18,6 +32,8 @@ const markers = function(results) {
             lat: latHolder,
             lng: longHolder
           }}
+          name={placename}
+          icon={one}
         />
       );
     }
@@ -30,24 +46,19 @@ export class MapContainer extends Component {
     let latitude1 = this.props.results[0].coords.latitude;
     let longitude1 = this.props.results[0].coords.longitude;
 
-    console.log("this.props.results MapOfAllBiz: ", this.props.results);
     return (
-      <Link to={"/businessdetails/" + this.props.results.id}>
-        <div
-          className="businesses-map"
-          style={{ marginLeft: 750, marginTop: 50 }}
-        >
+      <Link to={'/businessdetails/' + this.props.results.id}>
+        <div className="businesses-map style">
           <Map
             google={this.props.google}
-            style={{ width: "244px", height: "165px", position: "relative" }}
+            style={{ width: '350px', height: '400px', position: 'relative' }}
             zoom={9}
             initialCenter={{
-              
               lat: latitude1,
               lng: longitude1
             }}
           >
-            {markers(this.props.results)}
+            {markers(this.props.results, this.props.bizname)}
 
             <InfoWindow onClose={this.onInfoWindowClose}>
               <div>
@@ -62,5 +73,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyDo7zOMR2WGwrQMCcThATLhXuaCBHp33l4"
+  apiKey: 'AIzaSyDo7zOMR2WGwrQMCcThATLhXuaCBHp33l4'
 })(MapContainer);

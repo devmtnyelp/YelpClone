@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import picture from "./resources/signup_illustrationYelp.png";
 import "./styles.css";
-import { Link, withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 import { connect } from "react-redux";
 import { createAccount } from '../../ducks/authentication/loginOrCreateReducer';
 import LoginHeader from "../headers/loginHeader";

@@ -146,7 +146,26 @@ class CreateReview extends Component {
                 <div className="u-space1">
                   <button
                     onClick={() => {
-                      this.props.postReview(this.state);
+                      if (this.state.reviewBody.length <= 9) {
+                        alert(
+                          'Your review must be at least 10 characters long!'
+                        );
+                      } else if (
+                        this.state.userId.length &&
+                        this.state.restaurantId.length &&
+                        this.state.rating.length &&
+                        this.state.reviewBody.length
+                      ) {
+                        this.props.postReview(this.state);
+                        window.location.assign(
+                          '/businessDetails/' +
+                            this.props.match.params.restaurantId
+                        );
+                      } else {
+                        alert(
+                          'You must be logged in, select a rating, and type a review!'
+                        );
+                      }
                     }}
                     type="submit"
                     className="button1 primary post-button"
