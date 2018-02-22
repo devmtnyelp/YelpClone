@@ -5,23 +5,24 @@ const { json } = require("body-parser");
 const massive = require("massive");
 const port = 3001;
 const app = express();
-const session = require("express-session");
-const axios = require("axios");
+const session = require('express-session');
+const axios = require('axios');
 
-const { businessSearch } = require("./controllers/businessSearch");
-const { deleteReview } = require("./controllers/deleteReview");
-const { editReview } = require("./controllers/editReview");
-const { getReview } = require("./controllers/getReview");
-const { postReview } = require("./controllers/postReview");
-const { getBusinessReviews } = require("./controllers/getBusinessReviews");
-const { getUserReviews } = require("./controllers/getUserReviews");
-const { getDetails } = require("./controllers/getDetails");
-const { autoComplete } = require("./controllers/autoComplete");
-const { addUser } = require("./controllers/addUser");
-const { editUser } = require("./controllers/editUser");
-const { getUser } = require("./controllers/getUser");
-const { removeUser } = require("./controllers/removeUser");
-const { storeUserInfoInHeroku } = require("./controllers/authCtrl");
+const { businessSearch } = require('./controllers/businessSearch');
+const { deleteReview } = require('./controllers/deleteReview');
+const { editReview } = require('./controllers/editReview');
+const { getReview } = require('./controllers/getReview');
+const { postReview } = require('./controllers/postReview');
+const { getBusinessReviews } = require('./controllers/getBusinessReviews');
+const { getUserProfile } = require('./controllers/getUserProfile');
+const { getDetails } = require('./controllers/getDetails');
+const { autoComplete } = require('./controllers/autoComplete');
+const { addUser } = require('./controllers/addUser');
+const { editUser } = require('./controllers/editUser');
+const { getUser } = require('./controllers/getUser');
+const { removeUser } = require('./controllers/removeUser');
+const { storeUserInfoInHeroku } = require('./controllers/authCtrl');
+
 
 // Database Connection
 massive(process.env.CONNECTION_STRING).then(db => app.set("db", db));
@@ -33,6 +34,8 @@ app.use("/", express.static(__dirname));
 // Database Connection
 
 // --- Server Endpoints --- //
+
+app.get('/api/getUserInfo', getUserProfile);
 
 // User Endpoints
 app.get("/api/user/:userid", getUser);

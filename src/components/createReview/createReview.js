@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import './createReview.css';
-import { Link } from 'react-router-dom';
-import { postReview } from '../../ducks/events/reducer';
-import { getDetails } from '../../ducks/events/reducer';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "./createReview.css";
+import { Link } from "react-router-dom";
+import { postReview } from "../../ducks/events/reducer";
+import { getDetails } from "../../ducks/events/reducer";
 
 class CreateReview extends Component {
   state = {
-    userId: '123',
+    userId: "123",
     restaurantId: this.props.match.params.restaurantId,
-    reviewBody: '',
-    rating: '',
-    time: '21234'
+    reviewBody: "",
+    rating: "",
+    time: "21234"
   };
 
   componentWillMount() {
@@ -20,7 +20,7 @@ class CreateReview extends Component {
   }
 
   render() {
-    console.log('PROPS:', this.props);
+    console.log("PROPS:", this.props);
     return (
       <div>
         <div className="header">
@@ -49,7 +49,7 @@ class CreateReview extends Component {
                   <Link
                     id="blue"
                     to={
-                      '/businessdetails/' + this.props.match.params.restaurantId
+                      "/businessdetails/" + this.props.match.params.restaurantId
                     }
                   >
                     {this.props.details.details &&
@@ -70,7 +70,7 @@ class CreateReview extends Component {
                             <ul className="listtag tagul i-selector-stars i-selector-stars-xl starsul">
                               <li className="star">
                                 <input
-                                  onClick={() => this.setState({ rating: '1' })}
+                                  onClick={() => this.setState({ rating: "1" })}
                                   type="radio"
                                   name="rating"
                                   id="rating-1"
@@ -81,7 +81,7 @@ class CreateReview extends Component {
                               </li>
                               <li className="star">
                                 <input
-                                  onClick={() => this.setState({ rating: '2' })}
+                                  onClick={() => this.setState({ rating: "2" })}
                                   type="radio"
                                   name="rating"
                                   id="rating-2"
@@ -92,7 +92,7 @@ class CreateReview extends Component {
                               </li>
                               <li className="star">
                                 <input
-                                  onClick={() => this.setState({ rating: '3' })}
+                                  onClick={() => this.setState({ rating: "3" })}
                                   type="radio"
                                   name="rating"
                                   id="rating-3"
@@ -103,7 +103,7 @@ class CreateReview extends Component {
                               </li>
                               <li className="star">
                                 <input
-                                  onClick={() => this.setState({ rating: '4' })}
+                                  onClick={() => this.setState({ rating: "4" })}
                                   type="radio"
                                   name="rating"
                                   id="rating-4"
@@ -114,7 +114,7 @@ class CreateReview extends Component {
                               </li>
                               <li className="star" id="rating-1">
                                 <input
-                                  onClick={() => this.setState({ rating: '5' })}
+                                  onClick={() => this.setState({ rating: "5" })}
                                   type="radio"
                                   name="rating"
                                   id="rating-5"
@@ -136,7 +136,7 @@ class CreateReview extends Component {
                           this.setState({ reviewBody: e.target.value })
                         }
                         placeholder="Your review helps others learn about great local businesses.                                                                                         Please don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees."
-                        maxlength="5000"
+                        maxLength="5000"
                       />
                     </div>
                   </div>

@@ -8,6 +8,6 @@ const getReview = (req, res, next) => {
 };
 
 module.exports = {
-  getReview,
+  getReview
 };
 

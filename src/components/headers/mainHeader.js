@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { mainSearch } from '../../ducks/search/searchReducer';
-
 import './mainHeader.css';
 import picture from './yelp.png';
 
@@ -19,17 +18,7 @@ class mainHeader extends Component {
   render() {
     console.log('LOCATION:', this.props.location);
     const { search, location } = this.state;
-    const settings = {
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      className: 'slider',
-      arrows: false,
-      autoplaySpeed: 5000
-    };
-
+    
     return (
       <div className="background">
         <div>
@@ -101,28 +90,18 @@ class mainHeader extends Component {
             </div>
           </div>
           <div className="below-search">
-            <Link
-              to={`/searchresults/?location=${location}&?search=restaurants`}
-            >
+            <Link to={`/searchresults/?location=${location}&?search=restaurants`}>
               Restaurants
+
             </Link>
-            <Link
-              to="/searchresults/?location=dallas&?search=nightlife"
-              className="Link"
-            >
-              Nightlife
+            <Link to="/searchresults/?location=dallas&?search=nightlife">
+               Nightlife
             </Link>
-            <Link
-              to="/searchresults/?location=dallas&?search=home%20Services"
-              className="Link"
-            >
-              Home Services
+            <Link to="/searchresults/?location=dallas&?search=home%20Services">
+               Home Services
             </Link>
-            <Link
-              to="/searchresults/?location=dallas&?search=delivery"
-              className="Link"
-            >
-              Delivery
+            <Link to="/searchresults/?location=dallas&?search=delivery">
+               Delivery
             </Link>
           </div>
         </div>

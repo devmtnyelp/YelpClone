@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-
+import { connect } from "react-redux";
 // import businessSearch from "../../../server/controllers/businessSearch";
-import { mainSearch } from '../../ducks/search/searchReducer';
-import ResultCard from './resultCard';
-import SearchHeader from '../headers/searchHeader';
-import MapContainer from '../businessDetails/mapOfAllBiz';
-import Footer from '../footer/footer';
+import { mainSearch } from "../../ducks/search/searchReducer";
+import ResultCard from "./resultCard";
+import SearchHeader from "../headers/searchHeader";
+import MapContainer from "../businessDetails/mapOfAllBiz";
+import Footer from "../footer/footer";
+
 
 class SearchResults extends Component {
   constructor(props) {
@@ -21,11 +21,18 @@ class SearchResults extends Component {
         .substr(10)
         .replace('%20', ' '),
       terms: props.location.search.split('&')[1].substr(8)
+
     };
   }
 
   componentDidMount() {
+
     this.props.mainSearch(this.state.location, this.state.terms);
+
+    //console.log(this.props)
+    //let search = this.props.location.search.split("&");
+    //this.props.mainSearch(search[0].substr(10), search[1].substr(8));
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -71,7 +78,7 @@ class SearchResults extends Component {
               </div>
             ))}
         </div>
-        <Footer />
+       <Footer />
       </div>
     );
   }

@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { mainSearch } from '../../ducks/search/searchReducer';
 import { connect } from 'react-redux';
-
-import './searchHeader.css';
-import picture from './yelp.png';
-import alert from './alert.png';
-import message from './message.png';
+import "./searchHeader.css";
+import picture from "./yelp.png";
+// import alert from "./alert.png";
+// import message from "./message.png";
 // import magnifying_glass from "./magnifying_glass.png";
 
 class SearchHeader extends Component {
@@ -68,9 +67,7 @@ class SearchHeader extends Component {
               </button>
             </div>
           </div>
-          <img src={message} className="message" alt="" />
-
-          <img src={alert} className="alert" alt="" />
+    
 
           <button
             className="signup"
@@ -81,12 +78,12 @@ class SearchHeader extends Component {
         </div>
         <div className="second-div">
           <div className="links">
-            <Link to="/searchRestaurants">Restaurants</Link>
-            <Link to="/searchNightlife">Nightlife</Link>
-            <Link to="/searchHomeServices">Home Services</Link>
-            <Link to="/writeReview=">Write a Review</Link>
-            <Link to="/Events">Events</Link>
-            <Link to="/Talk">Talk</Link>
+            <Link to="/searchRestaurants" className="color-links">Restaurants</Link>
+            <Link to="/searchNightlife" className="color-links">Nightlife</Link>
+            <Link to="/searchHomeServices" className="color-links">Home Services</Link>
+            <Link to="/writeReview=" className="color-links">Write a Review</Link>
+            <Link to="/Events" className="color-links">Events</Link>
+            <Link to="/Talk" className="color-links">Talk</Link>
           </div>
           <button
             className="login-button"

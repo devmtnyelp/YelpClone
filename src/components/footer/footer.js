@@ -1,61 +1,64 @@
-import React from 'react';
-import './footer.css';
-import footerpic from './images/footer_cityscape.png';
-import smalllogo from './images/logo_desktop_xsmall_outline.png';
-import burst from './images/burst_desktop_xsmall_outline.png';
+import React from "react";
+import "./footer.css";
+import footerpic from "./images/footer_cityscape.png";
+import smalllogo from "./images/logo_desktop_xsmall_outline.png";
+import burst from "./images/burst_desktop_xsmall_outline.png";
 
 const Footer = () => (
   <div className="main-container">
     <div className="four-divs">
       <div className="about-section">
         <p className="about">About</p>
-        <p>About Yelp</p>
-        <p>Careers</p>
-        <p>Press</p>
-        <p>Investor Relations</p>
-        <p>COntent Guidelines</p>
-        <p>Terms of Service</p>
-        <p>Privacy Policy</p>
-        <p>Ad Choices</p>
+        <p className="about-yelp">About Yelp</p>
+        <p className="careers">Careers</p>
+        <p className="press">Press</p>
+        <p className="investor-rels">Investor Relations</p>
+        <p className="content-guidelines">Content Guidelines</p>
+        <p className="tos">Terms of Service</p>
+        <p className="priv-pol">Privacy Policy</p>
+        <p className="ad-choices">Ad Choices</p>
       </div>
 
       <div className="discover-section">
         <p className="discover">Discover</p>
-        <p>The Local Yelp</p>
-        <p>Yelp Blog</p>
-        <p>Support</p>
-        <p>Yelp Mobile</p>
-        <p>Developers</p>
-        <p>RSS</p>
+        <p className="local-yelp">The Local Yelp</p>
+        <p className="yelp-blog">Yelp Blog</p>
+        <p className="support">Support</p>
+        <p className="yelp-mobile">Yelp Mobile</p>
+        <p className="developers">Developers</p>
+        <p className="rss">RSS</p>
       </div>
 
       <div className="yelp-for-biz-owners">
         <p className="yelp-for-owners">Yelp for Business Owners</p>
-        <p>Claim your Business Page</p>
-        <p>Advertise on Yelp</p>
-        <p>Yelp Reservations</p>
-        <p>Yelp WiFi</p>
-        <p>Business Sources Stories</p>
-        <p>Business Support</p>
-        <p>Yelp Blog For Business Owners</p>
+        <p className="claim-business">Claim your Business Page</p>
+        <p className="ad-on-yelp">Advertise on Yelp</p>
+        <p className="reservations">Yelp Reservations</p>
+        <p className="wifi">Yelp WiFi</p>
+        <p className="biz-source-stories">Business Sources Stories</p>
+        <p className="biz-support">Business Support</p>
+        <p className="yelp-blog-owners">Yelp Blog For Business Owners</p>
       </div>
 
       <div className="languages">
         <p className="langs-p">Languages</p>
-        <p>English</p>
+        <p className="english">English</p>
         <p className="countries-p">Countries</p>
-        <p>United States</p>
+        <p className="us">United States</p>
       </div>
     </div>
 
     <div>
-      <p><img src={footerpic} alt="" /></p>
+      <p>
+        <img src={footerpic} alt="" />
+      </p>
     </div>
 
     <div className="copyright">
       <p>
-          Copyright © 2004–2018 Yelp Inc. Yelp, <img src={smalllogo} alt=""/>, <img src={burst} alt=""/> and related marks are
-          registered trademarks of Yelp.
+        Copyright © 2004–2018 Yelp Inc. Yelp, <img src={smalllogo} alt="" />,{" "}
+        <img src={burst} alt="" /> and related marks are registered trademarks
+        of Yelp.
       </p>
     </div>
   </div>

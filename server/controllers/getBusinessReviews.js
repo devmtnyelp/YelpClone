@@ -20,36 +20,40 @@ const getBusinessReviews = (req, res, next) => {
 
     return arr.join(' ');
   };
-  const dataFormater = input => {
+
+  const dataFormater = (input) =>{
     var d = new Date(0);
 
-    reviews = input.map((val, i) => {
-      if (val.userid) {
-        d = new Date(0);
-        d.setUTCSeconds(val.time);
-        val.text = val.reviewbody;
-        val.user = {
-          image_url: val.avatar,
-          name: val.name
-        };
-        (val.time_created = timeFormater(d)),
-          (val.url = `localhost:3000/businessdetails/${val.restaurantid}`);
-      } else {
-        val.url = `localhost:3000/businessdetails/${req.query.restaurantId}`;
-      }
-      return val;
-    });
-    res.json(reviews);
-  };
-
+      
+    reviews = input.map((val, i)=>{
+        if(val.userid){
+            d = new Date(0)
+            d.setUTCSeconds(val.time)
+            val.text = val.reviewbody
+            val.user = {
+                image_url: val.avatar,
+                name: val.name
+            }
+            val.time_created = timeFormater(d),
+            val.url = `localhost:3000/businessdetails/${val.restaurantid}`
+        }
+         else{
+           val.url = `localhost:3000/businessdetails/${req.query.restaurantId}`
+         }
+        return val
+    })
+    res.json(reviews)
+  }
+  
   req.app
     .get('db')
     .getReviewsByBusinessId(req.query)
     .then(response => {
+      
       reviews = reviews.concat(response);
       ourReviewsCameBack = true;
       if (reviewsCameBack) {
-        dataFormater(reviews);
+        dataFormater(reviews)
       }
     });
 
@@ -66,7 +70,7 @@ const getBusinessReviews = (req, res, next) => {
       reviews = reviews.concat(response.data.reviews);
       reviewsCameBack = true;
       if (ourReviewsCameBack) {
-        dataFormater(reviews);
+        dataFormater(reviews)
       }
     })
     .catch(console.log);
