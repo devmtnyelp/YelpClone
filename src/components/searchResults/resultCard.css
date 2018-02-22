@@ -73,8 +73,33 @@
   font-weight: normal;
 }
 
-@media (max-width: 375px) {
-  .result-card {
-    width: 369px;
+@media (max-width: 480px) { */
+   .result-card {
+    width: 100%;
+    margin-left: 0;
+    background-color: white;
+    
   }
-}
+ .result-location{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    width: 300px;
+  }
+   .result-address-flex{
+    display: flex;
+    flex-direction:column; 
+  } 
+  .results-img {
+    height: 60px;
+    width: 60px;
+    padding-right: 5px;
+  } 
+   .results-name{
+    width: 300px;
+  }
+  .address-flex{
+    width: fit-content;
+  }
+} 

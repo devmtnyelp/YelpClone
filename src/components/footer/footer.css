@@ -174,3 +174,15 @@
   opacity: 1.5;
   cursor: pointer;
 }
+@media (max-width: 400px) {
+  .four-divs {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      font-size: 14px;
+  }
+
+  .footer-img{
+    width: 350px;
+  }
+}

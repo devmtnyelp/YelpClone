@@ -7,7 +7,7 @@ import ResultCard from "./resultCard";
 import SearchHeader from "../headers/searchHeader";
 import MapContainer from "../businessDetails/mapOfAllBiz";
 import Footer from "../footer/footer";
-
+import "./searchResults.css"
 
 class SearchResults extends Component {
   constructor(props) {
@@ -17,51 +17,45 @@ class SearchResults extends Component {
       results: {},
       search: [],
       location: props.location.search
-        .split('&')[0]
+        .split("&")[0]
         .substr(10)
-        .replace('%20', ' '),
-      terms: props.location.search.split('&')[1].substr(8)
-
+        .replace("%20", " "),
+      terms: props.location.search
+        .split("&")[1]
+        .substr(8)
+        .replace("%20", " ")
     };
   }
 
   componentDidMount() {
-
     this.props.mainSearch(this.state.location, this.state.terms);
-
-    //console.log(this.props)
-    //let search = this.props.location.search.split("&");
-    //this.props.mainSearch(search[0].substr(10), search[1].substr(8));
-
   }
 
   componentWillReceiveProps(nextProps) {
-    let search = this.props.location.search.split('&');
+    let search = this.props.location.search.split("&");
     this.setState({
       location:
         search[0]
           .substr(10)
           .charAt(0)
-          .toUpperCase() + search[0].substr(11).replace('%20', ' '),
+          .toUpperCase() + search[0].substr(11).replace("%20", " "),
       search:
         search[1]
           .substr(8)
           .charAt(0)
-          .toUpperCase() + search[1].substr(9)
+          .toUpperCase() + search[1].substr(9).replace("%20", " ")
     });
   }
 
   render() {
-    console.log('resultsProps:', this.props);
+    console.log("resultsProps:", this.props);
     return (
-      <div>
+      <div className="tester">
         <SearchHeader />
-        <div className="results-title">
-          <h1>
-            The Best {this.state.search} in {this.state.location}
-          </h1>
-        </div>
-
+          <div className="h1-results-title">
+            The <span className="bold">Best {this.state.search} </span> in {this.state.location}
+          </div>
+      <div className="map-responsive">
         {this.props.coordinates &&
           this.props.coordinates[0] && (
             <MapContainer
@@ -69,6 +63,7 @@ class SearchResults extends Component {
               bizname={this.props.searchResults}
             />
           )}
+      </div>
 
         <div id="results">
           {this.props.searchResults &&
@@ -78,7 +73,7 @@ class SearchResults extends Component {
               </div>
             ))}
         </div>
-       <Footer />
+        <Footer />
       </div>
     );
   }
