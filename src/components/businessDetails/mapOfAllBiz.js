@@ -13,9 +13,7 @@ import eight from './markers/8.png';
 import nine from './markers/9.png';
 import ten from './markers/10.png';
 
-const markers = function(results, bizname) {
-
-export class MapContainer extends Component {
+class MapContainer extends Component {
   constructor(props) {
     super(props);
 
@@ -25,9 +23,8 @@ export class MapContainer extends Component {
   onMarkerClick(bizId) {
     this.props.history.push(`/businessdetails/${bizId}`);
   }
-
+  
   markers(results) {
-
     let arr = [];
     var latHolder = 0;
     var longHolder = 0;
@@ -35,7 +32,6 @@ export class MapContainer extends Component {
     for (let i = 0; i < results.length; i++) {
       latHolder = results[i].coords.latitude;
       longHolder = results[i].coords.longitude;
-      const placename = bizname[i].name;
 
       arr.push(
         <Marker
@@ -45,11 +41,10 @@ export class MapContainer extends Component {
             lat: latHolder,
             lng: longHolder
           }}
-          name={placename}
           icon={one}
         />
       );
-    
+    }
     return arr;
   }
 
@@ -69,23 +64,22 @@ export class MapContainer extends Component {
               lng: longitude1
             }}
           >
-            {markers(this.props.results, this.props.bizname)}
+            {this.markers(this.props.results, this.props.bizname)}
 
-
-          <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>{this.props.name}</h1>
-            </div>
-          </InfoWindow>
-        </Map>
-      </div>
+            <InfoWindow onClose={this.onInfoWindowClose}>
+              <div>
+                <h1>{this.props.name}</h1>
+              </div>
+            </InfoWindow>
+          </Map>
+        </div>
+      </Link>
     );
   }
 }
 
-
 export default withRouter(
   GoogleApiWrapper({
-    apiKey: "AIzaSyDo7zOMR2WGwrQMCcThATLhXuaCBHp33l4"
+    apiKey: 'AIzaSyDo7zOMR2WGwrQMCcThATLhXuaCBHp33l4'
   })(MapContainer)
 );

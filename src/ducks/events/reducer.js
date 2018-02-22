@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const initialState = {
   details: {},
-  info: {}
+  info: {},
   reviews: {},
   loading: true
 };
