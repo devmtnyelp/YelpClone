@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import { Link, withRouter } from "react-router-dom";
+import businessDetails from "./businessDetails";
 import "./mapOfAllBiz.css";
 import one from "./markers/1.png";
 import two from "./markers/2.png";
@@ -12,15 +13,26 @@ import seven from "./markers/7.png";
 import eight from "./markers/8.png";
 import nine from "./markers/9.png";
 import ten from "./markers/10.png";
+import searchResults from "../searchResults/searchResults";
 
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      isHovering: false
+    };
+
     this.onMarkerClick = this.onMarkerClick.bind(this);
+    this.onMouseOverFunc = this.onMouseOverFunc.bind(this);
   }
   onMarkerClick(bizId) {
     this.props.history.push(`/businessdetails/${bizId}`);
   }
+  onMouseOverFunc() {
+    console.log("hovering over!");
+  }
+
   markers(results) {
     let arr = [];
     var latHolder = 0;
@@ -36,15 +48,17 @@ export class MapContainer extends Component {
             lat: latHolder,
             lng: longHolder
           }}
+          onMouseover={this.onMouseOverFunc}
         />
       );
     }
     return arr;
   }
+
   render() {
     let latitude1 = this.props.results[0].coords.latitude;
     let longitude1 = this.props.results[0].coords.longitude;
-    console.log("this.props.results MapOfAllBiz: ", this.props.results);
+    // console.log("this.props.results MapOfAllBiz: ", this.props.results);
     return (
       <div
         className="businesses-map"
@@ -53,18 +67,13 @@ export class MapContainer extends Component {
         <Map
           google={this.props.google}
           style={{ width: "404px", height: "315px", position: "relative" }}
-          zoom={9}
+          zoom={10}
           initialCenter={{
             lat: latitude1,
             lng: longitude1
           }}
         >
           {this.markers(this.props.results)}
-          <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>{this.props.name}</h1>
-            </div>
-          </InfoWindow>
         </Map>
       </div>
     );

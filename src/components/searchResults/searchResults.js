@@ -8,7 +8,6 @@ import SearchHeader from "../headers/searchHeader";
 import MapContainer from "../businessDetails/mapOfAllBiz";
 import Footer from "../footer/footer";
 
-
 class SearchResults extends Component {
   constructor(props) {
     super(props);
@@ -17,32 +16,29 @@ class SearchResults extends Component {
       results: {},
       search: [],
       location: props.location.search
-        .split('&')[0]
+        .split("&")[0]
         .substr(10)
-        .replace('%20', ' '),
-      terms: props.location.search.split('&')[1].substr(8)
-
+        .replace("%20", " "),
+      terms: props.location.search.split("&")[1].substr(8)
     };
   }
 
   componentDidMount() {
-
     this.props.mainSearch(this.state.location, this.state.terms);
 
     //console.log(this.props)
     //let search = this.props.location.search.split("&");
     //this.props.mainSearch(search[0].substr(10), search[1].substr(8));
-
   }
 
   componentWillReceiveProps(nextProps) {
-    let search = this.props.location.search.split('&');
+    let search = this.props.location.search.split("&");
     this.setState({
       location:
         search[0]
           .substr(10)
           .charAt(0)
-          .toUpperCase() + search[0].substr(11).replace('%20', ' '),
+          .toUpperCase() + search[0].substr(11).replace("%20", " "),
       search:
         search[1]
           .substr(8)
@@ -52,7 +48,7 @@ class SearchResults extends Component {
   }
 
   render() {
-    console.log('resultsProps:', this.props);
+    console.log("resultsProps:", this.props);
     return (
       <div>
         <SearchHeader />
@@ -78,7 +74,7 @@ class SearchResults extends Component {
               </div>
             ))}
         </div>
-       <Footer />
+        <Footer />
       </div>
     );
   }
