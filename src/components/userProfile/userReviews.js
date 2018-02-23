@@ -39,6 +39,7 @@ class UserReviews extends Component {
 
   render() {
     var id = this.props.id;
+
     return (
       <div className="greaterUserReviewContainerMarginBottom">
       <div key={this.props.i} className="userReview">
