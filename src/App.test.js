@@ -13,11 +13,7 @@ import { userId, arr } from "../src/components/userProfile/userProfile";
 import { biz } from "../src/components/userProfile/userProfile";
 
 it("testing search", () => expect(results).toBeFalsy());
-
 it("mapOfAllBiz", () => expect(isHovering).toBeFalsy());
-
 it("userID", () => expect(userId).toBeFalsy());
-
 it("arr", () => expect(arr).toBeFalsy());
-
 it("biz", () => expect(biz).toBeFalsy());
