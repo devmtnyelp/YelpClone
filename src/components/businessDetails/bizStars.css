@@ -1,0 +1,137 @@
+.j-stars {
+  background: url(https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_design_web/9b34e39ccbeb/assets/img/stars/stars.png)
+    no-repeat;
+  background-size: cover;
+  display: inline-block;
+  vertical-align: middle;
+  z-index: 500;
+  background-size: 132px 560px;
+  vertical-align: middle;
+}
+
+.rating-very-large {
+  float: left;
+  margin: -4px 6px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.joffscreen {
+  clip: rect(0 0 0 0);
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+}
+
+.j-stars--large-0 {
+  width: 132px;
+  height: 24px;
+  background-position: 0 -0;
+}
+
+.j-stars--large-0 img {
+  left: 0;
+  top: 0;
+}
+
+.j-stars--large-1 {
+  width: 132px;
+  height: 24px;
+  background-position: 0 -24px;
+}
+
+.j-stars--large-1 img {
+  left: 0;
+  top: -24px;
+}
+
+.j-stars--large-1-half {
+  width: 132px;
+  height: 24px;
+  background-position: 0 -48px;
+}
+
+.j-stars--large-1-half img {
+  left: 0;
+  top: -48px;
+}
+
+.j-stars--large-2 {
+  width: 132px;
+  height: 24px;
+  background-position: 0 -72px;
+}
+
+.j-stars--large-2 img {
+  left: 0;
+  top: -72px;
+}
+
+.j-stars--large-2-half {
+  width: 132px;
+  height: 24px;
+  background-position: 0 -96px;
+}
+
+.j-stars--large-2-half img {
+  left: 0;
+  top: -96px;
+}
+
+.j-stars--large-3 {
+  width: 132px;
+  height: 24px;
+  background-position: 0 -120px;
+}
+
+.j-stars--large-3 img {
+  left: 0;
+  top: -120px;
+}
+
+.j-stars--large-3-half {
+  width: 132px;
+  height: 24px;
+  background-position: 0 -144px;
+}
+
+.j-stars--large-3-half img {
+  left: 0;
+  top: -144px;
+}
+
+.j-stars--large-4 {
+  width: 132px;
+  height: 24px;
+  background-position: 0 -168px;
+}
+
+.j-stars--large-4 img {
+  left: 0;
+  top: -168px;
+}
+
+.j-stars--large-4-half {
+  width: 132px;
+  height: 24px;
+  background-position: 0 -192px;
+}
+
+.j-stars--large-4-half img {
+  left: 0;
+  top: -192px;
+}
+
+.j-stars--large-5 {
+  width: 132px;
+  height: 24px;
+  background-position: 0 -216px;
+}
+
+.j-stars--large-5 img {
+  left: 0;
+  top: -216px;
+}

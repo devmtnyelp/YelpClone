@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { mainSearch } from '../../ducks/search/searchReducer';
 import { connect } from 'react-redux';
-import "./searchHeader.css";
-import picture from "./yelp.png";
+import './searchHeader.css';
+import picture from './yelp.png';
 // import alert from "./alert.png";
 // import message from "./message.png";
 // import magnifying_glass from "./magnifying_glass.png";
@@ -67,7 +67,6 @@ class SearchHeader extends Component {
               </button>
             </div>
           </div>
-    
 
           <button
             className="signup"
@@ -78,12 +77,24 @@ class SearchHeader extends Component {
         </div>
         <div className="second-div">
           <div className="links">
-            <Link to="/searchRestaurants" className="color-links">Restaurants</Link>
-            <Link to="/searchNightlife" className="color-links">Nightlife</Link>
-            <Link to="/searchHomeServices" className="color-links">Home Services</Link>
-            <Link to="/writeReview=" className="color-links">Write a Review</Link>
-            <Link to="/Events" className="color-links">Events</Link>
-            <Link to="/Talk" className="color-links">Talk</Link>
+            <Link to="/searchRestaurants" className="color-links">
+              Restaurants
+            </Link>
+            <Link to="/searchNightlife" className="color-links">
+              Nightlife
+            </Link>
+            <Link to="/searchHomeServices" className="color-links">
+              Home Services
+            </Link>
+            <Link to="/writeReview=" className="color-links">
+              Write a Review
+            </Link>
+            <Link to="/Events" className="color-links">
+              Events
+            </Link>
+            <Link to="/Talk" className="color-links">
+              Talk
+            </Link>
           </div>
           <button
             className="login-button"
@@ -97,7 +108,9 @@ class SearchHeader extends Component {
   }
 }
 
-const mapStateToProps = state => state;
+function mapStateToProps({ eventReducer }) {
+  return { location: eventReducer.location };
+}
 
 export default withRouter(
   connect(mapStateToProps, { mainSearch })(SearchHeader)

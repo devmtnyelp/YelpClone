@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 // import businessSearch from "../../../server/controllers/businessSearch";
-import { mainSearch } from "../../ducks/search/searchReducer";
-import ResultCard from "./resultCard";
-import SearchHeader from "../headers/searchHeader";
-import MapContainer from "../businessDetails/mapOfAllBiz";
-import Footer from "../footer/footer";
-
+import { mainSearch } from '../../ducks/search/searchReducer';
+import ResultCard from './resultCard';
+import SearchHeader from '../headers/searchHeader';
+import MapContainer from '../businessDetails/mapOfAllBiz';
+import Footer from '../footer/footer';
+import loadinggif from '../../components/businessDetails/loading.gif';
 
 class SearchResults extends Component {
   constructor(props) {
@@ -21,18 +21,15 @@ class SearchResults extends Component {
         .substr(10)
         .replace('%20', ' '),
       terms: props.location.search.split('&')[1].substr(8)
-
     };
   }
 
   componentDidMount() {
-
     this.props.mainSearch(this.state.location, this.state.terms);
 
     //console.log(this.props)
     //let search = this.props.location.search.split("&");
     //this.props.mainSearch(search[0].substr(10), search[1].substr(8));
-
   }
 
   componentWillReceiveProps(nextProps) {
@@ -52,7 +49,6 @@ class SearchResults extends Component {
   }
 
   render() {
-    console.log('resultsProps:', this.props);
     return (
       <div>
         <SearchHeader />
@@ -61,11 +57,14 @@ class SearchResults extends Component {
             The Best {this.state.search} in {this.state.location}
           </h1>
         </div>
+        {this.props.loading && (
+          <img src={loadinggif} style={{ width: '100%' }} />
+        )}
 
-        {this.props.coordinates &&
-          this.props.coordinates[0] && (
+        {this.props.searchResults &&
+          this.props.searchResults && (
             <MapContainer
-              results={this.props.coordinates}
+              results={this.props.searchResults}
               bizname={this.props.searchResults}
             />
           )}
@@ -74,18 +73,22 @@ class SearchResults extends Component {
           {this.props.searchResults &&
             this.props.searchResults.map((item, i) => (
               <div key={i}>
-                <ResultCard obj={item} />
+                <ResultCard obj={item} number={i} />
               </div>
             ))}
         </div>
-       <Footer />
+        <Footer />
       </div>
     );
   }
 }
 
-function mapStateToProps({ searchReducer }) {
-  return searchReducer;
+function mapStateToProps({ searchReducer, eventReducer }) {
+  return {
+    searchResults: searchReducer.searchResults,
+    loading: searchReducer.isLoading,
+    geoLocale: eventReducer.geoLocale
+  };
 }
 
 export default connect(mapStateToProps, { mainSearch })(SearchResults);
