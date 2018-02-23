@@ -1,3 +1,3 @@
 SELECT *
 FROM users, userinfo
-WHERE users.userid = ${userid} AND userinfo.userid = users.userid
+WHERE users.userid = ${userId} AND userinfo.userid = users.userid

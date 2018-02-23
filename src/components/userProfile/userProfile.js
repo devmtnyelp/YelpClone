@@ -39,6 +39,8 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
+      {      console.log(this.props.match)
+      }
         <SearchHeader />
         {this.props.eventReducer.info.data && (
           <div>
