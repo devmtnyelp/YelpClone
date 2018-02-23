@@ -16,6 +16,7 @@ export default class ResultCard extends Component {
                 alt=""
               />
             </div>
+          <div className="result-address-flex">
             <div className="name-rating">
               <div className="results-name">{this.props.obj.name}</div>
               <div className="results-rating">
@@ -48,6 +49,7 @@ export default class ResultCard extends Component {
             </div>
           </div>
         </div>
+      </div>
       </Link>
     );
   }

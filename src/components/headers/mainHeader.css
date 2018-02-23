@@ -73,7 +73,7 @@
   padding: 8px 19px 9px 19px;
   border-radius: 3px;
   border-color: #ccc;
-  color: white;
+
   /* background-color: #f7f7f7; */
 }
 
@@ -85,10 +85,10 @@
 
 .sign-up-primary,
 .sign-up--primary {
-  /* color: white; */
   border-color: white;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   background-color: transparent;
+  color: white;
 }
 
 a {
@@ -184,4 +184,35 @@ a {
   height: 24px;
   width: 24px;
   margin: auto;
+}
+
+.primary-sign-up {
+  background-color: transaparent;
+}
+
+
+@media (max-width: 480px) {
+  .search-form {
+    max-width: 380px;
+  }
+
+  .search-bar {
+    max-width: 380px;
+
+  }
+
+  .below-search {
+    display: flex;
+    justify-content: center;
+  }
+
+  .top-left {
+    font-size: 12px;
+  }
+  
+  
+  .search-button{
+   height: 60px;
+    width: 60px;
+  }
 }
