@@ -58,7 +58,7 @@ class SearchResults extends Component {
           </h1>
         </div>
         {this.props.loading && (
-          <img src={loadinggif} style={{ width: '100%' }} />
+          <img src={loadinggif} style={{ width: '100%' }} alt="" />
         )}
 
         {this.props.searchResults &&

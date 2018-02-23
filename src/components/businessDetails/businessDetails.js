@@ -6,10 +6,8 @@ import Footer from '../footer/footer';
 import BusinessReview from './businessReview';
 import { getDetails } from '../../ducks/events/reducer';
 import { Link } from 'react-router-dom';
-// import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import MapContainer from './mapContainer';
 import BizStars from './bizStars';
-import Star from './star';
 import loadinggif from './loading.gif';
 
 class businessDetails extends Component {
@@ -30,7 +28,7 @@ class businessDetails extends Component {
       <div className="gray">
         <SearchHeader />
         {this.props.loading && (
-          <img src={loadinggif} style={{ width: '100%' }} />
+          <img src={loadinggif} style={{ width: '100%' }} alt=""/>
         )}
         <div className="skinny">
           <div className="content-container">
