@@ -9,6 +9,7 @@
 // });
 
 //Beck
+
 import { results } from "../src/components/searchResults/searchResults";
 import { isHovering } from "../src/components/businessDetails/mapOfAllBiz";
 import { userId, arr } from "../src/components/userProfile/userProfile";
@@ -19,7 +20,6 @@ it("mapOfAllBiz", () => expect(isHovering).toBeFalsy());
 it("userID", () => expect(userId).toBeFalsy());
 it("arr", () => expect(arr).toBeFalsy());
 it("biz", () => expect(biz).toBeFalsy());
-
 
 //Eric
 import {location, search} from "../src/components/headers/mainHeader";
