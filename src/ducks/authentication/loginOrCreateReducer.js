@@ -48,14 +48,16 @@ export function createAccount(email, password) {
 }
 
 export function saveUserInfo(userid, name, city, state, avatar) {
+  console.log("reducer:", userid, name, city, state, avatar);
   return {
     type: SAVE_USER_INFO,
     payload: axios
-      .post("/api/saveuserinfo", {
-        name,
-        city,
-        state,
-        userid
+      .post("/api/saveuserinfo/", {
+        name: name,
+        city: city,
+        state: state,
+        avatar: avatar,
+        userid: userid
       })
       .then(response => {
         return response.data;
