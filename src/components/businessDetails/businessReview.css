@@ -2,7 +2,7 @@
   padding-top: 18px;
 }
 
-.content-container {
+.content-container1 {
   width: 100%;
   margin: 0 auto;
   padding: 0 15px;
@@ -93,8 +93,8 @@ h4,
 .feed_trust-banner {
   padding: 12px;
   background-color: #f5f5f5;
-  border-top: 1px solid #e6e6e6;
   text-align: center;
+  width: 100%;
 }
 
 .arrange--12 {
@@ -131,6 +131,12 @@ img #burst {
 .review-list {
   position: relative;
   display: inline-block;
+  width: 100%;
+}
+
+.super-div {
+  width: 62%;
+  margin-left: 18%;
 }
 
 ol,
@@ -141,8 +147,8 @@ ul {
 #ylist {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  margin-left: 350px;
+  /* width: 60%; */
+  margin-left: 11%;
 }
 
 .ylist > li {
@@ -209,9 +215,10 @@ ul {
 
 .media-story {
   flex: 1;
-  min-width: 0;
-  min-height: 0;
+  /* min-width: 0;
+  min-height: 0; */
   float: left;
+  margin-left: -40px;
 }
 
 .user-name {
@@ -226,6 +233,9 @@ ul {
 
 #info-align {
   float: left;
+  width: 100%;
+  height: 60%;
+  margin-right: 45px;
 }
 
 .ypassport .user-display-name {
@@ -269,12 +279,20 @@ ul {
   overflow: hidden;
 }
 
+.rating-large1 {
+  position: relative;
+  overflow: hidden;
+  margin-left: -40px;
+}
+
 .rating-top {
   float: left;
+  width: 150px;
 }
 
 #review-par {
   text-align: left;
+  width: 80%;
 }
 
 .rating-qualifier {
@@ -368,8 +386,9 @@ ul .right-review-item {
 }
 
 #settledown {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
 }
 
 #centered {

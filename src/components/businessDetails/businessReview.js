@@ -12,14 +12,13 @@ class BusinessReview extends Component {
   }
 
   render() {
-    console.log('PROPS:', this.props);
     function dateParser(str) {
       let formatted = str.split(' ')[0].split('-');
       return formatted[1] + '/' + formatted[2] + '/' + formatted[0];
     }
     return (
-      <div>
-        <div id="super-container" className="content-container">
+      <div className="super-div">
+        <div id="super-container centered" className="content-container1">
           <div className="container">
             <div className="layout-block layout-a ysection position-with-scroll-container layout--biz-details">
               <div className="column column-alpha main-section">
@@ -78,12 +77,7 @@ class BusinessReview extends Component {
                                                 className="user-passport-info"
                                               >
                                                 <li className="user-name">
-                                                  <p
-                                                    id="info-align"
-                                                    className="ypassport user-display-name"
-                                                  >
                                                     {rev.user.name}
-                                                  </p>
                                                 </li>
                                                 <li className="user-location">
                                                   Dallas, TX
@@ -94,7 +88,7 @@ class BusinessReview extends Component {
                                         </div>
                                         <div className="review-wrapper">
                                           <div className="review-content">
-                                            <div className="biz-rating-large rating-large">
+                                            <div className="biz-rating-large rating-large1">
                                               <div className="rating-top">
                                                 <div className="right-review-item">
                                                   <ul

@@ -4,7 +4,7 @@
   padding-bottom: -10px;
   height: 174px;
   width: 60%;
-  margin: -50px 0 -10px 20px;
+  margin: -25px 0 -10px 20px;
 }
 
 .img-border {
@@ -16,6 +16,7 @@
 .results-img {
   height: 100px;
   width: 100px;
+  border-radius: 5px;
 }
 
 .name-rating {
@@ -25,6 +26,7 @@
   height: fit-content;
   margin-top: 4vh;
   margin-left: 2vw;
+  line-height: 25px;
 }
 
 .results-name {
@@ -73,12 +75,28 @@
   font-weight: normal;
 }
 
+#link {
+  color: #0073bb;
+  text-align: top;
+  padding: 0 0 0 5px;
+}
+
+#link:hover {
+  text-decoration: underline;
+  text-decoration-color: #0073bb;
+}
+
+
+@media (max-width: 375px) {
+  .result-card {
+    width: 369px;
+    
 @media (max-width: 480px) { */
    .result-card {
     width: 100%;
     margin-left: 0;
     background-color: white;
-    
+
   }
  .result-location{
     display: flex;

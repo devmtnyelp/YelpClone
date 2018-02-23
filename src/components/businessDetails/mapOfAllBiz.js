@@ -15,13 +15,37 @@ import nine from './markers/9.png';
 import ten from './markers/10.png';
 
 class MapContainer extends Component {
-
   constructor(props) {
     super(props);
     this.onMarkerClick = this.onMarkerClick.bind(this);
+    this.markerIcon = this.markerIcon.bind(this);
   }
   onMarkerClick(bizId) {
     this.props.history.push(`/businessdetails/${bizId}`);
+  }
+  
+  markerIcon(i) {
+    if (i === 0) {
+      return one;
+    } else if (i === 1) {
+      return two;
+    } else if (i === 2) {
+      return three;
+    } else if (i === 3) {
+      return four;
+    } else if (i === 4) {
+      return five;
+    } else if (i === 5) {
+      return six;
+    } else if (i === 6) {
+      return seven;
+    } else if (i === 7) {
+      return eight;
+    } else if (i === 8) {
+      return nine;
+    } else if (i === 9) {
+      return ten;
+    }
   }
 
   markers(results) {
@@ -29,8 +53,9 @@ class MapContainer extends Component {
     var latHolder = 0;
     var longHolder = 0;
     for (let i = 0; i < results.length; i++) {
-      latHolder = results[i].coords.latitude;
-      longHolder = results[i].coords.longitude;
+
+      latHolder = results[i].coordinates.latitude;
+      longHolder = results[i].coordinates.longitude;
 
       arr.push(
         <Marker
@@ -40,7 +65,7 @@ class MapContainer extends Component {
             lat: latHolder,
             lng: longHolder
           }}
-          icon={one}
+          icon={this.markerIcon(i)}
 
         />
       );
@@ -48,22 +73,21 @@ class MapContainer extends Component {
     return arr;
   }
   render() {
-    let latitude1 = this.props.results[0].coords.latitude;
-    let longitude1 = this.props.results[0].coords.longitude;
-    console.log("this.props.results MapOfAllBiz: ", this.props.results);
+    let latitude1 = this.props.results[0].coordinates.latitude;
+    let longitude1 = this.props.results[0].coordinates.longitude;
     return (
-      <Link to={'/businessdetails/' + this.props.results.id}>
-        <div className="businesses-map style">
-          <Map
-            google={this.props.google}
-            style={{ width: '350px', height: '400px', position: 'relative' }}
-            zoom={9}
-            initialCenter={{
-              lat: latitude1,
-              lng: longitude1
-            }}
-          >
-            {this.markers(this.props.results, this.props.bizname)}
+      <div className="businesses-map style">
+        <Map
+          google={this.props.google}
+          style={{ width: '350px', height: '400px', position: 'relative' }}
+          zoom={9}
+          initialCenter={{
+            lat: latitude1,
+            lng: longitude1
+          }}
+        >
+          {this.markers(this.props.results, this.props.bizname)}
+
 
             <InfoWindow onClose={this.onInfoWindowClose}>
               <div>
