@@ -1,6 +1,7 @@
 .business-body {
   background-color: #f4f4f4;
   padding: 50px;
+
 }
 
 .h2-business {
@@ -9,6 +10,7 @@
 
 .business-flex {
   display: flex;
+  justify-content: center;
   background-color: #f4f4f4;
 }
 
