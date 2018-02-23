@@ -6061,7 +6061,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.0:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -6251,6 +6251,12 @@ react-hoverbox@^1.0.544:
   resolved "https://registry.yarnpkg.com/react-hoverbox/-/react-hoverbox-1.0.544.tgz#47abb7c25849e7d0e21f7c1e040b828afa427a4c"
   dependencies:
     wnpm-ci "^6.2.54"
+
+react-geolocated@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-geolocated/-/react-geolocated-2.3.0.tgz#59d2247a98b6c5b32316adc943b77749672298ea"
+  dependencies:
+    prop-types "^15.5.8"
 
 react-redux@^5.0.6:
   version "5.0.6"
