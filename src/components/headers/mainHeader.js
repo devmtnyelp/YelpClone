@@ -4,21 +4,17 @@ import { connect } from 'react-redux';
 import { mainSearch } from '../../ducks/search/searchReducer';
 import './mainHeader.css';
 import picture from './yelp.png';
-
 class mainHeader extends Component {
   constructor() {
     super();
-
     this.state = {
       search: '',
       location: 'Dallas, TX'
     };
   }
-
   render() {
     console.log('LOCATION STATE:', this.state.location);
     const { search, location } = this.state;
-
     return (
       <div className="background">
         <div>
@@ -49,25 +45,23 @@ class mainHeader extends Component {
             </div>
             <div className="search-form">
               <div className="search-bar">
-              <div>
-                <span>Find</span>
-                <input
-                  type="submit"
-                  placeholder="burgers, barbers, spas, handymen..."
-                  onChange={event =>
-                    this.setState({ search: event.target.value })
-                  }
-                />
-                <span>Near</span>
-                <input
-                  type="submit"
-                  placeholder="Dallas, TX"
-                  value={this.state.location || this.props.geoLocale}
-                  onChange={event =>
-                    this.setState({ location: event.target.value })
-                  }
-                />
-              </div>
+                  <span>Find</span>
+                  <input
+                    type="text"
+                    placeholder="burgers, barbers, spas, handymen..."
+                    onChange={event =>
+                      this.setState({ search: event.target.value })
+                    }
+                  />
+                  <span>Near</span>
+                  <input
+                    type="text"
+                    placeholder="Dallas, TX"
+                    value={this.state.location || this.props.geoLocale}
+                    onChange={event =>
+                      this.setState({ location: event.target.value })
+                    }
+                  />
                 <button
                   type="submit"
                   onClick={() => {
@@ -107,7 +101,6 @@ class mainHeader extends Component {
             </Link>
             <Link to="/searchresults/?location=dallas&?search=delivery">
               Delivery
-
             </Link>
           </div>
         </div>
@@ -115,10 +108,8 @@ class mainHeader extends Component {
     );
   }
 }
-
 function mapStateToProps({ eventReducer }) {
   console.log(eventReducer);
   return { geoLocale: eventReducer.geoLocale };
 }
-
 export default withRouter(connect(mapStateToProps, { mainSearch })(mainHeader));

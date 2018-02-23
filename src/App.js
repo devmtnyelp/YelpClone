@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { geolocated } from 'react-geolocated';
-import { geoLocation } from './ducks/events/reducer';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from "react";
+import { geolocated } from "react-geolocated";
+import { geoLocation } from "./ducks/events/reducer";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import './App.css';
-import Routes from './routes';
+import "./App.css";
+import Routes from "./routes";
 
 class App extends Component {
   componentWillReceiveProps(nextProps) {

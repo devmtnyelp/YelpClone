@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { withRouter } from 'react-router-dom';
@@ -19,11 +20,17 @@ class MapContainer extends Component {
 
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.markerIcon = this.markerIcon.bind(this);
+
   }
 
   onMarkerClick(bizId) {
     this.props.history.push(`/businessdetails/${bizId}`);
   }
+
+  onMouseOverFunc() {
+    console.log("hovering over!");
+  }
+
 
   markerIcon(i) {
     if (i === 0) {
@@ -49,14 +56,17 @@ class MapContainer extends Component {
     }
   }
 
+
   markers(results) {
     let arr = [];
     var latHolder = 0;
     var longHolder = 0;
 
+
     for (let i = 0; i < results.length; i++) {
       latHolder = results[i].coordinates.latitude;
       longHolder = results[i].coordinates.longitude;
+
       arr.push(
         <Marker
           onClick={() => this.onMarkerClick(this.props.results[i].id)}
@@ -65,7 +75,11 @@ class MapContainer extends Component {
             lat: latHolder,
             lng: longHolder
           }}
+
+          onMouseover={this.onMouseOverFunc}
+
           icon={this.markerIcon(i)}
+
         />
       );
     }
@@ -73,6 +87,7 @@ class MapContainer extends Component {
   }
 
   render() {
+
     let latitude1 = this.props.results[0].coordinates.latitude;
     let longitude1 = this.props.results[0].coordinates.longitude;
     return (
@@ -81,11 +96,13 @@ class MapContainer extends Component {
           google={this.props.google}
           style={{ width: '350px', height: '400px', position: 'relative' }}
           zoom={9}
+
           initialCenter={{
             lat: latitude1,
             lng: longitude1
           }}
         >
+
           {this.markers(this.props.results, this.props.bizname)}
 
           <InfoWindow onClose={this.onInfoWindowClose}>
@@ -93,14 +110,14 @@ class MapContainer extends Component {
               <h1>{this.props.name}</h1>
             </div>
           </InfoWindow>
+
         </Map>
       </div>
     );
   }
 }
-
 export default withRouter(
   GoogleApiWrapper({
-    apiKey: 'AIzaSyDo7zOMR2WGwrQMCcThATLhXuaCBHp33l4'
+    apiKey: "AIzaSyDo7zOMR2WGwrQMCcThATLhXuaCBHp33l4"
   })(MapContainer)
 );
