@@ -2,7 +2,7 @@ const storeUserInfoInHeroku = (req, res) => {
   console.log("authCTRL", req.body);
   req.app
     .get("db")
-    .authUser(req.body)
+    .createUser(req.body)
     .then(result => res.json(result))
     .catch(console.log);
 };

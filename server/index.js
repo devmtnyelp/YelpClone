@@ -43,7 +43,7 @@ app.post("/api/user/add", addUser);
 app.put("/api/user/edit", editUser);
 app.delete("/api/user/remove", removeUser);
 app.post("/api/storeuserinfo", storeUserInfoInHeroku);
-
+app.post("/api/saveuserinfo", addUser)
 // Review Endpoints
 app.put("/api/editReview", editReview);
 app.delete("/api/deleteReview", deleteReview);
