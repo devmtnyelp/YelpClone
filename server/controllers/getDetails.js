@@ -1,7 +1,7 @@
 require("dotenv").config();
 let responseObj = {
-  details: {},
-  reviews: []
+ details: {},
+ reviews: []
 };
 let valueHolder = [];
 let detailsCameBack = false;
@@ -10,6 +10,7 @@ let reviewsCameBack = false;
 const axios = require("axios");
 const { apiKey } = process.env;
 const getDetails = (req, res, next) => {
+
   console.log("req.query:", req.query);
   const timeFormater = input => {
     input = JSON.stringify(input);
@@ -26,8 +27,10 @@ const getDetails = (req, res, next) => {
     return arr.join(" ");
   };
 
-  const dataFormater = input => {
-    var d = new Date(0);
+
+ const dataFormater = input => {
+   var d = new Date(0);
+
 
     responseObj.reviews = input.reviews.map((val, i) => {
       if (val.userid) {
@@ -94,26 +97,27 @@ const getDetails = (req, res, next) => {
     .then(response => {
       reviewsCameBack = true;
 
-      if (ourReviewsCameBack) {
-        responseObj.reviews = response.data.reviews.concat(valueHolder);
-      } else {
-        valueholder = response.data;
-      }
-      if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
-        dataFormater(responseObj);
-      }
-    })
-    .catch(console.log);
 
-  // Promise.all([
-  //   businessReviewsFromYelpPromise,
-  //   businessReviewsFromDBPromise,
-  //   listofBusinessesFromYelp
-  // ]).then(function(reviewsFromYelp, reviewsFromDB) {
-  //   console.log("Done");
-  // });
+     if (ourReviewsCameBack) {
+       responseObj.reviews = response.data.reviews.concat(valueHolder);
+     } else {
+       valueholder = response.data;
+     }
+     if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
+       dataFormater(responseObj);
+     }
+   })
+   .catch(console.log);
+
+ // Promise.all([
+ //   businessReviewsFromYelpPromise,
+ //   businessReviewsFromDBPromise,
+ //   listofBusinessesFromYelp
+ // ]).then(function(reviewsFromYelp, reviewsFromDB) {
+ //   console.log("Done");
+ // });
 };
 
 module.exports = {
-  getDetails
+ getDetails
 };

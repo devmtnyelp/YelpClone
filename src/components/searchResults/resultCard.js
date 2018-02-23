@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './resultCard.css';
 import Star from '../businessDetails/star';
 import { Link } from 'react-router-dom';
-
 export default class ResultCard extends Component {
   render() {
     return (
