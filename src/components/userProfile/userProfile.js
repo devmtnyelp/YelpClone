@@ -6,6 +6,7 @@ import "./userProfile.css";
 import SearchHeader from "../headers/searchHeader";
 import axios from "axios";
 import loadinggif from './warm_grey_spinner.gif'
+import {Link, withRouter} from 'react-router-dom';
 
 let arr = [];
 class UserProfile extends Component {
@@ -40,6 +41,7 @@ class UserProfile extends Component {
       <div>
         <SearchHeader />
         {this.props.eventReducer.info.data && (
+          <div>
           <div>
             <div className="topShelf">
               <img
@@ -102,10 +104,17 @@ class UserProfile extends Component {
                 </li>
               </ul>
               </div>
+              <div className="topShelfNav">
+              <div className="topShelfNavList">
+              <Link to={`/edituser/?userId=${this.props.eventReducer.info.data.user[0].userid}`}>
+              <p>Edit Profile</p>
+              </Link>
+              </div>
+              </div>
+              </div>
             </div>
             <div className="mainContentContainer">
               <div className="profileNav">
-                <p> </p>
               </div>
               <div className="userReviewContainer">
               {this.state.arr.length < this.props.eventReducer.info.data.reviews.length && <img src={loadinggif} style={{"width": "80px", 'margin-left':'30px'}} />}
@@ -123,6 +132,6 @@ class UserProfile extends Component {
 function mapStateToProps(getUserDetails) {
   return getUserDetails;
 }
-export default connect(mapStateToProps, { getDetails, getUserDetails })(
+export default withRouter(connect(mapStateToProps, { getDetails, getUserDetails })(
   UserProfile
-);
+))

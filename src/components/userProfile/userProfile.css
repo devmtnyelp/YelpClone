@@ -94,3 +94,24 @@ padding-left:25px;
 .userStatNumber{
   font-weight: bold;
 }
+.topShelfNav{
+  width:100%;
+}
+.topShelfNavList{
+width:232px;
+height:131px;
+margin-left:150px;
+text-align: left;
+border-left: 1px solid #e6e6e6;
+padding-top:10px;
+padding-left: 10px;
+
+margin-bottom:15px;
+margin-top: 23px;
+
+}
+.topShelfNavList p{
+  color: #0000EE;
+  margin: auto;
+  
+}
