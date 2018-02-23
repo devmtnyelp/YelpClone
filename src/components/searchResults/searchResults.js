@@ -44,7 +44,7 @@ class SearchResults extends Component {
         search[1]
           .substr(8)
           .charAt(0)
-          .toUpperCase() + search[1].substr(9)
+          .toUpperCase() + search[1].substr(9).replace('%20', ' ')
     });
   }
 
