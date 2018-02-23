@@ -4,20 +4,18 @@
   padding-bottom: -10px;
   height: 174px;
   width: 60%;
-  margin: -50px 0 -10px 20px;
+  margin: -25px 0 -10px 20px;
 }
-
 .img-border {
   display: flex;
   align-items: center;
   margin-left: 1%;
 }
-
 .results-img {
   height: 100px;
   width: 100px;
+  border-radius: 5px;
 }
-
 .name-rating {
   display: flex;
   flex-direction: column;
@@ -25,8 +23,8 @@
   height: fit-content;
   margin-top: 4vh;
   margin-left: 2vw;
+  line-height: 25px;
 }
-
 .results-name {
   display: flex;
   justify-content: flex-start;
@@ -37,7 +35,6 @@
   display: flex;
   justify-content: flex-start;
 }
-
 .result-location {
   display: flex;
   flex-direction: column;
@@ -45,19 +42,16 @@
   text-align: left;
   font-weight: normal;
 }
-
 .rating {
   width: 100%;
   height: 100%;
 }
-
 .price-category {
   width: 280px;
   font-size: 14px;
   text-align: left;
   font-weight: normal;
 }
-
 .bullet {
   content: '•';
   position: relative;
@@ -67,18 +61,29 @@
   font-size: 10px;
   line-height: 18px;
 }
-
 .count {
   margin-left: 5px;
   font-weight: normal;
 }
-
-@media (max-width: 480px) { */
+#link {
+  color: #0073bb;
+  text-align: top;
+  padding: 0 0 0 5px;
+}
+#link:hover {
+  text-decoration: underline;
+  text-decoration-color: #0073bb;
+}
+@media (max-width: 375px) {
+  .result-card {
+    width: 369px;
+  }
+}
+@media (max-width: 480px) { 
    .result-card {
     width: 100%;
     margin-left: 0;
     background-color: white;
-    
   }
  .result-location{
     display: flex;

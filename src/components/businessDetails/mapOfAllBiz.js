@@ -1,29 +1,34 @@
-
-import React, { Component } from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import { Link, withRouter } from 'react-router-dom';
-import './mapOfAllBiz.css';
-import one from './markers/1.png';
-import two from './markers/2.png';
-import three from './markers/3.png';
-import four from './markers/4.png';
-import five from './markers/5.png';
-import six from './markers/6.png';
-import seven from './markers/7.png';
-import eight from './markers/8.png';
-import nine from './markers/9.png';
-import ten from './markers/10.png';
-
-class MapContainer extends Component {
-
+import React, { Component } from "react";
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import { Link, withRouter } from "react-router-dom";
+import businessDetails from "./businessDetails";
+import "./mapOfAllBiz.css";
+import one from "./markers/1.png";
+import two from "./markers/2.png";
+import three from "./markers/3.png";
+import four from "./markers/4.png";
+import five from "./markers/5.png";
+import six from "./markers/6.png";
+import seven from "./markers/7.png";
+import eight from "./markers/8.png";
+import nine from "./markers/9.png";
+import ten from "./markers/10.png";
+import searchResults from "../searchResults/searchResults";
+export class MapContainer extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isHovering: false
+    };
     this.onMarkerClick = this.onMarkerClick.bind(this);
+    this.onMouseOverFunc = this.onMouseOverFunc.bind(this);
   }
   onMarkerClick(bizId) {
     this.props.history.push(`/businessdetails/${bizId}`);
   }
-
+  onMouseOverFunc() {
+    console.log("hovering over!");
+  }
   markers(results) {
     let arr = [];
     var latHolder = 0;
@@ -31,7 +36,6 @@ class MapContainer extends Component {
     for (let i = 0; i < results.length; i++) {
       latHolder = results[i].coords.latitude;
       longHolder = results[i].coords.longitude;
-
       arr.push(
         <Marker
           onClick={() => this.onMarkerClick(this.props.results[i].id)}
@@ -40,8 +44,7 @@ class MapContainer extends Component {
             lat: latHolder,
             lng: longHolder
           }}
-          icon={one}
-
+          onMouseover={this.onMouseOverFunc}
         />
       );
     }
@@ -50,32 +53,8 @@ class MapContainer extends Component {
   render() {
     let latitude1 = this.props.results[0].coords.latitude;
     let longitude1 = this.props.results[0].coords.longitude;
-    console.log("this.props.results MapOfAllBiz: ", this.props.results);
+    // console.log("this.props.results MapOfAllBiz: ", this.props.results);
     return (
-      <Link to={'/businessdetails/' + this.props.results.id}>
-        <div className="businesses-map style">
-          <Map
-            google={this.props.google}
-            style={{ width: '350px', height: '400px', position: 'relative' }}
-            zoom={9}
-            initialCenter={{
-              lat: latitude1,
-              lng: longitude1
-            }}
-          >
-            {this.markers(this.props.results, this.props.bizname)}
-
-            <InfoWindow onClose={this.onInfoWindowClose}>
-              <div>
-                <h1>{this.props.name}</h1>
-              </div>
-            </InfoWindow>
-          </Map>
-        </div>
-      </Link>
-    );
-  }
-}
       <div
         className="businesses-map"
         style={{ marginLeft: 750, marginTop: 50 }}
@@ -83,26 +62,20 @@ class MapContainer extends Component {
         <Map
           google={this.props.google}
           style={{ width: "404px", height: "315px", position: "relative" }}
-          zoom={9}
+          zoom={10}
           initialCenter={{
             lat: latitude1,
             lng: longitude1
           }}
         >
           {this.markers(this.props.results)}
-          <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>{this.props.name}</h1>
-            </div>
-          </InfoWindow>
         </Map>
       </div>
     );
   }
 }
-
 export default withRouter(
   GoogleApiWrapper({
-    apiKey: 'AIzaSyDo7zOMR2WGwrQMCcThATLhXuaCBHp33l4'
+    apiKey: "AIzaSyDo7zOMR2WGwrQMCcThATLhXuaCBHp33l4"
   })(MapContainer)
 );

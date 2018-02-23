@@ -145,6 +145,11 @@
   margin: 1%;
 }
 
+.Link-to{
+  color:white;
+  margin-left: 25px;
+}
+
 @media (max-width: 480px) {
   .search-form {
     max-width: 90vw;
