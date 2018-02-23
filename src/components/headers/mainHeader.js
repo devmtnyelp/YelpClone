@@ -4,21 +4,17 @@ import { connect } from 'react-redux';
 import { mainSearch } from '../../ducks/search/searchReducer';
 import './mainHeader.css';
 import picture from './yelp.png';
-
 class mainHeader extends Component {
   constructor() {
     super();
-
     this.state = {
       search: '',
       location: 'Dallas, TX'
     };
   }
-
   render() {
     console.log('LOCATION STATE:', this.state.location);
     const { search, location } = this.state;
-
     return (
       <div className="background">
         <div>
@@ -48,45 +44,47 @@ class mainHeader extends Component {
               <img className="yelp-pic" src={picture} alt="" />
             </div>
             <div className="search-form">
-            <div className="search-bar">
-            <span>Find</span>
-            <input
-              type="text"
-              placeholder="burgers, barbers, spas, handymen..."
-              onChange={event =>
-                this.setState({ search: event.target.value })
-              }
-            />
-            <span>Near</span>
-            <input
-              type="text"
-              placeholder="Dallas, TX"
-              onChange={event =>
-                this.setState({ location: event.target.value })
-              }
-            />
-            <button
-              onClick={() => {
-                this.props.mainSearch(location, search);
-                this.props.history.push(
-                  `/searchresults/?location=${this.state.location}&?search=${
-                    this.state.search
-                  }`
-                );
-              }}
-              className="search-button"
-            >
-              <svg
-                fill="#fff"
-                id="24x24_search"
-                height="24px"
-                viewBox="0 0 24 24"
-                width="24px"
-              >
-                <path d="M20.753 19.34l-4.295-4.297A7.46 7.46 0 0 0 18 10.5a7.5 7.5 0 1 0-7.5 7.5 7.46 7.46 0 0 0 4.543-1.542l4.296 4.295a1 1 0 1 0 1.412-1.414zM10.5 16A5.506 5.506 0 0 1 5 10.5C5 7.467 7.467 5 10.5 5S16 7.467 16 10.5 13.533 16 10.5 16z" />
-              </svg>
-            </button>
-          </div>
+              <div className="search-bar">
+                  <span>Find</span>
+                  <input
+                    type="text"
+                    placeholder="burgers, barbers, spas, handymen..."
+                    onChange={event =>
+                      this.setState({ search: event.target.value })
+                    }
+                  />
+                  <span>Near</span>
+                  <input
+                    type="text"
+                    placeholder="Dallas, TX"
+                    value={this.state.location || this.props.geoLocale}
+                    onChange={event =>
+                      this.setState({ location: event.target.value })
+                    }
+                  />
+                <button
+                  type="submit"
+                  onClick={() => {
+                    this.props.mainSearch(location, search);
+                    this.props.history.push(
+                      `/searchresults/?location=${
+                        this.state.location
+                      }&?search=${this.state.search}`
+                    );
+                  }}
+                  className="search-button"
+                >
+                  <svg
+                    fill="#fff"
+                    id="24x24_search"
+                    height="24px"
+                    viewBox="0 0 24 24"
+                    width="24px"
+                  >
+                    <path d="M20.753 19.34l-4.295-4.297A7.46 7.46 0 0 0 18 10.5a7.5 7.5 0 1 0-7.5 7.5 7.46 7.46 0 0 0 4.543-1.542l4.296 4.295a1 1 0 1 0 1.412-1.414zM10.5 16A5.506 5.506 0 0 1 5 10.5C5 7.467 7.467 5 10.5 5S16 7.467 16 10.5 13.533 16 10.5 16z" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
           <div className="below-search">
@@ -103,7 +101,6 @@ class mainHeader extends Component {
             </Link>
             <Link to="/searchresults/?location=dallas&?search=delivery">
               Delivery
-
             </Link>
           </div>
         </div>
@@ -111,10 +108,8 @@ class mainHeader extends Component {
     );
   }
 }
-
 function mapStateToProps({ eventReducer }) {
   console.log(eventReducer);
   return { geoLocale: eventReducer.geoLocale };
 }
-
 export default withRouter(connect(mapStateToProps, { mainSearch })(mainHeader));
