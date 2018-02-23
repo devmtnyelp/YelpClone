@@ -106,7 +106,7 @@ class UserProfile extends Component {
               </div>
               <div className="topShelfNav">
               <div className="topShelfNavList">
-              <Link to={`/edituser/?userId=${this.props.eventReducer.info.data.user[0].userid}`}>
+              <Link to={`/userInfo/?userId=${this.props.eventReducer.info.data.user[0].userid}`}>
               <p>Edit Profile</p>
               </Link>
               </div>
