@@ -6,6 +6,7 @@ let reviewsCameBack = false
 let userCameBack = false
 
 const getUserProfile = (req, res, next) => {
+  console.log(req.query)
   req.app
   .get('db')
   .getUserDetails(req.query)
