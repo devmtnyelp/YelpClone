@@ -17,42 +17,36 @@ class NewBusinesses extends Component {
             <Link
               to="/searchresults/?location=San%20Francisco&?search=businesses"
               className="destination-link"
-              onClick="window.location.reload()"
             >
               San Francicso
             </Link>
             <Link
               to="/searchresults/?location=Los%20Angeles&?search=businesses"
               className="destination-link"
-              onClick="window.location.reload()"
             >
               Los Angeles
             </Link>
             <Link
               to="/searchresults/?location=New%20York&?search=businesses"
               className="destination-link"
-              onClick="window.location.reload()"
             >
               New York
             </Link>
             <Link
               to="/searchresults/?location=San%20Jose&?search=businesses"
               className="destination-link"
-              onClick="window.location.reload()"
             >
               San Jose
             </Link>
             <Link
               to="/searchresults/?location=Chicago&?search=businesses"
               className="destination-link"
-              onClick="window.location.reload()"
             >
               Chicago
             </Link>
             <Link
               to="/searchresults/?location=Palo%20Alto&?search=businesses"
               className="destination-link"
-              onClick="window.location.reload()"
             >
               Palo Alto
             </Link>

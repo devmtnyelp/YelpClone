@@ -49,9 +49,7 @@ const Footer = () => (
     </div>
 
     <div>
-      <p>
-        <img src={footerpic} alt="" />
-      </p>
+        <img className="footer-img" src={footerpic} alt="" />
     </div>
 
     <div className="copyright">
