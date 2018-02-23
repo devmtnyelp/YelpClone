@@ -1,0 +1,28 @@
+.user-info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: stretch;
+}
+
+.user-name {
+  width: 600px;
+  margin-bottom: 15px;
+}
+
+.city-name {
+  width: 600px;
+  margin-bottom: 15px;
+}
+
+.state {
+  width: 600px;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 600px;
+  margin-bottom: 15px;
+}

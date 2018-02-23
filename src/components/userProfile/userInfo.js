@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchHeader from "../headers/searchHeader";
 import { connect } from "react-redux";
 import { saveUserInfo } from "../../ducks/authentication/loginOrCreateReducer";
+import "./userInfo.css";
 
 class EditUserInfo extends Component {
   constructor(props) {
@@ -18,14 +19,13 @@ class EditUserInfo extends Component {
   render() {
     const userid = this.props.match.params.userid;
     const { name, city, state, avatar } = this.state;
-    console.log("uid:", userid);
-    console.log("ID!!!", this.props.match.params.userid);
     return (
       <div>
         <SearchHeader />
         <p>user information</p>
         <div className="user-info">
           <input
+            className="user-name"
             type="text"
             placeholder="name"
             onChange={event => {
@@ -33,6 +33,7 @@ class EditUserInfo extends Component {
             }}
           />
           <input
+            className="city-name"
             type="text"
             placeholder="city"
             onChange={event => {
@@ -40,6 +41,7 @@ class EditUserInfo extends Component {
             }}
           />
           <input
+            className="state"
             type="text"
             placeholder="state"
             onChange={event => {
@@ -47,6 +49,7 @@ class EditUserInfo extends Component {
             }}
           />
           <input
+            className="avatar"
             type="text"
             placeholder="avatar"
             onChange={event => {
