@@ -11,8 +11,14 @@
     color: #CE1313;
 }
 
-.sign-up {
-    color: white;
+.sign-up2 {
+    color: black;
+    font-weight: normal;
+    border: 1px solid;
+    padding: 8px 19px 9px 19px;
+    border-radius: 3px;
+
+   
 }
 
 .register {

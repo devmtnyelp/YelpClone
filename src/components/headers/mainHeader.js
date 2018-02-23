@@ -49,6 +49,7 @@ class mainHeader extends Component {
             </div>
             <div className="search-form">
               <div className="search-bar">
+              <div>
                 <span>Find</span>
                 <input
                   type="submit"
@@ -66,6 +67,7 @@ class mainHeader extends Component {
                     this.setState({ location: event.target.value })
                   }
                 />
+              </div>
                 <button
                   type="submit"
                   onClick={() => {
@@ -105,6 +107,7 @@ class mainHeader extends Component {
             </Link>
             <Link to="/searchresults/?location=dallas&?search=delivery">
               Delivery
+
             </Link>
           </div>
         </div>
