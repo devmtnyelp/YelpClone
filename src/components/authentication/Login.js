@@ -36,7 +36,7 @@ class Login extends Component {
         <div className="signUpBox">
           <div className="input-flex">
             <p className="login-title">Log In To Yelp</p>
-            <p className="sign-up">
+            <p className="sign-up2">
               New to Yelp?
               <Link to="/register" className="register">
                 Sign up

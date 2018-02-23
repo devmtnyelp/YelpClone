@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import burst from "../footer/images/burst_desktop_xsmall_outline.png";
+// import burst from "../footer/images/burst_desktop_xsmall_outline.png";
 import { getUserDetails, getDetails } from "../../ducks/events/reducer";
 import Star from "../businessDetails/star";
-import axios from "axios";
+// import axios from "axios";
 
-var arr = [];
+// var arr = [];
 var d = new Date(0);
 const timeFormater = (input) => {
   console.log(input);
@@ -46,6 +46,7 @@ class UserReviews extends Component {
         <img
           className="restaurantImg"
           src={this.props.data.details.image_url}
+          alt=""
         />
         <div className="restaurantInfo">
           <h3 className="restaurantTitle">{this.props.data.details.name}</h3>

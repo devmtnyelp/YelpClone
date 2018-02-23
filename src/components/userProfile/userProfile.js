@@ -8,7 +8,8 @@ import axios from "axios";
 import loadinggif from './warm_grey_spinner.gif'
 import {Link, withRouter} from 'react-router-dom';
 
-let arr = [];
+
+// let arr = [];
 class UserProfile extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +26,7 @@ class UserProfile extends Component {
         axios
           .get(`/api/getDetails?restaurantId=${val.restaurantid}`)
           .then(response => {
-            console.log("ding");
+            console.log('ding');
             this.setState({
               arr: this.state.arr.concat([
                 <UserReviews {...val} {...response} {...i} />
@@ -47,11 +48,12 @@ class UserProfile extends Component {
               <img
                 id="userProfilePic"
                 src={this.props.eventReducer.info.data.user[0].avatar}
+                alt=""
               />
               <div id="userInfoContainerDiv">
                 <h1>{this.props.eventReducer.info.data.user[0].name}</h1>
                 <p className="userLocation">
-                  {this.props.eventReducer.info.data.user[0].city},{" "}
+                  {this.props.eventReducer.info.data.user[0].city},{' '}
                   {this.props.eventReducer.info.data.user[0].state}
                 </p>
                 <ul className="userStats">
