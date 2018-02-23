@@ -11,7 +11,8 @@ class SearchHeader extends Component {
     super();
 
     this.state = {
-      search: ""
+      search: "",
+      location: "Dallas, TX"
     };
   }
 
