@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import burst from "../footer/images/burst_desktop_xsmall_outline.png";
+// import burst from "../footer/images/burst_desktop_xsmall_outline.png";
 import { getUserDetails, getDetails } from "../../ducks/events/reducer";
 import Star from "../businessDetails/star";
-import axios from "axios";
+// import axios from "axios";
 
-var arr = [];
+// var arr = [];
 var d = new Date(0);
 const timeFormater = (input) => {
   console.log(input);
   d = new Date(0);
   d.setUTCSeconds(input);
-  var x = JSON.stringify(timeFormater(d));
-  console.log(x);
+  var x = JSON.stringify(d);
   var arr = x.split("T");
 
   arr[0] = arr[0].split("");
@@ -41,30 +40,30 @@ class UserReviews extends Component {
   render() {
     var id = this.props.id;
     return (
-      <div key={this.props.i}>
+      <div className="greaterUserReviewContainerMarginBottom">
+      <div key={this.props.i} className="userReview">
         <img
           className="restaurantImg"
           src={this.props.data.details.image_url}
+          alt=""
         />
-        <div>
-          <h3>{this.props.data.details.name}</h3>
-          <p>{this.props.data.details.location.address1}</p>
-          <p>
+        <div className="restaurantInfo">
+          <h3 className="restaurantTitle">{this.props.data.details.name}</h3>
+          <p className="restaurantLocation">{this.props.data.details.location.address1}</p>
+          <p className="restaurantLocation">
             {this.props.data.details.location.city},{" "}
             {this.props.data.details.location.state}{" "}
             {this.props.data.details.location.zip_code}
           </p>
-          <div>
+          </div>
+          </div>
+          <div className="starAndDate">
             <Star rev={this.props.rating} />{" "}
-            <p>
-              {console.log(this.props)}
-              {console.log(id)}
-              {/*timeFormater(this.props.time)*/}
+            <p className="reviewDate">
+              {timeFormater(this.props.time)}
             </p>
           </div>
-          <p>{JSON.stringify(this.props)}</p>
-          {console.log(this.props)}
-        </div>
+          <p className="reviewBody">{this.props.reviewbody}</p>        
       </div>
     );
   }

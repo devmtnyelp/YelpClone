@@ -16,9 +16,9 @@ class mainHeader extends Component {
   }
 
   render() {
-    console.log('LOCATION:', this.props.location);
+    console.log('LOCATION STATE:', this.state.location);
     const { search, location } = this.state;
-    
+
     return (
       <div className="background">
         <div>
@@ -49,27 +49,27 @@ class mainHeader extends Component {
             </div>
             <div className="search-form">
               <div className="search-bar">
-                <div>
-                  <span>Find</span>
-                  <input
-                    type="text"
-                    placeholder="burgers, barbers, spas, handymen..."
-                    onChange={event =>
-                      this.setState({ search: event.target.value })
-                    }
-                  />
-                </div>
-                <div>
-                  <span>Near</span>
-                  <input
-                    type="text"
-                    placeholder="Dallas, TX"
-                    onChange={event =>
-                      this.setState({ location: event.target.value })
-                    }
-                  />
-                </div>
+              <div>
+                <span>Find</span>
+                <input
+                  type="submit"
+                  placeholder="burgers, barbers, spas, handymen..."
+                  onChange={event =>
+                    this.setState({ search: event.target.value })
+                  }
+                />
+                <span>Near</span>
+                <input
+                  type="submit"
+                  placeholder="Dallas, TX"
+                  value={this.state.location || this.props.geoLocale}
+                  onChange={event =>
+                    this.setState({ location: event.target.value })
+                  }
+                />
+              </div>
                 <button
+                  type="submit"
                   onClick={() => {
                     this.props.mainSearch(location, search);
                     this.props.history.push(
@@ -94,18 +94,20 @@ class mainHeader extends Component {
             </div>
           </div>
           <div className="below-search">
-            <Link to={`/searchresults/?location=${location}&?search=restaurants`}>
+            <Link
+              to={`/searchresults/?location=${location}&?search=restaurants`}
+            >
               Restaurants
+            </Link>
+            <Link to="/searchresults/?location=dallas&?search=nightlife">
+              Nightlife
+            </Link>
+            <Link to="/searchresults/?location=dallas&?search=home%20Services">
+              Home Services
+            </Link>
+            <Link to="/searchresults/?location=dallas&?search=delivery">
+              Delivery
 
-            </Link>
-            <Link to={`/searchresults/?location=${location}&?search=nightlife`}>
-               Nightlife
-            </Link>
-            <Link to={`/searchresults/?location=${location}&?search=home%20Services`}>
-               Home Services
-            </Link>
-            <Link to={`/searchresults/?location=${location}&?search=delivery`}>
-               Delivery
             </Link>
           </div>
         </div>
@@ -114,6 +116,9 @@ class mainHeader extends Component {
   }
 }
 
-const mapStateToProps = state => state;
+function mapStateToProps({ eventReducer }) {
+  console.log(eventReducer);
+  return { geoLocale: eventReducer.geoLocale };
+}
 
 export default withRouter(connect(mapStateToProps, { mainSearch })(mainHeader));

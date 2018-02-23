@@ -65,25 +65,30 @@
   margin-left: 5px;
   font-weight: normal;
 }
+
 #link {
   color: #0073bb;
   text-align: top;
   padding: 0 0 0 5px;
 }
+
 #link:hover {
   text-decoration: underline;
   text-decoration-color: #0073bb;
 }
+
 @media (max-width: 375px) {
   .result-card {
     width: 369px;
   }
 }
+
 @media (max-width: 480px) { 
    .result-card {
     width: 100%;
     margin-left: 0;
     background-color: white;
+
   }
  .result-location{
     display: flex;
