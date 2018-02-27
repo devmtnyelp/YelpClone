@@ -57,4 +57,9 @@ app.get("/api/getDetails", getDetails);
 app.get(`/api/events/searchFromHeader/`, businessSearch);
 app.get("/api/autoComplete", autoComplete);
 
+const path = require('path');
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+
 app.listen(port, () => console.log("Server listening on port", port));

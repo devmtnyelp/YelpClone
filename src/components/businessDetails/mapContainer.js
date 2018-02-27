@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import yelppin from './markers/yelpmarker.png';
+require("dotenv").config();
+
+const { googleMapsKey } = process.env;
 
 export class MapContainer extends Component {
   render() {
@@ -33,5 +36,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDo7zOMR2WGwrQMCcThATLhXuaCBHp33l4'
+  apiKey: googleMapsKey
 })(MapContainer);

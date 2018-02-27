@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './businessReview.css';
 import burst from '../footer/images/burst_desktop_xsmall_outline.png';
 import { getReviews } from '../../ducks/events/reducer';
 import Star from './star';
+
 
 class BusinessReview extends Component {
   componentWillMount() {
@@ -18,6 +19,8 @@ class BusinessReview extends Component {
     }
     return (
       <div className="super-div">
+      {      console.log('props->', this.props)
+      }
         <div id="super-container centered" className="content-container1">
           <div className="container">
             <div className="layout-block layout-a ysection position-with-scroll-container layout--biz-details">
@@ -53,6 +56,8 @@ class BusinessReview extends Component {
                           this.props.reviews.map((rev, i) => {
                             return (
                               <div key={i} className="review-list">
+                              {console.log(rev)}
+                              
                                 <ul
                                   id="ylist"
                                   className="ylist ylist-bordered reviews"
@@ -77,7 +82,16 @@ class BusinessReview extends Component {
                                                 className="user-passport-info"
                                               >
                                                 <li className="user-name">
+                                                {console.log(rev)}
+                                                {rev.userid && <Link to={`/userProfile/${rev.userid}`} className="profileLink">
                                                     {rev.user.name}
+                                                    </Link>}
+                                                {!rev.userid && 
+                                                <p>
+                                                {rev.user.name}
+                                                </p>
+                                                }
+
                                                 </li>
                                                 <li className="user-location">
                                                   Dallas, TX
@@ -108,6 +122,9 @@ class BusinessReview extends Component {
                                           <div className="review-footer clearfix" />
                                         </div>
                                       </div>
+
+
+                                      
                                     </div>
                                   </li>
                                 </ul>
