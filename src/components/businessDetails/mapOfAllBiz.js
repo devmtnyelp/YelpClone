@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { withRouter } from 'react-router-dom';
@@ -13,6 +12,12 @@ import seven from './markers/7.png';
 import eight from './markers/8.png';
 import nine from './markers/9.png';
 import ten from './markers/10.png';
+require("dotenv").config();
+
+const { googleMapsKey } = process.env;
+
+
+
 
 class MapContainer extends Component {
   constructor(props) {
@@ -118,6 +123,6 @@ class MapContainer extends Component {
 }
 export default withRouter(
   GoogleApiWrapper({
-    apiKey: "AIzaSyDo7zOMR2WGwrQMCcThATLhXuaCBHp33l4"
+    apiKey: googleMapsKey
   })(MapContainer)
 );
