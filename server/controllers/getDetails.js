@@ -1,7 +1,7 @@
 require("dotenv").config();
 let responseObj = {
- details: {},
- reviews: []
+  details: {},
+  reviews: []
 };
 let valueHolder = [];
 let detailsCameBack = false;
@@ -10,7 +10,6 @@ let reviewsCameBack = false;
 const axios = require("axios");
 const { apiKey } = process.env;
 const getDetails = (req, res, next) => {
-
   console.log("req.query:", req.query);
   const timeFormater = input => {
     input = JSON.stringify(input);
@@ -27,10 +26,9 @@ const getDetails = (req, res, next) => {
     return arr.join(" ");
   };
 
-
- const dataFormater = input => {
-   var d = new Date(0);
-
+  const dataFormater = input => {
+    var d = new Date(0);
+    var queryHolder = req.query;
 
     responseObj.reviews = input.reviews.map((val, i) => {
       if (val.userid) {
@@ -44,7 +42,7 @@ const getDetails = (req, res, next) => {
         (val.time_created = timeFormater(d)),
           (val.url = `localhost:3000/businessdetails/${val.restaurantid}`);
       } else {
-        val.url = `localhost:3000/businessdetails/${req.query.restaurantId}`;
+        val.url = `localhost:3000/businessdetails/${queryHolder.restaurantId}`;
       }
       return val;
     });
@@ -52,7 +50,7 @@ const getDetails = (req, res, next) => {
     return res.json(responseObj);
   };
   axios
-    .get(`https://api.yelp.com/v3/businesses/${req.query.restaurantId}`, {
+    .get(`https://api.yelp.com/v3/businesses/${queryHolder.restaurantId}`, {
       headers: {
         Authorization: `Bearer ${apiKey}`
       }
@@ -87,7 +85,7 @@ const getDetails = (req, res, next) => {
 
   axios
     .get(
-      `https://api.yelp.com/v3/businesses/${req.query.restaurantId}/reviews`,
+      `https://api.yelp.com/v3/businesses/${queryHolder.restaurantId}/reviews`,
       {
         headers: {
           Authorization: `Bearer ${apiKey}`
@@ -97,27 +95,26 @@ const getDetails = (req, res, next) => {
     .then(response => {
       reviewsCameBack = true;
 
+      if (ourReviewsCameBack) {
+        responseObj.reviews = response.data.reviews.concat(valueHolder);
+      } else {
+        valueholder = response.data;
+      }
+      if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
+        dataFormater(responseObj);
+      }
+    })
+    .catch(console.log);
 
-     if (ourReviewsCameBack) {
-       responseObj.reviews = response.data.reviews.concat(valueHolder);
-     } else {
-       valueholder = response.data;
-     }
-     if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
-       dataFormater(responseObj);
-     }
-   })
-   .catch(console.log);
-
- // Promise.all([
- //   businessReviewsFromYelpPromise,
- //   businessReviewsFromDBPromise,
- //   listofBusinessesFromYelp
- // ]).then(function(reviewsFromYelp, reviewsFromDB) {
- //   console.log("Done");
- // });
+  // Promise.all([
+  //   businessReviewsFromYelpPromise,
+  //   businessReviewsFromDBPromise,
+  //   listofBusinessesFromYelp
+  // ]).then(function(reviewsFromYelp, reviewsFromDB) {
+  //   console.log("Done");
+  // });
 };
 
 module.exports = {
- getDetails
+  getDetails
 };
