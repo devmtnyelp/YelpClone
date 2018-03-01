@@ -93,13 +93,13 @@ class mainHeader extends Component {
             >
               Restaurants
             </Link>
-            <Link to="/searchresults/?location=dallas&?search=nightlife">
+            <Link to={`/searchresults/?location=${location}&?search=nightlife`}>
               Nightlife
             </Link>
-            <Link to="/searchresults/?location=dallas&?search=home%20Services">
+            <Link to={`/searchresults/?location=${location}&?search=home%20Services`}>
               Home Services
             </Link>
-            <Link to="/searchresults/?location=dallas&?search=delivery">
+            <Link to={`/searchresults/?location=${location}&?search=delivery`}>
               Delivery
             </Link>
           </div>

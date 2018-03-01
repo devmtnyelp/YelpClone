@@ -1,0 +1,23 @@
+{
+	"info": {
+		"name": "endpoint yelp testing",
+		"_postman_id": "0b39f177-5829-36c9-57f8-e71216aaffff",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get - Business Reviews",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
