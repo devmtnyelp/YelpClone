@@ -28,7 +28,7 @@ massive(process.env.CONNECTION_STRING).then(db => app.set("db", db));
 
 app.use(cors());
 app.use(json());
-app.use("/", express.static(__dirname));
+app.use(express.static(__dirname + "/../build"));
 
 // Database Connection
 
@@ -57,9 +57,9 @@ app.get("/api/getDetails", getDetails);
 app.get(`/api/events/searchFromHeader/`, businessSearch);
 app.get("/api/autoComplete", autoComplete);
 
-const path = require('path');
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/index.html'));
+const path = require("path");
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
 app.listen(port, () => console.log("Server listening on port", port));
