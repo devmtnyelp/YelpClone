@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import yelppin from './markers/yelpmarker.png';
+import React, { Component } from "react";
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import yelppin from "./markers/yelpmarker.png";
 require("dotenv").config();
 
 const { googleMapsKey } = process.env;
@@ -10,7 +10,7 @@ export class MapContainer extends Component {
     return (
       <Map
         google={this.props.google}
-        style={{ width: '288px', height: '135px', position: 'relative' }}
+        style={{ width: "288px", height: "135px", position: "relative" }}
         zoom={14}
         initialCenter={{
           lat: this.props.latitude,
@@ -36,5 +36,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: googleMapsKey
+  apiKey: "AIzaSyDo7zOMR2WGwrQMCcThATLhXuaCBHp33l4"
 })(MapContainer);

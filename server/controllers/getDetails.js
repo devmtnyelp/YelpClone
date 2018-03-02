@@ -10,6 +10,7 @@ let reviewsCameBack = false;
 const axios = require("axios");
 const { apiKey } = process.env;
 const getDetails = (req, res, next) => {
+  var queryHolder = req.query;
   console.log("req.query:", req.query);
   const timeFormater = input => {
     input = JSON.stringify(input);
@@ -39,16 +40,38 @@ const getDetails = (req, res, next) => {
           image_url: val.avatar,
           name: val.name
         };
-        (val.time_created = timeFormater(d)),
-          (val.url = `localhost:3000/businessdetails/${val.restaurantid}`);
-      } else {
-        val.url = `localhost:3000/businessdetails/${queryHolder.restaurantId}`;
+        val.time_created = timeFormater(d);
       }
       return val;
     });
     detailsCameBack = reviewsCameBack = ourReviewsCameBack = false;
     return res.json(responseObj);
   };
+  console.log("queryholder1", queryHolder.restaurantId);
+
+  axios
+    .get(
+      `https://api.yelp.com/v3/businesses/${queryHolder.restaurantId}/reviews`,
+      {
+        headers: {
+          Authorization: `Bearer ${apiKey}`
+        }
+      }
+    )
+    .then(response => {
+      reviewsCameBack = true;
+
+      if (ourReviewsCameBack) {
+        responseObj.reviews = response.data.reviews.concat(valueHolder);
+      } else {
+        valueholder = response.data;
+      }
+      if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
+        dataFormater(responseObj);
+      }
+    });
+  console.log("queryholder", queryHolder.restaurantId);
+
   axios
     .get(`https://api.yelp.com/v3/businesses/${queryHolder.restaurantId}`, {
       headers: {
@@ -82,29 +105,6 @@ const getDetails = (req, res, next) => {
     .catch(error => {
       console.log(error);
     });
-
-  axios
-    .get(
-      `https://api.yelp.com/v3/businesses/${queryHolder.restaurantId}/reviews`,
-      {
-        headers: {
-          Authorization: `Bearer ${apiKey}`
-        }
-      }
-    )
-    .then(response => {
-      reviewsCameBack = true;
-
-      if (ourReviewsCameBack) {
-        responseObj.reviews = response.data.reviews.concat(valueHolder);
-      } else {
-        valueholder = response.data;
-      }
-      if (detailsCameBack && reviewsCameBack && ourReviewsCameBack) {
-        dataFormater(responseObj);
-      }
-    })
-    .catch(console.log);
 
   // Promise.all([
   //   businessReviewsFromYelpPromise,

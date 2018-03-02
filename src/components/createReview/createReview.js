@@ -7,7 +7,7 @@ import { getDetails } from "../../ducks/events/reducer";
 
 class CreateReview extends Component {
   state = {
-    userId: "123",
+    userId: "DrLRcL6u9JMBzQ5aQUEipF2hWRR2",
     restaurantId: this.props.match.params.restaurantId,
     reviewBody: "",
     rating: "",
@@ -148,7 +148,7 @@ class CreateReview extends Component {
                     onClick={() => {
                       if (this.state.reviewBody.length <= 9) {
                         alert(
-                          'Your review must be at least 10 characters long!'
+                          "Your review must be at least 10 characters long!"
                         );
                       } else if (
                         this.state.userId.length &&
@@ -158,12 +158,12 @@ class CreateReview extends Component {
                       ) {
                         this.props.postReview(this.state);
                         window.location.assign(
-                          '/businessDetails/' +
+                          "/businessDetails/" +
                             this.props.match.params.restaurantId
                         );
                       } else {
                         alert(
-                          'You must be logged in, select a rating, and type a review!'
+                          "You must be logged in, select a rating, and type a review!"
                         );
                       }
                     }}
