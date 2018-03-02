@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
-import './businessReview.css';
-import burst from '../footer/images/burst_desktop_xsmall_outline.png';
-import { getReviews } from '../../ducks/events/reducer';
-import Star from './star';
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link, withRouter } from "react-router-dom";
+import "./businessReview.css";
+import burst from "../footer/images/burst_desktop_xsmall_outline.png";
+import { getReviews } from "../../ducks/events/reducer";
+import Star from "./star";
 
 class BusinessReview extends Component {
-  componentWillMount() {
-    this.props.getReviews(this.props.match.params.restaurantId);
+  componentDidMount() {
+    // this.props.getReviews(this.props.match.params.restaurantId);
   }
 
   render() {
+    console.log("this.props.match", this.props);
+
     function dateParser(str) {
-      let formatted = str.split(' ')[0].split('-');
-      return formatted[1] + '/' + formatted[2] + '/' + formatted[0];
+      let formatted = str.split(" ")[0].split("-");
+      return formatted[1] + "/" + formatted[2] + "/" + formatted[0];
     }
     return (
       <div className="super-div">
-      {      console.log('props->', this.props)
-      }
+        {console.log("props->", this.props)}
         <div id="super-container centered" className="content-container1">
           <div className="container">
             <div className="layout-block layout-a ysection position-with-scroll-container layout--biz-details">
@@ -30,7 +30,7 @@ class BusinessReview extends Component {
                     <div className="feed_header">
                       <div className="section-header section-header--no-spacing">
                         <h2>
-                          Recommended Reviews{' '}
+                          Recommended Reviews{" "}
                           <b>
                             for {this.props.details && this.props.details.name}
                           </b>
@@ -56,8 +56,8 @@ class BusinessReview extends Component {
                           this.props.reviews.map((rev, i) => {
                             return (
                               <div key={i} className="review-list">
-                              {console.log(rev)}
-                              
+                                {console.log(rev)}
+
                                 <ul
                                   id="ylist"
                                   className="ylist ylist-bordered reviews"
@@ -82,16 +82,20 @@ class BusinessReview extends Component {
                                                 className="user-passport-info"
                                               >
                                                 <li className="user-name">
-                                                {console.log(rev)}
-                                                {rev.userid && <Link to={`/userProfile/${rev.userid}`} className="profileLink">
-                                                    {rev.user.name}
-                                                    </Link>}
-                                                {!rev.userid && 
-                                                <p>
-                                                {rev.user.name}
-                                                </p>
-                                                }
-
+                                                  {console.log(rev)}
+                                                  {rev.userid && (
+                                                    <Link
+                                                      to={`/userProfile/${
+                                                        rev.userid
+                                                      }`}
+                                                      className="profileLink"
+                                                    >
+                                                      {rev.user.name}
+                                                    </Link>
+                                                  )}
+                                                  {!rev.userid && (
+                                                    <p>{rev.user.name}</p>
+                                                  )}
                                                 </li>
                                                 <li className="user-location">
                                                   Dallas, TX
@@ -122,9 +126,6 @@ class BusinessReview extends Component {
                                           <div className="review-footer clearfix" />
                                         </div>
                                       </div>
-
-
-                                      
                                     </div>
                                   </li>
                                 </ul>
